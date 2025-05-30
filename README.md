@@ -5,7 +5,7 @@ Portfólio pessoal desenvolvido com arquitetura monorepo, incluindo backend em T
 ## 🚀 Tecnologias
 
 - **Backend**: TypeScript, Express.js
-- **Frontend**: React, TypeScript
+- **Frontend**: React, TypeScript, Material UI
 - **Ferramentas**: Concurrently para desenvolvimento simultâneo
 
 ## 📁 Estrutura do Projeto
@@ -13,7 +13,7 @@ Portfólio pessoal desenvolvido com arquitetura monorepo, incluindo backend em T
 ```
 portfolio-monorepo/
 ├── backend/          # API em TypeScript/Express
-├── frontend/         # Aplicação React
+├── frontend/         # Aplicação React com Material UI
 ├── package.json      # Configuração do monorepo
 └── README.md
 ```
