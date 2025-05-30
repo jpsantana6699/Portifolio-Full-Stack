@@ -1,4 +1,4 @@
-# Portfolio Monorepo
+# Portfolio *Full-Stack*
 
 Portfólio pessoal desenvolvido com arquitetura monorepo, incluindo backend em TypeScript/Express e frontend em React.
 
