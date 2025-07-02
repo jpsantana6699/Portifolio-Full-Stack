@@ -23,6 +23,8 @@ import {
   Phone, 
   Send, 
 } from '@mui/icons-material';
+
+import { ParticlesContatoBackground } from '../components/ParticlesContatoBackground';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
 
@@ -65,13 +67,10 @@ const contactInfo = [
   },
 ];
 
+
 export default function ContatoPage() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -90,7 +89,11 @@ export default function ContatoPage() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', py: 8 }}>
+    <Box sx={{ minHeight: '100vh', py: 8, position: 'relative', zIndex: 0 }}>
+      {/* Partículas de fundo */}
+      <div style={{ position: 'fixed', inset: 0, zIndex: -1, width: '100vw', height: '100vh', background: '#000' }}>
+        <ParticlesContatoBackground />
+      </div>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 8 }}>
           <Typography

@@ -57,7 +57,6 @@ const skillsCategories = {
 };
 
 export default function SobrePage() {
-  // Projetos em destaque removidos daqui. Veja page de projetos.
   const { t } = useLanguage();
   const [expandedStage, setExpandedStage] = useState<string | null>(null);
 
