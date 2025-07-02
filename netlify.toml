@@ -1,8 +1,0 @@
-[build]
-  command = "next build && next-on-netlify"
-  publish = ".next"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
