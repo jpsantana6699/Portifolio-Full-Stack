@@ -17,41 +17,48 @@ import {
 import { 
   Email, 
   GitHub, 
+  Instagram,
   LinkedIn, 
   LocationOn, 
   Phone, 
-  Send,
+  Send, 
 } from '@mui/icons-material';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
 
 const contactInfo = [
   {
-    icon: <Email color="primary" />,
+    icon: <Email color="primary" />, 
     titleKey: 'emailLabel',
-    value: 'jpsantana003@email.com',
-    link: 'jpsantana003@email.com',
+    value: 'jpsantana003@gmail.com',
+    link: 'jpsantana003@gmail.com',
   },
   {
-    icon: <Phone color="primary" />,
-    titleKey: 'phoneLabel',
-    value: '+55 (35) 99978-8870',
-    link: 'tel:+5535999788870',
+    icon: <Phone color="primary" />, 
+    titleKey: 'whatsappLabel',
+    value: '+55 (35) 99978-8870 (WhatsApp)',
+    link: 'https://wa.me/5535999788870',
   },
   {
-    icon: <LocationOn color="primary" />,
+    icon: <Instagram color="primary" />,
+    titleKey: 'instagramLabel',
+    value: 'instagram.com/jpsantana9922',
+    link: 'https://www.instagram.com/jpsantana9922/',
+  },
+  {
+    icon: <LocationOn color="primary" />, 
     titleKey: 'locationLabel',
     value: 'Franca, SP - Brasil',
     link: null,
   },
   {
-    icon: <LinkedIn color="primary" />,
+    icon: <LinkedIn color="primary" />, 
     titleKey: 'linkedinLabel',
     value: 'linkedin.com/in/joaopedrosantana',
     link: 'https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/',
   },
   {
-    icon: <GitHub color="primary" />,
+    icon: <GitHub color="primary" />, 
     titleKey: 'githubLabel',
     value: 'github.com/jpsantana6699',
     link: 'https://github.com/jpsantana6699',
@@ -63,7 +70,6 @@ export default function ContatoPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
   });
 
@@ -76,9 +82,11 @@ export default function ContatoPage() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(t('messageSent'));
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    const phone = '5535999788870';
+    const text = `Olá, meu nome é ${formData.name}%0AEmail: ${formData.email}%0AMensagem: ${encodeURIComponent(formData.message)}`;
+    const url = `https://wa.me/${phone}?text=${text}`;
+    window.open(url, '_blank');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -133,17 +141,6 @@ export default function ContatoPage() {
                       name="email"
                       type="email"
                       value={formData.email}
-                      onChange={handleChange}
-                      required
-                      variant="outlined"
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      fullWidth
-                      label={t('subject')}
-                      name="subject"
-                      value={formData.subject}
                       onChange={handleChange}
                       required
                       variant="outlined"

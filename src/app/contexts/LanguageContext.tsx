@@ -101,6 +101,8 @@ const translations = {
     // Contact labels
     emailLabel: 'Email',
     phoneLabel: 'Telefone',
+    whatsappLabel: 'WhatsApp',
+    instagramLabel: 'Instagram',
     locationLabel: 'Localização',
     linkedinLabel: 'LinkedIn',
     githubLabel: 'GitHub',
@@ -215,6 +217,8 @@ const translations = {
     // Contact labels
     emailLabel: 'Email',
     phoneLabel: 'Phone',
+    whatsappLabel: 'WhatsApp',
+    instagramLabel: 'Instagram',
     locationLabel: 'Location',
     linkedinLabel: 'LinkedIn',
     githubLabel: 'GitHub',
