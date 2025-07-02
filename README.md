@@ -1,68 +1,27 @@
-# Portfolio *Full-Stack*
+#  Meu Portfólio 
 
-Portfólio pessoal desenvolvido com arquitetura monorepo, incluindo backend em TypeScript/Express e frontend em React.
+Bem-vindo ao meu portfólio pessoal! Este site foi desenvolvido para apresentar minhas habilidades, projetos e experiências profissionais. Aqui, você encontrará uma visão geral do meu trabalho, além de informações de contato para futuras colaborações.
 
-## 🚀 Tecnologias
+## ⚙ Tecnologias Utilizadas ⚙
 
-- **Backend**: TypeScript, Express.js
-- **Frontend**: React, TypeScript, Material UI
-- **Ferramentas**: Concurrently para desenvolvimento simultâneo
+- **Next.js**: Estruturação do conteúdo do site e funcionalidades dinâmicas.
+- **Material-UI**: Estilização, design responsivo e componentes pré-estilizados.
+- **Git & GitHub**: Controle de versão e hospedagem do código-fonte.
 
-## 📁 Estrutura do Projeto
+##  Seções do Site 
 
-```
-portfolio-monorepo/
-├── backend/          # API em TypeScript/Express
-├── frontend/         # Aplicação React com Material UI
-├── package.json      # Configuração do monorepo
-└── README.md
-```
+- **Home**: Introdução breve e chamada para ação.
+- **Sobre Mim**: Informações pessoais, formação acadêmica e interesses.
+- **Projetos**: Galeria dos projetos mais relevantes, com descrições e links para demonstrações ou repositórios.
+- **Contato**: Formulário de contato e links para minhas redes sociais e perfis profissionais.
 
-## 🛠️ Instalação
+## 📜 Licença 📜
 
-Instale todas as dependências do monorepo:
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
-```bash
-npm run install:all
-```
+## 📞 Contato 📞
 
-## 🏃‍♂️ Desenvolvimento
+- **Email**: jpsantana6699@gmail.com
+- **LinkedIn**: [Meu Perfil no LinkedIn](https://www.linkedin.com/in/joaopedrosantana)
 
-### Executar ambos os projetos simultaneamente
-```bash
-npm run dev
-```
-
-### Executar apenas o backend
-```bash
-npm run dev:backend
-```
-
-### Executar apenas o frontend
-```bash
-npm run dev:frontend
-```
-
-## 🏗️ Build
-
-Fazer build de ambos os projetos:
-
-```bash
-npm run build
-```
-
-## 🚀 Produção
-
-Iniciar o servidor em produção:
-
-```bash
-npm start
-```
-
-## 👨‍💻 Autor
-
-**João Pedro Santana**
-
-## 📄 Licença
-
-Este projeto está sob a licença ISC.
+Feito por João Pedro Santana.

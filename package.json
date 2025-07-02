@@ -1,29 +1,37 @@
 {
-  "name": "portfolio-monorepo",
+  "name": "portifolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd backend && npm run build && cd ../frontend && npm run build",
-    "start": "cd backend && npm start"
-  },
-  "keywords": [
-    "portfolio",
-    "typescript",
-    "react",
-    "express"
-  ],
-  "author": "João Pedro Santana",
-  "license": "ISC",
-  "description": "Portfólio pessoal com backend TypeScript e frontend React",
-  "devDependencies": {
-    "concurrently": "^9.1.0"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@types/uuid": "^10.0.0",
-    "uuid": "^11.1.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.1",
+    "@mui/material": "^6.4.1",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
+    "next": "^15.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-type-animation": "^3.2.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.57.1",
+    "@stylistic/eslint-plugin": "^1.8.1",
+    "@types/node": "22.12.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.6",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^7.18.0"
   }
 }
