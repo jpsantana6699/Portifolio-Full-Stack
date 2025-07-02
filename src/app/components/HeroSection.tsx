@@ -30,7 +30,11 @@ export function HeroSection() {
         >
           <Typography
             variant="h4"
-            sx={{ mb: 3, color: 'text.secondary' }}
+            sx={{ 
+              mb: 3, 
+              color: 'text.secondary',
+              fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
+            }}
           >
             {t('hello')} <Box component="strong" sx={{ color: '#00d4ff' }}>{t('name')}</Box>
           </Typography>
@@ -44,12 +48,19 @@ export function HeroSection() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               fontWeight: 'bold',
+              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
             }}
           >
             {t('role')}
           </Typography>
           
-          <Box sx={{ mb: 4, minHeight: '60px' }}>
+          <Box sx={{ 
+            mb: 4, 
+            minHeight: { xs: '80px', sm: '60px' },
+            fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
+            color: '#b0b0b0',
+            fontWeight: 500,
+          }}>
             <TypeAnimation
               sequence={
                 language === 'pt' 
@@ -77,9 +88,9 @@ export function HeroSection() {
               wrapper="span"
               speed={50}
               style={{
-                fontSize: '2rem',
-                color: '#b0b0b0',
-                fontWeight: 500,
+                fontSize: 'inherit',
+                color: 'inherit',
+                fontWeight: 'inherit',
               }}
               repeat={Infinity}
               key={language} 
@@ -91,9 +102,9 @@ export function HeroSection() {
             sx={{
               mb: 6,
               color: 'text.secondary',
-              maxWidth: '600px',
+              maxWidth: { xs: '90%', sm: '70%', md: '600px' },
               margin: '0 auto 48px auto',
-              fontSize: '1.2rem',
+              fontSize: { xs: '1rem', md: '1.2rem' },
               lineHeight: 1.6,
             }}
           >
@@ -105,6 +116,8 @@ export function HeroSection() {
               display: 'flex',
               gap: 2,
               justifyContent: 'center',
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: 'center',
               flexWrap: 'wrap',
             }}
           >
