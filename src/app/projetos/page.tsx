@@ -40,23 +40,42 @@ const projects = [
   },
   {
     id: 2,
-    title: 'E-commerce React',
-    // eslint-disable-next-line @stylistic/max-len
-    description: 'Plataforma de e-commerce completa com carrinho de compras, sistema de pagamento e painel administrativo.',
-    image: '',
-    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-    githubUrl: 'https://github.com/jpsantana6699',
-    liveUrl: 'https://ecommerce-demo.vercel.app',
-    featured: true,
-  },
-  {
-    id: 3,
     title: 'JotaPeTech',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma moderna desenvolvida em Next.js focada em Server-Side Rendering (SSR) e desenvolvimento de aplicações web inovadoras. Oferece listagem de posts com paginação, renderização otimizada do lado do servidor e integração com APIs modernas.',
     image: '/images/jotapetech.jpg',
     technologies: ['React', 'Next.js', 'JavaScript', 'CSS', 'Material Icons', 'Winston', 'Remark'],
     githubUrl: 'https://github.com/jpsantana6699/JotaPeTech',
+    featured: false,
+  },
+  {
+    id: 3,
+    title: 'Sample - API Rest Typescript com MongoDB e Swagger openAPI',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'API RESTful completa desenvolvida em TypeScript com MongoDB e documentação Swagger OpenAPI. Implementa autenticação JWT, criptografia de senhas com Bcrypt e padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
+    image: '/images/openapi.png',
+    technologies: ['TypeScript', 'Node.js', 'MongoDB', 'Express', 'SwaggerOpenAPI', 'JWT', 'Bcrypt'],
+    githubUrl: 'https://github.com/jpsantana6699/Swagger-Api-Rest-com-OpenApi/blob/main/docker-compose.yml',
+    featured: false,
+  },
+  {
+    id: 4,
+    title: 'Livraria Digital',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Plataforma completa de livraria online desenvolvida com stack full-stack. Combina interface React moderna com backend Node.js robusto, autenticação JWT, banco de dados MongoDB e templates dinâmicos EJS para uma experiência de compra completa.',
+    image: '/images/livro.png',
+    technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'JWT', 'EJS', 'Mongoose'],
+    githubUrl: 'https://github.com/jpsantana6699/Projeto-Alura-Back-end',
+    featured: false,
+  },
+  {
+    id: 5,
+    title: 'Sample - API Node.js com Sequelize',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'API RESTful robusta desenvolvida em Node.js com Sequelize ORM para gerenciamento de banco de dados. Implementa padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
+    image: '/images/node.png',
+    technologies: ['JavaScript', 'Node.js', 'Sequelize', 'Express', 'Sqlite', 'Nodemon', 'ESLint'],
+    githubUrl: 'https://github.com/jpsantana6699/Api-Node.js-com-Sequelize',
     featured: false,
   },
 ];
