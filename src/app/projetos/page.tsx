@@ -51,12 +51,12 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Blog Pessoal',
-    description: 'Blog responsivo com sistema de comentários e categorização de posts.',
-    image: '',
-    technologies: ['Next.js', 'Markdown', 'Styled Components'],
-    githubUrl: 'https://github.com/jpsantana6699',
-    liveUrl: 'https://blog-demo.vercel.app',
+    title: 'JotaPeTech',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Plataforma moderna desenvolvida em Next.js focada em Server-Side Rendering (SSR) e desenvolvimento de aplicações web inovadoras. Oferece listagem de posts com paginação, renderização otimizada do lado do servidor e integração com APIs modernas.',
+    image: '/images/jotapetech.jpg',
+    technologies: ['React', 'Next.js', 'JavaScript', 'CSS', 'Material Icons', 'Winston', 'Remark'],
+    githubUrl: 'https://github.com/jpsantana6699/JotaPeTech',
     featured: false,
   },
 ];
