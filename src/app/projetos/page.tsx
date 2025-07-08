@@ -232,7 +232,7 @@ export default function ProjetosPage() {
           <Button
             variant="contained"
             size="large"
-            href="https://github.com/joaopedro"
+            href="https://github.com/jpsantana6699"
             target="_blank"
             rel="noopener noreferrer"
             startIcon={<GitHub />}
