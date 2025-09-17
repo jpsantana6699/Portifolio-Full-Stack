@@ -18,7 +18,7 @@
     "@tsparticles/shape-image": "^3.8.1",
     "@tsparticles/slim": "^3.8.1",
     "next": "^15.1.6",
-    "next-on-netlify": "^3.0.1",
+    "next-on-netlify": "^2.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-type-animation": "^3.2.0",

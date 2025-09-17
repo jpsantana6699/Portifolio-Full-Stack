@@ -1,16 +1,15 @@
-# Dependências
+# Dependencies
 node_modules/
-.pnp/
-.pnp.js
+*/node_modules/
+**/node_modules/
 
-# Build e output
+# Build outputs
+.next/
+out/
 dist/
 build/
-out/
-.next/
-*.tsbuildinfo
 
-# Arquivos de ambiente
+# Environment variables
 .env
 .env.local
 .env.development.local
@@ -18,44 +17,38 @@ out/
 .env.production.local
 
 # Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
-.pnpm-debug.log*
 
-# Sistema operacional
-.DS_Store
-Thumbs.db
-Desktop.ini
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Ferramentas de desenvolvimento
-.idea/
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# IDEs
 .vscode/
+.idea/
 *.swp
 *.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel
 .vercel
-.netlify
-.now
-.yarn/
 
-# Uploads (exceto placeholders)
-backend/uploads/*
-!backend/uploads/profile.jpg
-!backend/uploads/resume.pdf
-!backend/uploads/projects/
-backend/uploads/projects/*
-!backend/uploads/projects/ecommerce.jpg
-!backend/uploads/projects/task-manager.jpg
-!backend/uploads/projects/blog-cms.jpg
-!backend/uploads/projects/weather.jpg
-!backend/uploads/projects/fitness.jpg
+# TypeScript
+*.tsbuildinfo
 
-# Caches
-.cache/
-.eslintcache
-.stylelintcache
-.parcel-cache/
-.turbo/
+# Temporary folders
+tmp/
+temp/
