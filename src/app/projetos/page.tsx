@@ -25,7 +25,7 @@ const projects = [
     technologies: ['TypeScript', 'Node.js', 'Express', 'Next.js', 'React', 'MySQL', 'Docker', 'MaterialUI', 'Axios', 'SwaggerOpenAPI', 'Jest'],
     githubUrl: '',
     githubLabel: 'Privado',
-    liveUrl: 'https://hub.levnegocios.com.br/login',
+    liveUrl: 'https://lev.hub.elyzion.com.br/login',
     featured: true,
   },
   {
@@ -42,6 +42,18 @@ const projects = [
   },
   {
     id: 2,
+    title: 'Voe Soluções Financeiras | Landing Page',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Landing page institucional responsiva desenvolvida para empresa do setor financeiro. Apresenta portfólio completo de produtos financeiros com design moderno e interface intuitiva. Implementação com componentes reutilizáveis e layout totalmente responsivo para diferentes dispositivos.',
+    image: '/images/Voe.png',
+    technologies: ['TypeScript', 'Next.js', 'React', 'Material-UI', 'CSS-in-JS'],
+    githubUrl: '',
+    githubLabel: 'Privado',
+    liveUrl: 'https://voesolucoesfinanceiras.com.br',
+    featured: true,
+  },
+  {
+    id: 3,
     title: 'SoundPad',
     // eslint-disable-next-line @stylistic/max-len
     description: '🔊 DJ JPZINNN - Meme Sound Pad. Um Sound Pad de memes feito com HTML, CSS e JavaScript, com botões que tocam áudios engraçados da internet! Possui 4 estilos de temas, todos com opção escuro e claro.',
@@ -52,7 +64,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: 'JotaLives',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma completa para exibição de clipes de live desenvolvida com React e Next.js. Oferece interface elegante com Material-UI, design futurístico com gradientes CSS e animações. Integra backend com API Routes e armazenamento JSON para gerenciamento dos clipes e conteúdo das lives.',
@@ -63,7 +75,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Aim_Training',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Treino de Habilidades - Mira, Movimentação e Controle. Um aplicativo web interativo para treino de habilidades em jogos, focado em três aspectos fundamentais: mira, movimentação e controle. Desenvolvido para gamers.',
@@ -74,7 +86,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 5,
+    id: 6,
     title: 'JotaPeTech',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma moderna desenvolvida em Next.js focada em Server-Side Rendering (SSR) e desenvolvimento de aplicações web inovadoras. Oferece listagem de posts com paginação, renderização otimizada do lado do servidor e integração com APIs modernas.',
@@ -84,7 +96,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 6,
+    id: 7,
     title: 'Sample - API Rest Typescript com MongoDB e Swagger openAPI',
     // eslint-disable-next-line @stylistic/max-len
     description: 'API RESTful completa desenvolvida em TypeScript com MongoDB e documentação Swagger OpenAPI. Implementa autenticação JWT, criptografia de senhas com Bcrypt e padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
@@ -94,7 +106,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 7,
+    id: 8,
     title: 'Livraria Digital',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma completa de livraria online desenvolvida com stack full-stack. Combina interface React moderna com backend Node.js robusto, autenticação JWT, banco de dados MongoDB e templates dinâmicos EJS para uma experiência de compra completa.',
@@ -104,7 +116,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 8,
+    id: 9,
     title: 'Sample - API Node.js com Sequelize',
     // eslint-disable-next-line @stylistic/max-len
     description: 'API RESTful robusta desenvolvida em Node.js com Sequelize ORM para gerenciamento de banco de dados. Implementa padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
