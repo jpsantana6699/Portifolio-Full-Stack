@@ -25,7 +25,7 @@ const projects = [
     technologies: ['TypeScript', 'Node.js', 'Express', 'Next.js', 'React', 'MySQL', 'Docker', 'MaterialUI', 'Axios', 'SwaggerOpenAPI', 'Jest'],
     githubUrl: '',
     githubLabel: 'Privado',
-    liveUrl: 'https://lev.hub.elyzion.com.br/login',
+    liveUrl: 'https://lev.hub.elegen.com.br/login',
     featured: true,
   },
   {
