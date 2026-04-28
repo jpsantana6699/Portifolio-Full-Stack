@@ -17,71 +17,139 @@ export function HeroSection() {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%)',
+        overflow: 'hidden',
       }}
     >
-      <Container maxWidth="lg">
+      {/* Animated background circles */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '10%',
+          left: '10%',
+          width: '400px',
+          height: '400px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          animation: 'float 8s ease-in-out infinite',
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '10%',
+          right: '10%',
+          width: '500px',
+          height: '500px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          animation: 'float 10s ease-in-out infinite',
+          animationDelay: '2s',
+          zIndex: 0,
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box
+          className="animate-fade-in-up"
           sx={{
             textAlign: 'center',
-            zIndex: 1,
             position: 'relative',
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{ 
-              mb: 3, 
-              color: 'text.secondary',
-              fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
+          {/* Badge moderna */}
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 3,
+              px: 3,
+              py: 1,
+              background: 'rgba(0, 212, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(0, 212, 255, 0.2)',
+              borderRadius: '50px',
+              fontSize: '0.9rem',
+              fontWeight: 500,
+              color: '#00d4ff',
             }}
           >
-            {t('hello')} <Box component="strong" sx={{ color: '#00d4ff' }}>{t('name')}</Box>
-          </Typography>
-          
+            <Box
+              sx={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                background: '#00d4ff',
+                animation: 'glow 2s ease-in-out infinite',
+              }}
+            />
+            {t('hello')}
+          </Box>
+
           <Typography
             variant="h1"
             sx={{
               mb: 2,
-              background: 'linear-gradient(45deg, #00d4ff 30%, #ff6b6b 90%)',
+              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontWeight: 'bold',
-              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
+              fontWeight: 800,
+              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+            }}
+          >
+            {t('name')}
+          </Typography>
+
+          <Typography
+            variant="h2"
+            sx={{
+              mb: 3,
+              color: 'rgba(255, 255, 255, 0.9)',
+              fontWeight: 600,
+              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             }}
           >
             {t('role')}
           </Typography>
           
           <Box sx={{ 
-            mb: 4, 
+            mb: 5, 
             minHeight: { xs: '80px', sm: '60px' },
-            fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' },
-            color: '#b0b0b0',
+            fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' },
+            color: 'rgba(255, 255, 255, 0.6)',
             fontWeight: 500,
           }}>
             <TypeAnimation
               sequence={
                 language === 'pt' 
                   ? [
-                    'Desenvolvedor Full Stack',
+                    '💻 Desenvolvedor Full Stack',
                     2000,
-                    'Especialista em Back-End',
+                    '🚀 Back-End + Front-End',
                     2000,
-                    'Apaixonado por Tecnologia',
+                    '📊 Analista de Dados & BI',
                     2000,
-                    'Criador de APIs Robustas',
+                    '⚡ APIs Robustas e Escaláveis',
+                    2000,
+                    '📈 Dashboards Estratégicos',
                     2000,
                   ]
                   : [
-                    'Full Stack Developer',
+                    '💻 Full Stack Developer',
                     2000,
-                    'Back-End Specialist',
+                    '🚀 Back-End + Front-End',
                     2000,
-                    'Technology Enthusiast',
+                    '📊 Data Analyst & BI',
                     2000,
-                    'Robust API Creator',
+                    '⚡ Robust and Scalable APIs',
+                    2000,
+                    '📈 Strategic Dashboards',
                     2000,
                   ]
               }
@@ -91,25 +159,34 @@ export function HeroSection() {
                 fontSize: 'inherit',
                 color: 'inherit',
                 fontWeight: 'inherit',
+                display: 'inline-block',
               }}
               repeat={Infinity}
               key={language} 
             />
           </Box>
 
-          <Typography
-            variant="body1"
+          {/* Glass card para descrição */}
+          <Box
+            className="glass-card"
             sx={{
-              mb: 6,
-              color: 'text.secondary',
-              maxWidth: { xs: '90%', sm: '70%', md: '600px' },
+              maxWidth: { xs: '90%', sm: '80%', md: '700px' },
               margin: '0 auto 48px auto',
-              fontSize: { xs: '1rem', md: '1.2rem' },
-              lineHeight: 1.6,
+              p: { xs: 3, md: 4 },
+              borderRadius: '20px',
             }}
           >
-            {t('heroDescription')}
-          </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                fontSize: { xs: '1rem', md: '1.125rem' },
+                lineHeight: 1.8,
+              }}
+            >
+              {t('heroDescription')}
+            </Typography>
+          </Box>
 
           <Box
             sx={{
@@ -127,11 +204,22 @@ export function HeroSection() {
               startIcon={<Download />}
               href="/Currículo%20-%20Joao%20Pedro%20Santana.pdf"
               download
+              className="modern-button"
               sx={{
-                background: 'linear-gradient(45deg, #00d4ff 30%, #0096cc 90%)',
+                background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
                 px: 4,
                 py: 1.5,
                 fontSize: '1.1rem',
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontWeight: 600,
+                boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+                },
               }}
             >
               {t('downloadCV')}
@@ -144,15 +232,24 @@ export function HeroSection() {
               href="https://github.com/jpsantana6699"
               target="_blank"
               rel="noopener noreferrer"
+              className="modern-button glass-card"
               sx={{
-                borderColor: 'primary.main',
-                color: 'primary.main',
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 px: 4,
                 py: 1.5,
                 fontSize: '1.1rem',
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontWeight: 600,
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease',
                 '&:hover': {
-                  borderColor: 'primary.light',
+                  borderColor: '#00d4ff',
+                  color: '#00d4ff',
                   backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 24px rgba(0, 212, 255, 0.2)',
                 },
               }}
             >
@@ -166,15 +263,24 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/"
               target="_blank"
               rel="noopener noreferrer"
+              className="modern-button glass-card"
               sx={{
-                borderColor: 'secondary.main',
-                color: 'secondary.main',
+                borderColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 px: 4,
                 py: 1.5,
                 fontSize: '1.1rem',
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontWeight: 600,
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease',
                 '&:hover': {
-                  borderColor: 'secondary.light',
+                  borderColor: '#ff6b6b',
+                  color: '#ff6b6b',
                   backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 24px rgba(255, 107, 107, 0.2)',
                 },
               }}
             >

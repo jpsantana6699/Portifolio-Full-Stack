@@ -21,9 +21,9 @@ const translations = {
     // Hero Section
     hello: 'Olá, eu sou',
     name: 'João Pedro Santana',
-    role: 'Desenvolvedor Full Stack',
+    role: 'Desenvolvedor Pleno Full Stack',
     // eslint-disable-next-line @stylistic/max-len
-    heroDescription: 'Especializado em Back-End, criando soluções digitais robustas e escaláveis com foco em APIs e arquiteturas modernas.',
+    heroDescription: 'Desenvolvedor Full Stack Pleno com expertise em Back-End, Front-End e Análise de Dados. Criando soluções digitais completas, robustas e escaláveis com foco em APIs, dashboards e arquiteturas modernas.',
     viewProjects: 'Ver Projetos',
     downloadCV: 'Download CV',
     
@@ -32,20 +32,21 @@ const translations = {
     aboutSubtitle: 'Conheça um pouco mais sobre minha trajetória e paixão por tecnologia',
     myStory: 'Minha História',
     // eslint-disable-next-line @stylistic/max-len
-    profileDescription: 'Desenvolvedor Full Stack especializado em Back-End, com foco em APIs robustas e arquiteturas escaláveis',
+    profileDescription: 'Desenvolvedor Pleno Full Stack com expertise em Back-End, Front-End e Análise de Dados | BI | APIs Robustas',
     
     // About Story
     // eslint-disable-next-line @stylistic/max-len
-    storyPart1: 'Sou um desenvolvedor full stack com especialização em back-end, apaixonado por criar soluções digitais robustas e escaláveis. Minha jornada na programação começou com curiosidade e evoluiu para uma carreira focada no desenvolvimento de APIs e arquiteturas de sistemas.',
+    storyPart1: 'Sou um Desenvolvedor Pleno Full Stack com experiência completa no ciclo de desenvolvimento de software, desde a concepção até a entrega. Minha jornada começou na área de dados como Analista de BI, evoluindo para o desenvolvimento back-end e posteriormente Full Stack, combinando análise de dados com desenvolvimento de aplicações robustas e escaláveis.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart2: 'Tenho forte experiência em Node.js, Express e TypeScript para o back-end, com domínio em bancos de dados como SQL Server, MySQL e MongoDB. Trabalho diariamente com ORMs como Sequelize, TypeORM e Prisma, além de ferramentas como Docker, Git e Power BI para análise de dados.',
+    storyPart2: 'No Back-End, domino Node.js, Express e TypeScript, trabalhando com bancos de dados SQL Server, MySQL e MongoDB. Utilizo ORMs como Sequelize, TypeORM e Prisma para modelagem de dados. No Front-End, desenvolvo interfaces modernas com React, Next.js e Material-UI. Na área de dados, crio dashboards estratégicos com Power BI e SQL para análises de negócio.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart3: 'No front-end, tenho conhecimentos sólidos em React, Next.js e Material-UI, me permitindo desenvolver aplicações completas. Sempre busco aprender novas tecnologias e aplicar as melhores práticas de desenvolvimento para entregar soluções de alta qualidade.',
+    storyPart3: 'Minha experiência multidisciplinar me permite atuar em todas as camadas da aplicação: desde a modelagem do banco de dados, desenvolvimento de APIs RESTful robustas, criação de interfaces intuitivas, até a construção de dashboards para análise de dados e tomada de decisão. Sempre busco aplicar as melhores práticas e entregar soluções de alta qualidade.',
     
     // Skills
     techStack: 'Stack Tecnológica',
     backEnd: 'Back-End',
     frontEnd: 'Front-End',
+    dataBI: 'Dados & BI',
     toolsOrms: 'Ferramentas & ORMs',
     
     // Experience
@@ -68,20 +69,20 @@ const translations = {
     backendTitle: 'Desenvolvedor Back-End',
     backendPeriod: 'Ago/2023 - Jan/2024',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint1: 'Desenvolvimento de APIs RESTful com Node.js, TypeScript e Express.',
+    backendPoint1: 'Desenvolvimento de APIs RESTful robustas com Node.js, TypeScript e Express, implementando autenticação JWT, validações e tratamento de erros.',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint2: 'Implementação de integrações internas e automações de processos.',
+    backendPoint2: 'Criação de integrações internas entre sistemas, automação de processos e microserviços escaláveis.',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint3: 'Trabalho com bancos de dados relacionais (SQL Server, MySQL) e NoSQL (MongoDB).',
+    backendPoint3: 'Modelagem e otimização de bancos relacionais (SQL Server, MySQL) e NoSQL (MongoDB), utilizando ORMs como Sequelize e Prisma.',
     
-    fullstackTitle: 'Desenvolvedor Full Stack',
+    fullstackTitle: 'Desenvolvedor Pleno Full Stack',
     fullstackPeriod: 'Fev/2024 - Atual',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint1: 'Implementação de interfaces com React.js, Next.js, Material UI e Figma.',
+    fullstackPoint1: 'Desenvolvimento completo de aplicações web: Back-End com Node.js/TypeScript/Express, Front-End com React/Next.js/Material-UI, e dashboards analíticos com Power BI.',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint2: 'Atuação em toda a cadeia de desenvolvimento da aplicação, do banco de dados ao front-end.',
+    fullstackPoint2: 'Atuação end-to-end em toda a cadeia: arquitetura de banco de dados, APIs RESTful, interfaces responsivas, análise de dados e deploy com Docker.',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint3: 'Escrita de testes com Jest, documentação com Swagger, versionamento com Git e uso de containers com Docker.',
+    fullstackPoint3: 'Implementação de boas práticas: testes automatizados com Jest, documentação Swagger/OpenAPI, versionamento Git, CI/CD, e monitoramento de performance.',
     
     previousRoles: 'Experiências Anteriores',
     otherCompanies: 'Diversos',
@@ -137,9 +138,9 @@ const translations = {
     // Hero Section
     hello: 'Hello, I am',
     name: 'João Pedro Santana',
-    role: 'Full Stack Developer',
+    role: 'Senior Full Stack Developer',
     // eslint-disable-next-line @stylistic/max-len
-    heroDescription: 'Specialized in Back-End, creating robust and scalable digital solutions with focus on APIs and modern architectures.',
+    heroDescription: 'Senior Full Stack Developer with expertise in Back-End, Front-End and Data Analysis. Creating complete, robust and scalable digital solutions focused on APIs, dashboards and modern architectures.',
     viewProjects: 'View Projects',
     downloadCV: 'Download CV',
     
@@ -148,20 +149,21 @@ const translations = {
     aboutSubtitle: 'Learn more about my journey and passion for technology',
     myStory: 'My Story',
     // eslint-disable-next-line @stylistic/max-len
-    profileDescription: 'Full Stack Developer specialized in Back-End, focused on robust APIs and scalable architectures',
+    profileDescription: 'Senior Full Stack Developer with expertise in Back-End, Front-End and Data Analysis | BI | Robust APIs',
     
     // About Story
     // eslint-disable-next-line @stylistic/max-len
-    storyPart1: 'I am a full stack developer specialized in back-end, passionate about creating robust and scalable digital solutions. My programming journey started with curiosity and evolved into a career focused on API development and system architectures.',
+    storyPart1: 'I am a Senior Full Stack Developer with complete experience in the software development lifecycle, from conception to delivery. My journey began in the data area as a BI Analyst, evolving to back-end development and later Full Stack, combining data analysis with robust and scalable application development.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart2: 'I have strong experience in Node.js, Express and TypeScript for back-end, with expertise in databases like SQL Server, MySQL and MongoDB. I work daily with ORMs like Sequelize, TypeORM and Prisma, plus tools like Docker, Git and Power BI for data analysis.',
+    storyPart2: 'In Back-End, I master Node.js, Express and TypeScript, working with SQL Server, MySQL and MongoDB databases. I use ORMs like Sequelize, TypeORM and Prisma for data modeling. In Front-End, I develop modern interfaces with React, Next.js and Material-UI. In data, I create strategic dashboards with Power BI and SQL for business analysis.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart3: 'On the front-end, I have solid knowledge in React, Next.js and Material-UI, allowing me to develop complete applications. I always seek to learn new technologies and apply development best practices to deliver high-quality solutions.',
+    storyPart3: 'My multidisciplinary experience allows me to work across all application layers: from database modeling, robust RESTful API development, intuitive interface creation, to building dashboards for data analysis and decision-making. I always seek to apply best practices and deliver high-quality solutions.',
     
     // Skills
     techStack: 'Tech Stack',
     backEnd: 'Back-End',
     frontEnd: 'Front-End',
+    dataBI: 'Data & BI',
     toolsOrms: 'Tools & ORMs',
     
     // Experience
@@ -184,20 +186,20 @@ const translations = {
     backendTitle: 'Back-End Developer',
     backendPeriod: 'Aug/2023 - Jan/2024',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint1: 'Development of RESTful APIs with Node.js, TypeScript and Express.',
+    backendPoint1: 'Development of robust RESTful APIs with Node.js, TypeScript and Express, implementing JWT authentication, validations and error handling.',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint2: 'Implementation of internal integrations and process automation.',
+    backendPoint2: 'Creation of internal system integrations, process automation and scalable microservices.',
     // eslint-disable-next-line @stylistic/max-len
-    backendPoint3: 'Work with relational databases (SQL Server, MySQL) and NoSQL (MongoDB).',
+    backendPoint3: 'Modeling and optimization of relational (SQL Server, MySQL) and NoSQL (MongoDB) databases, using ORMs like Sequelize and Prisma.',
     
-    fullstackTitle: 'Full Stack Developer',
+    fullstackTitle: 'Senior Full Stack Developer',
     fullstackPeriod: 'Feb/2024 - Present',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint1: 'Implementation of interfaces with React.js, Next.js, Material UI and Figma.',
+    fullstackPoint1: 'Complete web application development: Back-End with Node.js/TypeScript/Express, Front-End with React/Next.js/Material-UI, and analytical dashboards with Power BI.',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint2: 'Working across the entire application development chain, from database to front-end.',
+    fullstackPoint2: 'End-to-end work across the entire chain: database architecture, RESTful APIs, responsive interfaces, data analysis and deployment with Docker.',
     // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint3: 'Writing tests with Jest, documentation with Swagger, version control with Git and container usage with Docker.',
+    fullstackPoint3: 'Implementation of best practices: automated testing with Jest, Swagger/OpenAPI documentation, Git version control, CI/CD, and performance monitoring.',
     
     previousRoles: 'Previous Experience',
     otherCompanies: 'Various',

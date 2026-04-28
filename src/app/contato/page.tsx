@@ -7,13 +7,10 @@ import {
   Container, 
   Divider,
   Grid, 
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   TextField, 
   Typography, 
 } from '@mui/material';
+// eslint-disable-next-line sort-imports
 import { 
   Email, 
   GitHub, 
@@ -89,43 +86,110 @@ export default function ContatoPage() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', py: 8, position: 'relative', zIndex: 0 }}>
+    <Box sx={{ minHeight: '100vh', py: { xs: 2, md: 3 }, position: 'relative', zIndex: 0, display: 'flex', alignItems: 'center' }}>
       {/* Partículas de fundo */}
       <div style={{ position: 'fixed', inset: 0, zIndex: -1, width: '100vw', height: '100vh', background: '#000' }}>
         <ParticlesContatoBackground />
       </div>
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
+      
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Box 
+          className="animate-fade-in-up"
+          sx={{ 
+            textAlign: 'center', 
+            mb: { xs: 1.5, md: 2 },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 1,
+              px: 2.5,
+              py: 0.75,
+              background: 'rgba(0, 212, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(0, 212, 255, 0.2)',
+              borderRadius: '50px',
+              fontSize: '0.85rem',
+              fontWeight: 500,
+              color: '#00d4ff',
+            }}
+          >
+            <Email sx={{ fontSize: '1rem' }} />
+            Contato
+          </Box>
+          
           <Typography
             variant="h2"
             sx={{
-              mb: 4,
-              background: 'linear-gradient(45deg, #00d4ff 30%, #ff6b6b 90%)',
+              mb: 1,
+              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontWeight: 'bold',
+              fontWeight: 800,
+              fontSize: { xs: '2rem', md: '2.5rem' },
+              letterSpacing: '-0.02em',
             }}
           >
             {t('getInTouch')}
           </Typography>
           <Typography
             variant="h6"
-            sx={{ color: 'text.secondary', maxWidth: '800px', margin: '0 auto' }}
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.7)', 
+              maxWidth: '700px', 
+              margin: '0 auto',
+              fontSize: { xs: '0.9rem', md: '1rem' },
+              lineHeight: 1.5,
+            }}
           >
             {t('contactSubtitle')}
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={2.5}>
           {/* Contact Form */}
-          <Grid item xs={12} md={8}>
-            <Card sx={{ p: 4 }}>
-              <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
+          <Grid item xs={12} md={7}>
+            <Card 
+              className="glass-card animate-fade-in-left"
+              sx={{ 
+                p: { xs: 2.5, md: 3 },
+                borderRadius: '16px',
+                height: '100%',
+              }}
+            >
+              <Typography 
+                variant="h6" 
+                gutterBottom 
+                sx={{ 
+                  mb: 2,
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  fontSize: '1.15rem',
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 32,
+                    height: 32,
+                    borderRadius: '8px',
+                    background: 'rgba(0, 212, 255, 0.15)',
+                  }}
+                >
+                  <Send sx={{ color: '#00d4ff', fontSize: '1.1rem' }} />
+                </Box>
                 {t('sendMessage')}
               </Typography>
               <Box component="form" onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
+                <Grid container spacing={2}>
                   <Grid item xs={12} sm={6}>
                     <TextField
                       fullWidth
@@ -135,6 +199,15 @@ export default function ContatoPage() {
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          '&:hover': {
+                            background: 'rgba(255, 255, 255, 0.08)',
+                          },
+                        },
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -147,6 +220,15 @@ export default function ContatoPage() {
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          '&:hover': {
+                            background: 'rgba(255, 255, 255, 0.08)',
+                          },
+                        },
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -155,27 +237,89 @@ export default function ContatoPage() {
                       label={t('message')}
                       name="message"
                       multiline
-                      rows={6}
+                      rows={8}
                       value={formData.message}
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: '12px',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          '&:hover': {
+                            background: 'rgba(255, 255, 255, 0.08)',
+                          },
+                        },
+                      }}
                     />
                   </Grid>
+                  
                   <Grid item xs={12}>
                     <Button
                       type="submit"
                       variant="contained"
                       size="large"
                       startIcon={<Send />}
+                      fullWidth
+                      className="modern-button"
                       sx={{
-                        background: 'linear-gradient(45deg, #00d4ff 30%, #0096cc 90%)',
-                        px: 4,
+                        background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                        px: 3,
                         py: 1.5,
+                        fontSize: '1rem',
+                        borderRadius: '12px',
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+                        },
                       }}
                     >
                       {t('sendButton')}
                     </Button>
+                  </Grid>
+                  
+                  {/* Impactful Message Card */}
+                  <Grid item xs={12}>
+                    <Box 
+                      className="glass-card"
+                      sx={{ 
+                        mt: 2.5, 
+                        p: { xs: 2.5, md: 3 },
+                        textAlign: 'center',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(0, 212, 255, 0.2)',
+                        background: 'rgba(0, 212, 255, 0.05)',
+                      }}
+                    >
+                      <Typography 
+                        variant="h5" 
+                        sx={{ 
+                          color: '#00d4ff',
+                          fontWeight: 700,
+                          fontSize: { xs: '1.3rem', md: '1.6rem' },
+                          textShadow: '0 0 30px rgba(0, 212, 255, 0.6)',
+                          mb: 1.5,
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        ✨ Vamos transformar sua ideia em realidade!
+                      </Typography>
+                      <Typography 
+                        variant="body1" 
+                        sx={{ 
+                          color: 'rgba(255, 255, 255, 0.8)',
+                          fontSize: { xs: '0.95rem', md: '1.05rem' },
+                          fontWeight: 500,
+                        }}
+                      >
+                        Respondo normalmente em até 24-48 horas ⚡
+                      </Typography>
+                    </Box>
                   </Grid>
                 </Grid>
               </Box>
@@ -183,57 +327,114 @@ export default function ContatoPage() {
           </Grid>
 
           {/* Contact Info */}
-          <Grid item xs={12} md={4}>
-            <Card sx={{ p: 3, height: 'fit-content' }}>
-              <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
+          <Grid item xs={12} md={5}>
+            <Card 
+              className="glass-card animate-fade-in-right"
+              sx={{ 
+                p: { xs: 2.5, md: 3 }, 
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                borderRadius: '16px',
+              }}
+            >
+              <Typography 
+                variant="h6" 
+                gutterBottom 
+                sx={{ 
+                  mb: 2,
+                  fontWeight: 700,
+                  fontSize: '1.15rem',
+                }}
+              >
                 {t('contactInfo')}
               </Typography>
-              <List>
+              
+              <Grid container spacing={1.5} sx={{ mb: 2 }}>
                 {contactInfo.map((info, index) => (
-                  <Box key={index}>
-                    <ListItem
+                  <Grid item xs={12} key={index}>
+                    <Box
+                      onClick={() => info.link && window.open(info.link, '_blank')}
                       sx={{
-                        px: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1.5,
+                        p: 1.25,
+                        borderRadius: '10px',
+                        transition: 'all 0.3s ease',
                         ...(info.link && {
                           cursor: 'pointer',
                           '&:hover': {
-                            backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                            borderRadius: 1,
+                            backgroundColor: 'rgba(0, 212, 255, 0.08)',
+                            transform: 'translateX(4px)',
                           },
                         }),
                       }}
-                      onClick={() => info.link && window.open(info.link, '_blank')}
                     >
-                      <ListItemIcon sx={{ minWidth: 40 }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          minWidth: 36,
+                          height: 36,
+                          borderRadius: '8px',
+                          background: 'rgba(0, 212, 255, 0.1)',
+                        }}
+                      >
                         {info.icon}
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={t(info.titleKey)}
-                        secondary={info.value}
-                        primaryTypographyProps={{
-                          fontWeight: 600,
-                        }}
-                        secondaryTypographyProps={{
-                          color: 'text.secondary',
-                        }}
-                      />
-                    </ListItem>
-                    {index < contactInfo.length - 1 && <Divider sx={{ my: 1 }} />}
-                  </Box>
+                      </Box>
+                      <Box sx={{ overflow: 'hidden' }}>
+                        <Typography 
+                          variant="body2" 
+                          sx={{ 
+                            fontWeight: 600,
+                            fontSize: '0.85rem',
+                            mb: 0.25,
+                          }}
+                        >
+                          {t(info.titleKey)}
+                        </Typography>
+                        <Typography 
+                          variant="caption" 
+                          sx={{ 
+                            color: 'text.secondary',
+                            fontSize: '0.75rem',
+                            display: 'block',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {info.value}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Grid>
                 ))}
-              </List>
-            </Card>
+              </Grid>
 
-            <Card sx={{ p: 3, mt: 3 }}>
-              <Typography variant="h6" gutterBottom>
-                {t('availability')}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph>
-                {t('availabilityText')}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {t('responseTime')} <strong>{t('responseTimeValue')}</strong>
-              </Typography>
+              <Divider sx={{ my: 1.5 }} />
+
+              <Box>
+                <Typography 
+                  variant="subtitle1" 
+                  gutterBottom
+                  sx={{ 
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    mb: 0.75,
+                  }}
+                >
+                  {t('availability')}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 0.5 }}>
+                  {t('availabilityText')}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
+                  {t('responseTime')} <strong>{t('responseTimeValue')}</strong>
+                </Typography>
+              </Box>
             </Card>
           </Grid>
         </Grid>

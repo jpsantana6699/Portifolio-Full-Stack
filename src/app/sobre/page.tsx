@@ -37,22 +37,28 @@ const skillsCategories = {
     { name: 'MongoDB', level: 'pleno' },
   ],
   frontend: [
-    { name: 'React.js', level: 'junior' },
-    { name: 'Next.js', level: 'junior' },
+    { name: 'React.js', level: 'pleno' },
+    { name: 'Next.js', level: 'pleno' },
     { name: 'JavaScript', level: 'pleno' },
     { name: 'HTML/CSS', level: 'pleno' },
     { name: 'Material-UI', level: 'pleno' },
   ],
+  dataBI: [
+    { name: 'Power BI', level: 'pleno' },
+    { name: 'SQL', level: 'pleno' },
+    { name: 'DAX', level: 'pleno' },
+    { name: 'ETL', level: 'junior' },
+    { name: 'Data Analysis', level: 'pleno' },
+  ],
   tools: [
     { name: 'Git/GitHub', level: 'pleno' },
-    { name: 'Docker', level: 'junior' },
-    { name: 'Power BI', level: 'pleno' },
-    { name: 'Postman', level: 'junior' },
+    { name: 'Docker', level: 'pleno' },
+    { name: 'Postman', level: 'pleno' },
     { name: 'Jest', level: 'pleno' },
     { name: 'Swagger', level: 'pleno' },
     { name: 'Sequelize', level: 'pleno' },
-    { name: 'TypeORM', level: 'junior' },
-    { name: 'Prisma', level: 'junior' },
+    { name: 'TypeORM', level: 'pleno' },
+    { name: 'Prisma', level: 'pleno' },
   ],
 };
 
@@ -74,6 +80,9 @@ export default function SobrePage() {
       case 'frontend':
         baseColor = '#ff6b6b';
         break;
+      case 'dataBI':
+        baseColor = '#9c27b0';
+        break;
       case 'tools':
         baseColor = '#4caf50';
         break;
@@ -85,24 +94,74 @@ export default function SobrePage() {
   };
   
   return (
-    <Box sx={{ minHeight: '100vh', py: 8 }}>
-      <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
+    <Box sx={{ minHeight: '100vh', py: 10, position: 'relative' }}>
+      {/* Background decoration */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '350px',
+          height: '350px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+        }}
+      />
+      
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Box 
+          className="animate-fade-in-up"
+          sx={{ 
+            textAlign: 'center', 
+            mb: 8,
+          }}
+        >
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 3,
+              px: 3,
+              py: 1,
+              background: 'rgba(0, 212, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(0, 212, 255, 0.2)',
+              borderRadius: '50px',
+              fontSize: '0.9rem',
+              fontWeight: 500,
+              color: '#00d4ff',
+            }}
+          >
+            <Code sx={{ fontSize: '1.2rem' }} />
+            Sobre Mim
+          </Box>
+          
           <Typography
             variant="h2"
             sx={{
-              mb: 4,
-              background: 'linear-gradient(45deg, #00d4ff 30%, #ff6b6b 90%)',
+              mb: 3,
+              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontWeight: 'bold',
+              fontWeight: 800,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              letterSpacing: '-0.02em',
             }}          >
             {t('aboutMe')}
           </Typography>
           <Typography
             variant="h6"
-            sx={{ color: 'text.secondary', maxWidth: '800px', margin: '0 auto' }}
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.7)', 
+              maxWidth: '800px', 
+              margin: '0 auto',
+              fontSize: { xs: '1rem', md: '1.125rem' },
+              lineHeight: 1.6,
+            }}
           >
             {t('aboutSubtitle')}
           </Typography>
@@ -110,53 +169,180 @@ export default function SobrePage() {
 
         {/* Projetos em destaque removidos daqui. Veja page de projetos. */}
 
-        <Grid container spacing={4}>
+        <Grid container spacing={3}>
           {/* Profile Card */}
           <Grid item xs={12} md={4}>
-            <Card sx={{ height: '100%', textAlign: 'center', p: 2 }}>
+            <Card 
+              className="glass-card animate-fade-in-left"
+              sx={{ 
+                height: '100%', 
+                textAlign: 'center', 
+                p: 3,
+                borderRadius: '20px',
+              }}
+            >
               <Avatar
                 src="/images/perfil.jpg"
                 alt="João Pedro Santana"
                 sx={{
-                  width: 150,
-                  height: 150,
-                  margin: '0 auto 16px auto',
-                  border: '3px solid',
+                  width: 180,
+                  height: 180,
+                  margin: '0 auto 24px auto',
+                  border: '4px solid',
                   borderColor: 'primary.main',
-                  boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
+                  boxShadow: '0 8px 32px rgba(0, 212, 255, 0.4)',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
                 }}
               />
-              <Typography variant="h5" gutterBottom>
+              <Typography 
+                variant="h5" 
+                gutterBottom
+                sx={{
+                  fontWeight: 700,
+                  fontSize: '1.5rem',
+                }}
+              >
                 {t('name')}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              <Typography 
+                variant="body2" 
+                sx={{ 
+                  mb: 3,
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  lineHeight: 1.6,
+                }}
+              >
                 {t('profileDescription')}
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
-                <Chip label="Node.js" color="primary" />
-                <Chip label="TypeScript" color="primary" />
-                <Chip label="Express" color="primary" />
-                <Chip label="SQL Server" color="secondary" />
-                <Chip label="Next.js" color="secondary" />
-                <Chip label="React.js" color="secondary" />
+                <Chip 
+                  label="Node.js" 
+                  sx={{
+                    background: 'rgba(0, 212, 255, 0.15)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00d4ff',
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip 
+                  label="TypeScript" 
+                  sx={{
+                    background: 'rgba(0, 212, 255, 0.15)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00d4ff',
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip 
+                  label="Express" 
+                  sx={{
+                    background: 'rgba(0, 212, 255, 0.15)',
+                    border: '1px solid rgba(0, 212, 255, 0.3)',
+                    color: '#00d4ff',
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip 
+                  label="SQL Server" 
+                  sx={{
+                    background: 'rgba(255, 107, 107, 0.15)',
+                    border: '1px solid rgba(255, 107, 107, 0.3)',
+                    color: '#ff6b6b',
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip 
+                  label="Next.js" 
+                  sx={{
+                    background: 'rgba(255, 107, 107, 0.15)',
+                    border: '1px solid rgba(255, 107, 107, 0.3)',
+                    color: '#ff6b6b',
+                    fontWeight: 600,
+                  }}
+                />
+                <Chip 
+                  label="React.js" 
+                  sx={{
+                    background: 'rgba(255, 107, 107, 0.15)',
+                    border: '1px solid rgba(255, 107, 107, 0.3)',
+                    color: '#ff6b6b',
+                    fontWeight: 600,
+                  }}
+                />
               </Box>
             </Card>
           </Grid>
 
           {/* About Text */}
           <Grid item xs={12} md={8}>
-            <Card sx={{ height: '100%', p: 3 }}>
-              <Typography variant="h5" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Code color="primary" />
+            <Card 
+              className="glass-card animate-fade-in-right"
+              sx={{ 
+                height: '100%', 
+                p: 4,
+                borderRadius: '20px',
+              }}
+            >
+              <Typography 
+                variant="h5" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: 1.5,
+                  fontWeight: 700,
+                  mb: 3,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 40,
+                    height: 40,
+                    borderRadius: '10px',
+                    background: 'rgba(0, 212, 255, 0.15)',
+                  }}
+                >
+                  <Code sx={{ color: '#00d4ff' }} />
+                </Box>
                 {t('myStory')}
               </Typography>
-              <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+              <Typography 
+                variant="body1" 
+                paragraph 
+                sx={{ 
+                  lineHeight: 1.8,
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '1rem',
+                }}
+              >
                 {t('storyPart1')}
               </Typography>
-              <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+              <Typography 
+                variant="body1" 
+                paragraph 
+                sx={{ 
+                  lineHeight: 1.8,
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '1rem',
+                }}
+              >
                 {t('storyPart2')}
               </Typography>
-              <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+              <Typography 
+                variant="body1" 
+                paragraph 
+                sx={{ 
+                  lineHeight: 1.8,
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '1rem',
+                }}
+              >
                 {t('storyPart3')}
               </Typography>
             </Card>
@@ -241,6 +427,45 @@ export default function SobrePage() {
                             size="small"
                             sx={{
                               backgroundColor: getLevelColor(skill.level, 'frontend'),
+                              color: '#000000',
+                              fontWeight: 'bold',
+                              fontSize: '0.75rem',
+                              border: '1px solid rgba(255, 255, 255, 0.2)',
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Grid>
+
+                {/* Data & BI */}
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ mb: 3 }}>
+                    <Typography 
+                      variant="h6" 
+                      gutterBottom 
+                      sx={{ 
+                        color: '#9c27b0', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: 1,
+                      }}
+                    >
+                      <BarChart sx={{ color: '#9c27b0' }} />
+                      {t('dataBI')}
+                    </Typography>
+                    {skillsCategories.dataBI.map((skill) => (
+                      <Box key={skill.name} sx={{ mb: 2 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
+                            {skill.name}
+                          </Typography>
+                          <Chip 
+                            label={t(skill.level)} 
+                            size="small"
+                            sx={{
+                              backgroundColor: getLevelColor(skill.level, 'dataBI'),
                               color: '#000000',
                               fontWeight: 'bold',
                               fontSize: '0.75rem',
