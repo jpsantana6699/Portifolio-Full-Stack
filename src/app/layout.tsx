@@ -5,7 +5,6 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './styles/theme';
-// eslint-disable-next-line sort-imports
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });

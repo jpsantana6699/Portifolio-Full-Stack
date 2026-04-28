@@ -6,9 +6,17 @@ import tseslint from 'typescript-eslint';
 export default [
   { 
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    ignores: ['**/node_modules/**', '**/dist/**', '**/build/**'],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/build/**', '**/.next/**'],
   },
-  { languageOptions: { globals: globals.browser } },
+  { 
+    languageOptions: { 
+      globals: { ...globals.browser, ...globals.node },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -24,7 +32,13 @@ export default [
       '@stylistic/max-len': ['error', { code: 180 }],
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/semi': 'error',
-      'sort-imports': 'error',
+      'sort-imports': ['error', {
+        'ignoreCase': false,
+        'ignoreDeclarationSort': true,
+        'ignoreMemberSort': false,
+        'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
+        'allowSeparatedGroups': true,
+      }],
     },
   },
 ];

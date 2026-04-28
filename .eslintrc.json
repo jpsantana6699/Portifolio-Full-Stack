@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "comma-dangle": ["error", "always-multiline"],
+    "eol-last": "error",
+    "indent": ["error", 2],
+    "max-len": ["error", { "code": 180 }],
+    "quotes": ["error", "single"],
+    "semi": "error"
+  }
+}

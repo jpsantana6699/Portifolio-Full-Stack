@@ -285,10 +285,10 @@ export default function ContatoPage() {
                   
                   {/* Impactful Message Card */}
                   <Grid item xs={12}>
-                    <Box 
+                    <Box
                       className="glass-card"
-                      sx={{ 
-                        mt: 2.5, 
+                      sx={{
+                        mt: 2.5,
                         p: { xs: 2.5, md: 3 },
                         textAlign: 'center',
                         borderRadius: '16px',
@@ -309,9 +309,9 @@ export default function ContatoPage() {
                       >
                         ✨ Vamos transformar sua ideia em realidade!
                       </Typography>
-                      <Typography 
-                        variant="body1" 
-                        sx={{ 
+                      <Typography
+                        variant="body1"
+                        sx={{
                           color: 'rgba(255, 255, 255, 0.8)',
                           fontSize: { xs: '0.95rem', md: '1.05rem' },
                           fontWeight: 500,
