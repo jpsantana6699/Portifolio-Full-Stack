@@ -21,9 +21,17 @@ import {
   Send, 
 } from '@mui/icons-material';
 
-import { ParticlesContatoBackground } from '../components/ParticlesContatoBackground';
+import dynamic from 'next/dynamic';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
+
+const ParticlesContatoBackground = dynamic(
+  () => import('../components/ParticlesContatoBackground').then((mod) => ({ default: mod.ParticlesContatoBackground })),
+  { 
+    ssr: false,
+    loading: () => null,
+  },
+);
 
 const contactInfo = [
   {

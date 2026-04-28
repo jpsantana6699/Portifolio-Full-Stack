@@ -20,7 +20,7 @@ export function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* Animated background circles */}
+      {/* Animated background circles - optimized */}
       <Box
         sx={{
           position: 'absolute',
@@ -30,9 +30,10 @@ export function HeroSection() {
           height: '400px',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%)',
-          filter: 'blur(60px)',
+          filter: 'blur(50px)',
           animation: 'float 8s ease-in-out infinite',
           zIndex: 0,
+          willChange: 'transform',
         }}
       />
       <Box
@@ -44,10 +45,11 @@ export function HeroSection() {
           height: '500px',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%)',
-          filter: 'blur(60px)',
+          filter: 'blur(50px)',
           animation: 'float 10s ease-in-out infinite',
           animationDelay: '2s',
           zIndex: 0,
+          willChange: 'transform',
         }}
       />
 
@@ -68,8 +70,7 @@ export function HeroSection() {
               mb: 3,
               px: 3,
               py: 1,
-              background: 'rgba(0, 212, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
+              background: 'rgba(0, 212, 255, 0.15)',
               border: '1px solid rgba(0, 212, 255, 0.2)',
               borderRadius: '50px',
               fontSize: '0.9rem',
@@ -242,7 +243,6 @@ export function HeroSection() {
                 borderRadius: '12px',
                 textTransform: 'none',
                 fontWeight: 600,
-                backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s ease',
                 '&:hover': {
                   borderColor: '#00d4ff',
@@ -273,7 +273,6 @@ export function HeroSection() {
                 borderRadius: '12px',
                 textTransform: 'none',
                 fontWeight: 600,
-                backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s ease',
                 '&:hover': {
                   borderColor: '#ff6b6b',

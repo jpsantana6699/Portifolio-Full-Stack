@@ -115,8 +115,7 @@ export function Navbar() {
         position="fixed" 
         elevation={0}
         sx={{ 
-          backgroundColor: 'rgba(10, 10, 10, 0.7)',
-          backdropFilter: 'blur(20px) saturate(180%)',
+          backgroundColor: 'rgba(10, 10, 10, 0.95)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         }}
@@ -219,8 +218,7 @@ export function Navbar() {
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
             width: 280,
-            background: 'rgba(10, 10, 10, 0.95)',
-            backdropFilter: 'blur(20px)',
+            background: 'rgba(10, 10, 10, 0.98)',
             borderLeft: '1px solid rgba(255, 255, 255, 0.08)',
           },
         }}
