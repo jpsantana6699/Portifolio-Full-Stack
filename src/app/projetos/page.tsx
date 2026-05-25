@@ -105,7 +105,7 @@ const projects = [
     description: 'Sistema web completo desenvolvido em Java para catalogar e gerenciar livros e filmes. Implementa CRUD completo com Servlets, JSP, JDBC e MySQL. Inclui busca avançada, validações frontend/backend e proteção contra SQL Injection usando PreparedStatement. Projeto acadêmico (ABP) focado em boas práticas de segurança e arquitetura MVC.',
     image: '/images/catalogo.jpeg',
     technologies: ['Java', 'Servlets', 'JSP', 'JSTL', 'JDBC', 'MySQL', 'Apache Tomcat', 'HTML5', 'CSS3', 'JavaScript'],
-    githubUrl: 'https://github.com/jpsantana6699/catalogo-livros-filmes',
+    githubUrl: 'https://github.com/jpsantana6699/CRUD_JAVA',
     liveUrl: '',
     featured: true,
   },
