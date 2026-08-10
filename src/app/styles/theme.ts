@@ -15,35 +15,52 @@ export const theme = createTheme({
       light: '#ff9999',
       dark: '#e74c3c',
     },
+    success: {
+      main: '#4caf50',
+      light: '#81c784',
+      dark: '#388e3c',
+    },
     background: {
-      default: '#0a0a0a',
-      paper: '#1a1a1a',
+      default: '#010409',
+      paper: 'rgba(26, 26, 26, 0.6)',
     },
     text: {
-      primary: '#ffffff',
-      secondary: '#b0b0b0',
+      primary: 'rgba(255, 255, 255, 0.95)',
+      secondary: 'rgba(255, 255, 255, 0.7)',
     },
   },
   typography: {
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     h1: {
       fontSize: '3.5rem',
-      fontWeight: 700,
-      lineHeight: 1.2,
+      fontWeight: 800,
+      lineHeight: 1.1,
+      letterSpacing: '-0.02em',
     },
     h2: {
-      fontSize: '2.5rem',
-      fontWeight: 600,
-      lineHeight: 1.3,
+      fontSize: '2.75rem',
+      fontWeight: 700,
+      lineHeight: 1.2,
+      letterSpacing: '-0.01em',
     },
     h3: {
-      fontSize: '2rem',
+      fontSize: '2.125rem',
+      fontWeight: 700,
+      lineHeight: 1.3,
+    },
+    h4: {
+      fontSize: '1.75rem',
       fontWeight: 600,
       lineHeight: 1.4,
     },
-    h4: {
+    h5: {
       fontSize: '1.5rem',
-      fontWeight: 500,
+      fontWeight: 600,
+      lineHeight: 1.4,
+    },
+    h6: {
+      fontSize: '1.25rem',
+      fontWeight: 600,
       lineHeight: 1.4,
     },
     body1: {

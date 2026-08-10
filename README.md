@@ -21,7 +21,7 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](./LI
 
 ## 📞 Contato 📞
 
-- **Email**: jpsantana6699@gmail.com
+- **Email**: jpsantana003@gmail.com
 - **LinkedIn**: [Meu Perfil no LinkedIn](https://www.linkedin.com/in/joaopedrosantana)
 
 Feito por João Pedro Santana.

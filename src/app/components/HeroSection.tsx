@@ -1,7 +1,8 @@
 'use client';
 
 import { Box, Button, Container, Typography } from '@mui/material';
-import { Download, GitHub, LinkedIn } from '@mui/icons-material';
+import { ArrowForward, Download, GitHub, LinkedIn, Send } from '@mui/icons-material';
+import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -189,6 +190,35 @@ export function HeroSection() {
             </Typography>
           </Box>
 
+          {/* Availability badge */}
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 4,
+              px: 2.5,
+              py: 1,
+              background: 'rgba(76, 175, 80, 0.12)',
+              border: '1px solid rgba(76, 175, 80, 0.35)',
+              borderRadius: '50px',
+              fontSize: { xs: '0.8rem', md: '0.9rem' },
+              fontWeight: 500,
+              color: '#66bb6a',
+            }}
+          >
+            <Box
+              sx={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                background: '#4caf50',
+                animation: 'glow 2s ease-in-out infinite',
+              }}
+            />
+            {t('heroAvailable')}
+          </Box>
+
           <Box
             sx={{
               display: 'flex',
@@ -200,11 +230,11 @@ export function HeroSection() {
             }}
           >
             <Button
+              component={Link}
+              href="/contato"
               variant="contained"
               size="large"
-              startIcon={<Download />}
-              href="/Currículo%20-%20Joao%20Pedro%20Santana.pdf"
-              download
+              startIcon={<Send />}
               className="modern-button"
               sx={{
                 background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
@@ -223,16 +253,15 @@ export function HeroSection() {
                 },
               }}
             >
-              {t('downloadCV')}
+              {t('requestQuote')}
             </Button>
 
             <Button
+              component={Link}
+              href="/projetos"
               variant="outlined"
               size="large"
-              startIcon={<GitHub />}
-              href="https://github.com/jpsantana6699"
-              target="_blank"
-              rel="noopener noreferrer"
+              endIcon={<ArrowForward />}
               className="modern-button glass-card"
               sx={{
                 borderColor: 'rgba(255, 255, 255, 0.2)',
@@ -249,7 +278,70 @@ export function HeroSection() {
                   color: '#00d4ff',
                   backgroundColor: 'rgba(0, 212, 255, 0.1)',
                   transform: 'translateY(-2px)',
-                  boxShadow: '0 8px 24px rgba(0, 212, 255, 0.2)',
+                },
+              }}
+            >
+              {t('viewProjects')}
+            </Button>
+          </Box>
+
+          {/* Secondary links */}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 2,
+              justifyContent: 'center',
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              mt: 2.5,
+            }}
+          >
+            <Button
+              variant="text"
+              size="medium"
+              startIcon={<Download />}
+              href="/Currículo%20-%20Joao%20Pedro%20Santana.pdf"
+              download
+              className="modern-button"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.75)',
+                px: 3,
+                py: 1,
+                fontSize: '0.95rem',
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontWeight: 600,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  color: '#00d4ff',
+                  backgroundColor: 'rgba(0, 212, 255, 0.08)',
+                },
+              }}
+            >
+              {t('downloadCV')}
+            </Button>
+
+            <Button
+              variant="text"
+              size="medium"
+              startIcon={<GitHub />}
+              href="https://github.com/jpsantana6699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modern-button"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.75)',
+                px: 3,
+                py: 1,
+                fontSize: '0.95rem',
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontWeight: 600,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  color: '#00d4ff',
+                  backgroundColor: 'rgba(0, 212, 255, 0.08)',
                 },
               }}
             >
@@ -257,28 +349,25 @@ export function HeroSection() {
             </Button>
 
             <Button
-              variant="outlined"
-              size="large"
+              variant="text"
+              size="medium"
               startIcon={<LinkedIn />}
               href="https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/"
               target="_blank"
               rel="noopener noreferrer"
-              className="modern-button glass-card"
+              className="modern-button"
               sx={{
-                borderColor: 'rgba(255, 255, 255, 0.2)',
-                color: 'rgba(255, 255, 255, 0.9)',
-                px: 4,
-                py: 1.5,
-                fontSize: '1.1rem',
+                color: 'rgba(255, 255, 255, 0.75)',
+                px: 3,
+                py: 1,
+                fontSize: '0.95rem',
                 borderRadius: '12px',
                 textTransform: 'none',
                 fontWeight: 600,
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  borderColor: '#ff6b6b',
                   color: '#ff6b6b',
                   backgroundColor: 'rgba(255, 107, 107, 0.1)',
-                  transform: 'translateY(-2px)',
                   boxShadow: '0 8px 24px rgba(255, 107, 107, 0.2)',
                 },
               }}

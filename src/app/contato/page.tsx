@@ -1,24 +1,29 @@
 'use client';
 
-import { 
-  Box, 
+import {
+  Alert,
+  Box,
   Button,
-  Card,  
-  Container, 
+  Card,
+  CircularProgress,
+  Container,
   Divider,
-  Grid, 
-  TextField, 
-  Typography, 
+  Grid,
+  MenuItem,
+  Snackbar,
+  TextField,
+  Typography,
 } from '@mui/material';
 // eslint-disable-next-line sort-imports
-import { 
-  Email, 
-  GitHub, 
-  Instagram,
-  LinkedIn, 
-  LocationOn, 
-  Phone, 
-  Send, 
+import {
+  Email,
+  GitHub,
+  LinkedIn,
+  LocationOn,
+  Phone,
+  Send,
+  WhatsApp,
+  WorkOutline,
 } from '@mui/icons-material';
 
 import dynamic from 'next/dynamic';
@@ -27,55 +32,55 @@ import { useState } from 'react';
 
 const ParticlesContatoBackground = dynamic(
   () => import('../components/ParticlesContatoBackground').then((mod) => ({ default: mod.ParticlesContatoBackground })),
-  { 
+  {
     ssr: false,
     loading: () => null,
   },
 );
 
+const WHATSAPP_PHONE = '5535999788870';
+const WHATSAPP_CTA = `https://wa.me/${WHATSAPP_PHONE}?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
+
 const contactInfo = [
   {
-    icon: <Email color="primary" />, 
+    icon: <Email color="primary" />,
     titleKey: 'emailLabel',
     value: 'jpsantana003@gmail.com',
-    link: 'jpsantana003@gmail.com',
+    link: 'mailto:jpsantana003@gmail.com',
   },
   {
-    icon: <Phone color="primary" />, 
+    icon: <Phone color="primary" />,
     titleKey: 'whatsappLabel',
     value: '+55 (35) 99978-8870 (WhatsApp)',
-    link: 'https://wa.me/5535999788870',
+    link: `https://wa.me/${WHATSAPP_PHONE}`,
   },
   {
-    icon: <Instagram color="primary" />,
-    titleKey: 'instagramLabel',
-    value: 'instagram.com/jpsantana9922',
-    link: 'https://www.instagram.com/jpsantana9922/',
-  },
-  {
-    icon: <LocationOn color="primary" />, 
+    icon: <LocationOn color="primary" />,
     titleKey: 'locationLabel',
     value: 'Franca, SP - Brasil',
     link: null,
   },
   {
-    icon: <LinkedIn color="primary" />, 
+    icon: <LinkedIn color="primary" />,
     titleKey: 'linkedinLabel',
-    value: 'linkedin.com/in/joaopedrosantana',
+    value: 'linkedin.com/in/joão-pedro-santana',
     link: 'https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/',
   },
   {
-    icon: <GitHub color="primary" />, 
+    icon: <GitHub color="primary" />,
     titleKey: 'githubLabel',
     value: 'github.com/jpsantana6699',
     link: 'https://github.com/jpsantana6699',
   },
 ];
 
+type SnackState = { open: boolean; severity: 'success' | 'error' | 'info'; msg: string };
 
 export default function ContatoPage() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', projectType: '', message: '' });
+  const [loading, setLoading] = useState(false);
+  const [snack, setSnack] = useState<SnackState>({ open: false, severity: 'success', msg: '' });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -84,13 +89,47 @@ export default function ContatoPage() {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    const phone = '5535999788870';
-    const text = `Olá, meu nome é ${formData.name}%0AEmail: ${formData.email}%0AMensagem: ${encodeURIComponent(formData.message)}`;
-    const url = `https://wa.me/${phone}?text=${text}`;
+  const openWhatsApp = () => {
+    const lines = [
+      `Olá João! Meu nome é ${formData.name || ''}.`,
+      formData.email ? `Email: ${formData.email}` : '',
+      `Tipo de projeto: ${formData.projectType || '—'}`,
+      '',
+      formData.message || '',
+    ].filter((l) => l !== '');
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
     window.open(url, '_blank');
-    setFormData({ name: '', email: '', message: '' });
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSnack({ open: true, severity: 'success', msg: t('messageSent') });
+        setFormData({ name: '', email: '', projectType: '', message: '' });
+        return;
+      }
+
+      const data = await res.json().catch(() => ({} as { code?: string }));
+      // Email ainda não configurado no servidor: cai no WhatsApp automaticamente.
+      if (res.status === 503 && data.code === 'NOT_CONFIGURED') {
+        setSnack({ open: true, severity: 'info', msg: t('fallbackWhatsapp') });
+        openWhatsApp();
+        return;
+      }
+      throw new Error('send failed');
+    } catch {
+      setSnack({ open: true, severity: 'error', msg: t('sendError') });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -99,12 +138,12 @@ export default function ContatoPage() {
       <div style={{ position: 'fixed', inset: 0, zIndex: -1, width: '100vw', height: '100vh', background: '#000' }}>
         <ParticlesContatoBackground />
       </div>
-      
+
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <Box 
+        <Box
           className="animate-fade-in-up"
-          sx={{ 
-            textAlign: 'center', 
+          sx={{
+            textAlign: 'center',
             mb: { xs: 1.5, md: 2 },
           }}
         >
@@ -128,7 +167,7 @@ export default function ContatoPage() {
             <Email sx={{ fontSize: '1rem' }} />
             Contato
           </Box>
-          
+
           <Typography
             variant="h2"
             sx={{
@@ -146,9 +185,9 @@ export default function ContatoPage() {
           </Typography>
           <Typography
             variant="h6"
-            sx={{ 
-              color: 'rgba(255, 255, 255, 0.7)', 
-              maxWidth: '700px', 
+            sx={{
+              color: 'rgba(255, 255, 255, 0.7)',
+              maxWidth: '700px',
               margin: '0 auto',
               fontSize: { xs: '0.9rem', md: '1rem' },
               lineHeight: 1.5,
@@ -161,18 +200,17 @@ export default function ContatoPage() {
         <Grid container spacing={2.5}>
           {/* Contact Form */}
           <Grid item xs={12} md={7}>
-            <Card 
+            <Card
               className="glass-card animate-fade-in-left"
-              sx={{ 
+              sx={{
                 p: { xs: 2.5, md: 3 },
                 borderRadius: '16px',
-                height: '100%',
               }}
             >
-              <Typography 
-                variant="h6" 
-                gutterBottom 
-                sx={{ 
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
                   mb: 2,
                   fontWeight: 700,
                   display: 'flex',
@@ -207,15 +245,7 @@ export default function ContatoPage() {
                       onChange={handleChange}
                       required
                       variant="outlined"
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '12px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          '&:hover': {
-                            background: 'rgba(255, 255, 255, 0.08)',
-                          },
-                        },
-                      }}
+                      sx={fieldSx}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -228,16 +258,25 @@ export default function ContatoPage() {
                       onChange={handleChange}
                       required
                       variant="outlined"
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '12px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          '&:hover': {
-                            background: 'rgba(255, 255, 255, 0.08)',
-                          },
-                        },
-                      }}
+                      sx={fieldSx}
                     />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      select
+                      fullWidth
+                      label={t('projectTypeLabel')}
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      variant="outlined"
+                      sx={fieldSx}
+                    >
+                      <MenuItem value={t('projectTypeSystem')}>{t('projectTypeSystem')}</MenuItem>
+                      <MenuItem value={t('projectTypeSite')}>{t('projectTypeSite')}</MenuItem>
+                      <MenuItem value={t('projectTypeData')}>{t('projectTypeData')}</MenuItem>
+                      <MenuItem value={t('projectTypeOther')}>{t('projectTypeOther')}</MenuItem>
+                    </TextField>
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
@@ -245,89 +284,43 @@ export default function ContatoPage() {
                       label={t('message')}
                       name="message"
                       multiline
-                      rows={8}
+                      rows={6}
                       value={formData.message}
                       onChange={handleChange}
                       required
                       variant="outlined"
-                      sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '12px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          '&:hover': {
-                            background: 'rgba(255, 255, 255, 0.08)',
-                          },
-                        },
-                      }}
+                      sx={fieldSx}
                     />
                   </Grid>
-                  
+
                   <Grid item xs={12}>
                     <Button
                       type="submit"
                       variant="contained"
                       size="large"
-                      startIcon={<Send />}
                       fullWidth
+                      disabled={loading}
+                      startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <Send />}
                       className="modern-button"
                       sx={{
                         background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
-                        px: 3,
                         py: 1.5,
                         fontSize: '1rem',
                         borderRadius: '12px',
                         textTransform: 'none',
                         fontWeight: 600,
                         boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
-                        transition: 'all 0.3s ease',
                         '&:hover': {
                           background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                          transform: 'translateY(-2px)',
-                          boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+                        },
+                        '&.Mui-disabled': {
+                          background: 'rgba(0, 212, 255, 0.3)',
+                          color: 'rgba(255,255,255,0.7)',
                         },
                       }}
                     >
-                      {t('sendButton')}
+                      {loading ? t('sending') : t('sendButton')}
                     </Button>
-                  </Grid>
-                  
-                  {/* Impactful Message Card */}
-                  <Grid item xs={12}>
-                    <Box
-                      className="glass-card"
-                      sx={{
-                        mt: 2.5,
-                        p: { xs: 2.5, md: 3 },
-                        textAlign: 'center',
-                        borderRadius: '16px',
-                        border: '1px solid rgba(0, 212, 255, 0.2)',
-                        background: 'rgba(0, 212, 255, 0.05)',
-                      }}
-                    >
-                      <Typography 
-                        variant="h5" 
-                        sx={{ 
-                          color: '#00d4ff',
-                          fontWeight: 700,
-                          fontSize: { xs: '1.3rem', md: '1.6rem' },
-                          textShadow: '0 0 30px rgba(0, 212, 255, 0.6)',
-                          mb: 1.5,
-                          lineHeight: 1.3,
-                        }}
-                      >
-                        ✨ Vamos transformar sua ideia em realidade!
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: 'rgba(255, 255, 255, 0.8)',
-                          fontSize: { xs: '0.95rem', md: '1.05rem' },
-                          fontWeight: 500,
-                        }}
-                      >
-                        Respondo normalmente em até 24-48 horas ⚡
-                      </Typography>
-                    </Box>
                   </Grid>
                 </Grid>
               </Box>
@@ -336,29 +329,55 @@ export default function ContatoPage() {
 
           {/* Contact Info */}
           <Grid item xs={12} md={5}>
-            <Card 
+            <Card
               className="glass-card animate-fade-in-right"
-              sx={{ 
-                p: { xs: 2.5, md: 3 }, 
+              sx={{
+                p: { xs: 2.5, md: 3 },
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 borderRadius: '16px',
               }}
             >
-              <Typography 
-                variant="h6" 
-                gutterBottom 
-                sx={{ 
-                  mb: 2,
+              {/* Big WhatsApp CTA */}
+              <Button
+                href={WHATSAPP_CTA}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="contained"
+                fullWidth
+                startIcon={<WhatsApp />}
+                className="modern-button"
+                sx={{
+                  mb: 2.5,
+                  py: 1.5,
+                  fontSize: '1.05rem',
+                  borderRadius: '12px',
+                  textTransform: 'none',
                   fontWeight: 700,
-                  fontSize: '1.15rem',
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 8px 24px rgba(37, 211, 102, 0.35)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #2ee878 0%, #25D366 100%)',
+                  },
+                }}
+              >
+                {t('talkOnWhatsapp')}
+              </Button>
+
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  mb: 1.5,
+                  fontWeight: 700,
+                  fontSize: '1.05rem',
                 }}
               >
                 {t('contactInfo')}
               </Typography>
-              
-              <Grid container spacing={1.5} sx={{ mb: 2 }}>
+
+              <Grid container spacing={1} sx={{ mb: 2 }}>
                 {contactInfo.map((info, index) => (
                   <Grid item xs={12} key={index}>
                     <Box
@@ -367,7 +386,7 @@ export default function ContatoPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 1.5,
-                        p: 1.25,
+                        p: 1.1,
                         borderRadius: '10px',
                         transition: 'all 0.3s ease',
                         ...(info.link && {
@@ -393,9 +412,9 @@ export default function ContatoPage() {
                         {info.icon}
                       </Box>
                       <Box sx={{ overflow: 'hidden' }}>
-                        <Typography 
-                          variant="body2" 
-                          sx={{ 
+                        <Typography
+                          variant="body2"
+                          sx={{
                             fontWeight: 600,
                             fontSize: '0.85rem',
                             mb: 0.25,
@@ -403,9 +422,9 @@ export default function ContatoPage() {
                         >
                           {t(info.titleKey)}
                         </Typography>
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
+                        <Typography
+                          variant="caption"
+                          sx={{
                             color: 'text.secondary',
                             fontSize: '0.75rem',
                             display: 'block',
@@ -422,20 +441,24 @@ export default function ContatoPage() {
                 ))}
               </Grid>
 
-              <Divider sx={{ my: 1.5 }} />
+              <Divider sx={{ my: 1 }} />
 
-              <Box>
-                <Typography 
-                  variant="subtitle1" 
-                  gutterBottom
-                  sx={{ 
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    mb: 0.75,
-                  }}
-                >
-                  {t('availability')}
-                </Typography>
+              {/* Availability / PJ highlight */}
+              <Box
+                sx={{
+                  mt: 1.5,
+                  p: 2,
+                  borderRadius: '12px',
+                  border: '1px solid rgba(76, 175, 80, 0.3)',
+                  background: 'rgba(76, 175, 80, 0.06)',
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.75 }}>
+                  <WorkOutline sx={{ color: '#66bb6a', fontSize: '1.1rem' }} />
+                  <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.9rem', color: '#66bb6a' }}>
+                    {t('availability')}
+                  </Typography>
+                </Box>
                 <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 0.5 }}>
                   {t('availabilityText')}
                 </Typography>
@@ -447,6 +470,32 @@ export default function ContatoPage() {
           </Grid>
         </Grid>
       </Container>
+
+      <Snackbar
+        open={snack.open}
+        autoHideDuration={6000}
+        onClose={() => setSnack((s) => ({ ...s, open: false }))}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          onClose={() => setSnack((s) => ({ ...s, open: false }))}
+          severity={snack.severity}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {snack.msg}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
+
+const fieldSx = {
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '12px',
+    background: 'rgba(255, 255, 255, 0.05)',
+    '&:hover': {
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
+  },
+} as const;

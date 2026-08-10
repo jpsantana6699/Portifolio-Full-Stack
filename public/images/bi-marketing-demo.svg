@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640"><defs>
+    <linearGradient id="bgp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1023"/><stop offset="1" stop-color="#100a17"/></linearGradient>
+    <linearGradient id="titleg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#fb923c"/></linearGradient>
+    <linearGradient id="fun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fb923c" stop-opacity="0.5"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></linearGradient>
+  </defs>
+<rect x="0" y="0" width="1200" height="640" rx="0" fill="url(#bgp)" />
+<circle cx="120" cy="80" r="180" fill="#ec4899" opacity="0.10"/>
+<circle cx="1120" cy="600" r="200" fill="#a855f7" opacity="0.10"/>
+<rect x="28" y="24" width="34" height="34" rx="10" fill="#ec4899" />
+<circle cx="45" cy="41" r="7" fill="none" stroke="#100a17" stroke-width="3"/>
+<text x="74" y="40" font-family="Inter, Segoe UI, sans-serif" font-size="19" fill="#faf0f6" font-weight="800" text-anchor="start" >Nexus Analytics</text>
+<text x="74" y="58" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#c0a6b8" font-weight="500" text-anchor="start" >Marketing &amp; Growth — aquisição e conversão</text>
+<text x="1172" y="46" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="url(#titleg)" font-weight="800" text-anchor="end" >Painel de Marketing</text>
+<rect x="28" y="88" width="316" height="496" rx="16" fill="#241326" stroke="#3b2340"/>
+<text x="50" y="122" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#faf0f6" font-weight="700" text-anchor="start" >Funil de conversão</text>
+<polygon points="56,150 316,150 295.35,242 76.65,242" fill="url(#fun)" fill-opacity="1.00"/>
+<text x="186" y="197" font-family="Inter, Segoe UI, sans-serif" font-size="17" fill="#1b0f18" font-weight="800" text-anchor="middle" >48.200</text>
+<text x="186" y="215" font-family="Inter, Segoe UI, sans-serif" font-size="10.5" fill="#2a1526" font-weight="600" text-anchor="middle" >Visitantes · 100%</text>
+<polygon points="76.65,252 295.35,252 274.7,344 97.3,344" fill="url(#fun)" fill-opacity="0.83"/>
+<text x="186" y="299" font-family="Inter, Segoe UI, sans-serif" font-size="17" fill="#1b0f18" font-weight="800" text-anchor="middle" >3.140</text>
+<text x="186" y="317" font-family="Inter, Segoe UI, sans-serif" font-size="10.5" fill="#2a1526" font-weight="600" text-anchor="middle" >Leads · 6,5%</text>
+<polygon points="97.3,354 274.7,354 254.05,446 117.94999999999999,446" fill="url(#fun)" fill-opacity="0.66"/>
+<text x="186" y="401" font-family="Inter, Segoe UI, sans-serif" font-size="17" fill="#1b0f18" font-weight="800" text-anchor="middle" >980</text>
+<text x="186" y="419" font-family="Inter, Segoe UI, sans-serif" font-size="10.5" fill="#2a1526" font-weight="600" text-anchor="middle" >Oportunidades · 2,0%</text>
+<polygon points="117.94999999999999,456 254.05,456 233.4,548 138.6,548" fill="url(#fun)" fill-opacity="0.49"/>
+<text x="186" y="503" font-family="Inter, Segoe UI, sans-serif" font-size="17" fill="#1b0f18" font-weight="800" text-anchor="middle" >412</text>
+<text x="186" y="521" font-family="Inter, Segoe UI, sans-serif" font-size="10.5" fill="#2a1526" font-weight="600" text-anchor="middle" >Clientes · 0,9%</text>
+<rect x="360" y="88" width="195" height="104" rx="16" fill="#241326" stroke="#3b2340"/>
+<rect x="360" y="88" width="4" height="104" rx="2" fill="#ec4899" />
+<text x="380" y="118" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Visitantes</text>
+<text x="380" y="150" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="#faf0f6" font-weight="800" text-anchor="start" >48,2 mil</text>
+<text x="380" y="174" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#ec4899" font-weight="700" text-anchor="start" >+14%</text>
+<rect x="571" y="88" width="195" height="104" rx="16" fill="#241326" stroke="#3b2340"/>
+<rect x="571" y="88" width="4" height="104" rx="2" fill="#fb923c" />
+<text x="591" y="118" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Leads</text>
+<text x="591" y="150" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="#faf0f6" font-weight="800" text-anchor="start" >3.140</text>
+<text x="591" y="174" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#fb923c" font-weight="700" text-anchor="start" >+11%</text>
+<rect x="782" y="88" width="195" height="104" rx="16" fill="#241326" stroke="#3b2340"/>
+<rect x="782" y="88" width="4" height="104" rx="2" fill="#2dd4bf" />
+<text x="802" y="118" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Clientes</text>
+<text x="802" y="150" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="#faf0f6" font-weight="800" text-anchor="start" >412</text>
+<text x="802" y="174" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#2dd4bf" font-weight="700" text-anchor="start" >+7%</text>
+<rect x="993" y="88" width="195" height="104" rx="16" fill="#241326" stroke="#3b2340"/>
+<rect x="993" y="88" width="4" height="104" rx="2" fill="#a855f7" />
+<text x="1013" y="118" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >CAC</text>
+<text x="1013" y="150" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="#faf0f6" font-weight="800" text-anchor="start" >R$ 128</text>
+<text x="1013" y="174" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#a855f7" font-weight="700" text-anchor="start" >-9%</text>
+<rect x="360" y="208" width="300" height="230" rx="16" fill="#241326" stroke="#3b2340"/>
+<text x="380" y="240" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#faf0f6" font-weight="700" text-anchor="start" >Origem do tráfego</text>
+<circle cx="434" cy="338" r="46" fill="none" stroke="#ec4899" stroke-width="22" stroke-dasharray="109.83007916949916 179.1964449607618" stroke-dashoffset="0" transform="rotate(-90 434 338)"/>
+<circle cx="434" cy="338" r="46" fill="none" stroke="#fb923c" stroke-width="22" stroke-dasharray="86.70795723907828 202.31856689118268" stroke-dashoffset="-109.83007916949916" transform="rotate(-90 434 338)"/>
+<circle cx="434" cy="338" r="46" fill="none" stroke="#a855f7" stroke-width="22" stroke-dasharray="57.80530482605219 231.22121930420877" stroke-dashoffset="-196.53803640857745" transform="rotate(-90 434 338)"/>
+<circle cx="434" cy="338" r="46" fill="none" stroke="#2dd4bf" stroke-width="22" stroke-dasharray="34.68318289563131 254.34334123462963" stroke-dashoffset="-254.34334123462963" transform="rotate(-90 434 338)"/>
+<text x="434" y="336" font-family="Inter, Segoe UI, sans-serif" font-size="16" fill="#faf0f6" font-weight="800" text-anchor="middle" >48,2k</text>
+<text x="434" y="353" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#c0a6b8" font-weight="500" text-anchor="middle" >sessões</text>
+<rect x="510" y="280" width="11" height="11" rx="3" fill="#ec4899" />
+<text x="528" y="290" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#faf0f6" font-weight="600" text-anchor="start" >Orgânico</text>
+<text x="642" y="290" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#c0a6b8" font-weight="700" text-anchor="end" >38%</text>
+<rect x="510" y="310" width="11" height="11" rx="3" fill="#fb923c" />
+<text x="528" y="320" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#faf0f6" font-weight="600" text-anchor="start" >Pago</text>
+<text x="642" y="320" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#c0a6b8" font-weight="700" text-anchor="end" >30%</text>
+<rect x="510" y="340" width="11" height="11" rx="3" fill="#a855f7" />
+<text x="528" y="350" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#faf0f6" font-weight="600" text-anchor="start" >Social</text>
+<text x="642" y="350" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#c0a6b8" font-weight="700" text-anchor="end" >20%</text>
+<rect x="510" y="370" width="11" height="11" rx="3" fill="#2dd4bf" />
+<text x="528" y="380" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#faf0f6" font-weight="600" text-anchor="start" >Direto</text>
+<text x="642" y="380" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#c0a6b8" font-weight="700" text-anchor="end" >12%</text>
+<rect x="676" y="208" width="496" height="230" rx="16" fill="#241326" stroke="#3b2340"/>
+<text x="698" y="240" font-family="Inter, Segoe UI, sans-serif" font-size="14" fill="#faf0f6" font-weight="700" text-anchor="start" >ROI por canal</text>
+<text x="698" y="274" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Google Ads</text>
+<rect x="806" y="262" width="326" height="14" rx="7" fill="#33203a" />
+<rect x="806" y="262" width="326" height="14" rx="7" fill="#ec4899" />
+<text x="1152" y="274" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#faf0f6" font-weight="700" text-anchor="end" >5x</text>
+<text x="698" y="314" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >SEO / Orgânico</text>
+<rect x="806" y="302" width="326" height="14" rx="7" fill="#33203a" />
+<rect x="806" y="302" width="280.36" height="14" rx="7" fill="#fb923c" />
+<text x="1152" y="314" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#faf0f6" font-weight="700" text-anchor="end" >4.3x</text>
+<text x="698" y="354" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Email</text>
+<rect x="806" y="342" width="326" height="14" rx="7" fill="#33203a" />
+<rect x="806" y="342" width="234.72" height="14" rx="7" fill="#2dd4bf" />
+<text x="1152" y="354" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#faf0f6" font-weight="700" text-anchor="end" >3.6x</text>
+<text x="698" y="394" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#c0a6b8" font-weight="600" text-anchor="start" >Social</text>
+<rect x="806" y="382" width="326" height="14" rx="7" fill="#33203a" />
+<rect x="806" y="382" width="189.07999999999998" height="14" rx="7" fill="#a855f7" />
+<text x="1152" y="394" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#faf0f6" font-weight="700" text-anchor="end" >2.9x</text>
+<rect x="360" y="452" width="812" height="132" rx="16" fill="#241326" stroke="#3b2340"/>
+<text x="386" y="496" font-family="Inter, Segoe UI, sans-serif" font-size="13" fill="#c0a6b8" font-weight="600" text-anchor="start" >ROI médio de marketing</text>
+<text x="386" y="544" font-family="Inter, Segoe UI, sans-serif" font-size="46" fill="#faf0f6" font-weight="800" text-anchor="start" >4,8x</text>
+<text x="492" y="544" font-family="Inter, Segoe UI, sans-serif" font-size="13" fill="#c0a6b8" font-weight="500" text-anchor="start" >retorno sobre investimento</text>
+<path d="M790.0 533.1 L822.2 525.0 L854.4 527.7 L886.5 518.3 L918.7 521.0 L950.9 511.6 L983.1 514.3 L1015.3 504.8 L1047.5 508.9 L1079.6 499.5 L1111.8 503.5 L1144.0 492.7 L1144 560 L790 560 Z" fill="url(#spark)"/>
+<path d="M790.0 533.1 L822.2 525.0 L854.4 527.7 L886.5 518.3 L918.7 521.0 L950.9 511.6 L983.1 514.3 L1015.3 504.8 L1047.5 508.9 L1079.6 499.5 L1111.8 503.5 L1144.0 492.7" fill="none" stroke="#fb923c" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

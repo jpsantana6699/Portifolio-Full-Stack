@@ -30,6 +30,7 @@ export function Navbar() {
   const menuItems = [
     { label: t('home'), href: '/' },
     { label: t('about'), href: '/sobre' },
+    { label: t('services'), href: '/#servicos' },
     { label: t('projects'), href: '/projetos' },
     { label: t('contact'), href: '/contato' },
   ];

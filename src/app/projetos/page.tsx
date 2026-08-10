@@ -11,18 +11,21 @@ import {
   Chip,
   Container,
   Grid,
+  ToggleButton,
+  ToggleButtonGroup,
   Tooltip,
   Typography,
 } from '@mui/material';
-import {  Code, GitHub, Launch } from '@mui/icons-material';
+import { Code, GitHub, Launch, Lock } from '@mui/icons-material';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const projects = [
   {
     id: 0,
+    category: 'sistema',
     title: 'Lev Negócios | HUB',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Desenvolvimento de sistema interno com microsserviços escaláveis e integrados, distribuídos em múltiplos repositórios. Projeto de grande porte onde atuei como Full Stack, responsável tanto pelo front-end quanto pelo back-end.',
+    description: 'Sistema interno completo que centralizou a operação de uma empresa do setor financeiro, automatizando processos manuais e conectando áreas que antes trabalhavam isoladas. Atuei de ponta a ponta (front-end + back-end), com arquitetura de microsserviços escalável distribuída em múltiplos repositórios.',
     image: '/images/hublev.png',
     technologies: ['TypeScript', 'Node.js', 'Express', 'Next.js', 'React', 'MySQL', 'Docker', 'MaterialUI', 'Axios', 'SwaggerOpenAPI', 'Jest'],
     githubUrl: '',
@@ -32,9 +35,10 @@ const projects = [
   },
   {
     id: 1,
+    category: 'site',
     title: 'Lev Negócios | Landing Page',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Landing page institucional responsiva desenvolvida para empresa do setor financeiro. Apresenta portfólio completo de produtos financeiros com design moderno e interface intuitiva. Implementação com componentes reutilizáveis e layout totalmente responsivo para diferentes dispositivos.',
+    description: 'Landing page institucional que apresenta o portfólio de produtos financeiros da empresa de forma clara e transmite credibilidade para converter visitantes em contatos. Carregamento rápido, design moderno e 100% responsiva em qualquer dispositivo.',
     image: '/images/page.png',
     technologies: ['TypeScript', 'Next.js', 'React', 'Material-UI', 'CSS-in-JS'],
     githubUrl: '',
@@ -44,9 +48,10 @@ const projects = [
   },
   {
     id: 2,
+    category: 'site',
     title: 'Voe Soluções Financeiras | Landing Page',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Landing page institucional responsiva desenvolvida para empresa do setor financeiro. Apresenta portfólio completo de produtos financeiros com design moderno e interface intuitiva. Implementação com componentes reutilizáveis e layout totalmente responsivo para diferentes dispositivos.',
+    description: 'Landing page institucional para empresa do setor financeiro, pensada para gerar credibilidade e novos contatos. Interface intuitiva, rápida e totalmente responsiva, construída com componentes reutilizáveis para fácil manutenção.',
     image: '/images/Voe.png',
     technologies: ['TypeScript', 'Next.js', 'React', 'Material-UI', 'CSS-in-JS'],
     githubUrl: '',
@@ -55,7 +60,44 @@ const projects = [
     featured: true,
   },
   {
+    id: 11,
+    category: 'bi',
+    title: 'Painel Comercial (BI)',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Dashboard comercial estratégico com KPIs de faturamento, meta, ticket médio e vendas por canal — do modelo de dados às visualizações. Transforma dados brutos da operação em indicadores claros para decisão. Demonstração com dados fictícios (projeto real sob confidencialidade).',
+    image: '/images/bi-dashboard-demo.svg',
+    technologies: ['Power BI', 'SQL', 'DAX', 'ETL', 'Modelagem de Dados'],
+    githubUrl: '',
+    isDemo: true,
+    featured: true,
+  },
+  {
+    id: 12,
+    category: 'bi',
+    title: 'Painel Financeiro (BI)',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Dashboard financeiro com receita, custos, lucro e margem. Destaque para o gráfico waterfall, que mostra a composição do resultado (da receita ao lucro líquido), e o medidor de meta de faturamento. Demonstração com dados fictícios.',
+    image: '/images/bi-financeiro-demo.svg',
+    technologies: ['Power BI', 'SQL', 'DAX', 'Modelagem de Dados'],
+    githubUrl: '',
+    isDemo: true,
+    featured: true,
+  },
+  {
+    id: 13,
+    category: 'bi',
+    title: 'Painel de Marketing & Growth (BI)',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Dashboard de marketing com funil de conversão (visitantes → leads → clientes), ROI por canal, CAC e origem do tráfego. Transforma dados de aquisição em decisões de investimento. Demonstração com dados fictícios.',
+    image: '/images/bi-marketing-demo.svg',
+    technologies: ['Power BI', 'SQL', 'DAX', 'ETL'],
+    githubUrl: '',
+    isDemo: true,
+    featured: true,
+  },
+  {
     id: 3,
+    category: 'pessoal',
     title: 'SoundPad',
     // eslint-disable-next-line @stylistic/max-len
     description: '🔊 DJ JPZINNN - Meme Sound Pad. Um Sound Pad de memes feito com HTML, CSS e JavaScript, com botões que tocam áudios engraçados da internet! Possui 4 estilos de temas, todos com opção escuro e claro.',
@@ -67,6 +109,7 @@ const projects = [
   },
   {
     id: 4,
+    category: 'pessoal',
     title: 'JotaLives',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma completa para exibição de clipes de live desenvolvida com React e Next.js. Oferece interface elegante com Material-UI, design futurístico com gradientes CSS e animações. Integra backend com API Routes e armazenamento JSON para gerenciamento dos clipes e conteúdo das lives.',
@@ -79,6 +122,7 @@ const projects = [
   },
   {
     id: 5,
+    category: 'pessoal',
     title: 'Aim_Training',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Treino de Habilidades - Mira, Movimentação e Controle. Um aplicativo web interativo para treino de habilidades em jogos, focado em três aspectos fundamentais: mira, movimentação e controle. Desenvolvido para gamers.',
@@ -90,6 +134,7 @@ const projects = [
   },
   {
     id: 6,
+    category: 'sistema',
     title: 'JotaPeTech',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma moderna desenvolvida em Next.js focada em Server-Side Rendering (SSR) e desenvolvimento de aplicações web inovadoras. Oferece listagem de posts com paginação, renderização otimizada do lado do servidor e integração com APIs modernas.',
@@ -100,6 +145,7 @@ const projects = [
   },
   {
     id: 7,
+    category: 'sistema',
     title: 'Catálogo de Livros e Filmes',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Sistema web completo desenvolvido em Java para catalogar e gerenciar livros e filmes. Implementa CRUD completo com Servlets, JSP, JDBC e MySQL. Inclui busca avançada, validações frontend/backend e proteção contra SQL Injection usando PreparedStatement. Projeto acadêmico (ABP) focado em boas práticas de segurança e arquitetura MVC.',
@@ -111,6 +157,7 @@ const projects = [
   },
   {
     id: 8,
+    category: 'sistema',
     title: 'Sample - API Rest Typescript com MongoDB e Swagger openAPI',
     // eslint-disable-next-line @stylistic/max-len
     description: 'API RESTful completa desenvolvida em TypeScript com MongoDB e documentação Swagger OpenAPI. Implementa autenticação JWT, criptografia de senhas com Bcrypt e padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
@@ -121,6 +168,7 @@ const projects = [
   },
   {
     id: 9,
+    category: 'sistema',
     title: 'Livraria Digital',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Plataforma completa de livraria online desenvolvida com stack full-stack. Combina interface React moderna com backend Node.js robusto, autenticação JWT, banco de dados MongoDB e templates dinâmicos EJS para uma experiência de compra completa.',
@@ -131,6 +179,7 @@ const projects = [
   },
   {
     id: 10,
+    category: 'sistema',
     title: 'Sample - API Node.js com Sequelize',
     // eslint-disable-next-line @stylistic/max-len
     description: 'API RESTful robusta desenvolvida em Node.js com Sequelize ORM para gerenciamento de banco de dados. Implementa padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
@@ -141,9 +190,22 @@ const projects = [
   },
 ];
 
+const filters = [
+  { value: 'all', labelKey: 'filterAll' },
+  { value: 'sistema', labelKey: 'filterSystems' },
+  { value: 'site', labelKey: 'filterSites' },
+  { value: 'bi', labelKey: 'filterData' },
+  { value: 'pessoal', labelKey: 'filterPersonal' },
+];
+
 export default function ProjetosPage() {
   const { t } = useLanguage();
   const [expandedTechs, setExpandedTechs] = useState<number[]>([]);
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter((p) => p.category === activeFilter);
 
   const toggleTechs = (projectId: number) => {
     setExpandedTechs((prev) => 
@@ -229,8 +291,49 @@ export default function ProjetosPage() {
           </Typography>
         </Box>
 
+        {/* Filter tabs */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 5 }}>
+          <ToggleButtonGroup
+            value={activeFilter}
+            exclusive
+            onChange={(_, val) => val && setActiveFilter(val)}
+            sx={{
+              flexWrap: 'wrap',
+              gap: 1,
+              '& .MuiToggleButton-root': {
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '50px !important',
+                color: 'rgba(255, 255, 255, 0.7)',
+                textTransform: 'none',
+                fontWeight: 600,
+                px: 2.5,
+                py: 0.75,
+                fontSize: '0.9rem',
+                '&.Mui-selected': {
+                  background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(255, 107, 107, 0.15) 100%)',
+                  borderColor: 'rgba(0, 212, 255, 0.5)',
+                  color: '#00d4ff',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.28) 0%, rgba(255, 107, 107, 0.2) 100%)',
+                  },
+                },
+                '&:hover': {
+                  borderColor: 'rgba(0, 212, 255, 0.3)',
+                  color: '#00d4ff',
+                },
+              },
+            }}
+          >
+            {filters.map((f) => (
+              <ToggleButton key={f.value} value={f.value}>
+                {t(f.labelKey)}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Box>
+
         <Grid container spacing={3}>
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <Grid 
               item 
               xs={12} 
@@ -454,22 +557,24 @@ export default function ProjetosPage() {
                         Código
                       </Button>
                     ) : (
-                      <Button
-                        variant="outlined"
-                        size="medium"
-                        disabled
-                        startIcon={<GitHub />}
-                        sx={{ 
+                      <Box
+                        sx={{
                           flex: 1,
-                          borderColor: 'rgba(255, 255, 255, 0.1)',
-                          color: 'rgba(255, 255, 255, 0.4)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: 0.75,
+                          py: 1,
                           borderRadius: '10px',
-                          textTransform: 'none',
+                          border: '1px dashed rgba(255, 255, 255, 0.15)',
+                          color: 'rgba(255, 255, 255, 0.55)',
+                          fontSize: '0.85rem',
                           fontWeight: 600,
                         }}
                       >
-                        {project.githubLabel || 'Privado'}
-                      </Button>
+                        <Lock sx={{ fontSize: '1rem' }} />
+                        {project.isDemo ? t('demoLabel') : t('privateCode')}
+                      </Box>
                     )}
                     
                     {project.liveUrl && (

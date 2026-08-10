@@ -15,16 +15,19 @@ const translations = {
     // Navbar
     home: 'Início',
     about: 'Sobre',
+    services: 'Serviços',
     projects: 'Projetos',
     contact: 'Contato',
-    
+
     // Hero Section
     hello: 'Olá, eu sou',
     name: 'João Pedro Santana',
     role: 'Desenvolvedor Pleno Full Stack',
     // eslint-disable-next-line @stylistic/max-len
     heroDescription: 'Desenvolvedor Full Stack Pleno com expertise em Back-End, Front-End e Análise de Dados. Criando soluções digitais completas, robustas e escaláveis com foco em APIs, dashboards e arquiteturas modernas.',
+    heroAvailable: 'Disponível para freelance e contratos PJ (mensal/anual)',
     viewProjects: 'Ver Projetos',
+    requestQuote: 'Solicitar Orçamento',
     downloadCV: 'Download CV',
     
     // About Page
@@ -113,8 +116,17 @@ const translations = {
     email_field: 'Email',
     subject: 'Assunto',
     message: 'Mensagem',
-    sendButton: 'Enviar Mensagem',
-    messageSent: 'Mensagem enviada com sucesso!',
+    sendButton: 'Enviar mensagem',
+    sending: 'Enviando...',
+    messageSent: 'Mensagem enviada! Retorno em breve. 🙌',
+    sendError: 'Não consegui enviar agora. Tente pelo WhatsApp.',
+    fallbackWhatsapp: 'Email indisponível — te levei pro WhatsApp.',
+    orText: 'ou',
+    projectTypeLabel: 'Tipo de projeto',
+    projectTypeSystem: 'Sistema / Software',
+    projectTypeSite: 'Site / Landing Page',
+    projectTypeData: 'BI & Dados',
+    projectTypeOther: 'Outro / Ainda não sei',
     
     // Projects
     myProjects: 'Meus Projetos',
@@ -125,6 +137,67 @@ const translations = {
     viewGithub: 'Ver GitHub',
     featured: 'Destaque',
     
+    // Skill levels
+    junior: 'Júnior',
+    pleno: 'Pleno',
+    senior: 'Sênior',
+
+    // Services
+    servicesTag: 'Serviços',
+    servicesTitle: 'Como posso ajudar a sua empresa',
+    // eslint-disable-next-line @stylistic/max-len
+    servicesSubtitle: 'Do back-end ao dashboard: soluções digitais completas, sob medida e escaláveis para o seu negócio.',
+    serviceSystemsTitle: 'Sistemas Sob Medida',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceSystemsDesc: 'Sistemas web completos para empresas: painéis administrativos, automações, integrações e APIs robustas — do banco de dados à interface.',
+    serviceFrontTitle: 'Sites & Landing Pages',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceFrontDesc: 'Sites institucionais e landing pages modernas, rápidas e responsivas, com foco em conversão e ótima experiência em qualquer dispositivo.',
+    serviceDataTitle: 'BI & Análise de Dados',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceDataDesc: 'Dashboards estratégicos em Power BI, modelagem de dados e relatórios que transformam números em decisões para o seu negócio.',
+    servicesCtaTitle: 'Tem um projeto em mente?',
+    // eslint-disable-next-line @stylistic/max-len
+    servicesCtaDesc: 'Me conte o que precisa e eu retorno com uma proposta sem compromisso.',
+    talkOnWhatsapp: 'Chamar no WhatsApp',
+
+    // Process / Como funciona
+    processTag: 'Como funciona',
+    processTitle: 'Simples e sem complicação',
+    processSubtitle: 'Do primeiro "oi" até a entrega, você acompanha cada etapa de perto.',
+    step1Title: 'Conversa inicial',
+    step1Desc: 'Entendo sua necessidade numa conversa rápida e sem compromisso.',
+    step2Title: 'Proposta & escopo',
+    step2Desc: 'Envio uma proposta clara, com prazo e valor definidos. Sem surpresas.',
+    step3Title: 'Desenvolvimento',
+    step3Desc: 'Coloco a mão na massa com atualizações frequentes do progresso.',
+    step4Title: 'Entrega & suporte',
+    step4Desc: 'Entrego tudo funcionando e ofereço suporte após a entrega.',
+    freeFirstTalk: 'A primeira conversa é sempre gratuita',
+
+    // Testimonials
+    testimonialsTag: 'Depoimentos',
+    testimonialsTitle: 'O que dizem sobre meu trabalho',
+    testimonialsSubtitle: 'A confiança de quem já trabalhou comigo é meu melhor portfólio.',
+
+    // Project filters
+    filterAll: 'Todos',
+    filterSystems: 'Sistemas',
+    filterSites: 'Sites',
+    filterData: 'BI & Dados',
+    filterPersonal: 'Pessoais',
+    privateCode: 'Código privado',
+    demoLabel: 'Demonstração',
+
+    // About stats
+    statsExperience: 'Anos de experiência',
+    statsProjects: 'Projetos entregues',
+    statsTech: 'Tecnologias',
+
+    // Generic CTA
+    letsWorkTitle: 'Vamos trabalhar juntos?',
+    letsWorkDesc: 'Tem um projeto ou uma ideia em mente? Me chame e vamos tirar do papel.',
+
     // Common
     translate: 'Translate to English',
   },
@@ -132,16 +205,19 @@ const translations = {
     // Navbar
     home: 'Home',
     about: 'About',
+    services: 'Services',
     projects: 'Projects',
     contact: 'Contact',
-    
+
     // Hero Section
     hello: 'Hello, I am',
     name: 'João Pedro Santana',
     role: 'Senior Full Stack Developer',
     // eslint-disable-next-line @stylistic/max-len
     heroDescription: 'Senior Full Stack Developer with expertise in Back-End, Front-End and Data Analysis. Creating complete, robust and scalable digital solutions focused on APIs, dashboards and modern architectures.',
+    heroAvailable: 'Available for freelance & contract work (monthly/yearly)',
     viewProjects: 'View Projects',
+    requestQuote: 'Request a Quote',
     downloadCV: 'Download CV',
     
     // About Page
@@ -230,8 +306,17 @@ const translations = {
     email_field: 'Email',
     subject: 'Subject',
     message: 'Message',
-    sendButton: 'Send Message',
-    messageSent: 'Message sent successfully!',
+    sendButton: 'Send message',
+    sending: 'Sending...',
+    messageSent: 'Message sent! I\'ll reply soon. 🙌',
+    sendError: 'Could not send right now. Try WhatsApp.',
+    fallbackWhatsapp: 'Email unavailable — opening WhatsApp.',
+    orText: 'or',
+    projectTypeLabel: 'Project type',
+    projectTypeSystem: 'System / Software',
+    projectTypeSite: 'Website / Landing Page',
+    projectTypeData: 'BI & Data',
+    projectTypeOther: 'Other / Not sure yet',
     
     // Projects
     myProjects: 'My Projects',
@@ -242,19 +327,70 @@ const translations = {
     viewGithub: 'View GitHub',
     featured: 'Featured',
     
-    // Common
-    translate: 'Traduzir para Português',
-    
     // Skill levels
     junior: 'Junior',
     pleno: 'Intermediate',
     senior: 'Senior',
-  },
 
-  // Skill levels for PT
-  junior: 'Júnior',
-  pleno: 'Pleno',
-  senior: 'Sênior',
+    // Services
+    servicesTag: 'Services',
+    servicesTitle: 'How I can help your business',
+    // eslint-disable-next-line @stylistic/max-len
+    servicesSubtitle: 'From back-end to dashboard: complete, tailor-made and scalable digital solutions for your business.',
+    serviceSystemsTitle: 'Custom Systems',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceSystemsDesc: 'Complete web systems for companies: admin panels, automations, integrations and robust APIs — from the database to the interface.',
+    serviceFrontTitle: 'Websites & Landing Pages',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceFrontDesc: 'Modern, fast and responsive institutional websites and landing pages, focused on conversion and a great experience on any device.',
+    serviceDataTitle: 'BI & Data Analysis',
+    // eslint-disable-next-line @stylistic/max-len
+    serviceDataDesc: 'Strategic Power BI dashboards, data modeling and reports that turn numbers into decisions for your business.',
+    servicesCtaTitle: 'Have a project in mind?',
+    // eslint-disable-next-line @stylistic/max-len
+    servicesCtaDesc: 'Tell me what you need and I\'ll get back to you with a no-obligation proposal.',
+    talkOnWhatsapp: 'Chat on WhatsApp',
+
+    // Process / How it works
+    processTag: 'How it works',
+    processTitle: 'Simple and hassle-free',
+    processSubtitle: 'From the first "hi" to delivery, you follow every step closely.',
+    step1Title: 'First chat',
+    step1Desc: 'I understand your needs in a quick, no-obligation conversation.',
+    step2Title: 'Proposal & scope',
+    step2Desc: 'I send a clear proposal with a defined timeline and price. No surprises.',
+    step3Title: 'Development',
+    step3Desc: 'I get to work with frequent progress updates.',
+    step4Title: 'Delivery & support',
+    step4Desc: 'I deliver everything working and offer post-delivery support.',
+    freeFirstTalk: 'The first conversation is always free',
+
+    // Testimonials
+    testimonialsTag: 'Testimonials',
+    testimonialsTitle: 'What people say about my work',
+    testimonialsSubtitle: 'The trust of those who have worked with me is my best portfolio.',
+
+    // Project filters
+    filterAll: 'All',
+    filterSystems: 'Systems',
+    filterSites: 'Websites',
+    filterData: 'BI & Data',
+    filterPersonal: 'Personal',
+    privateCode: 'Private code',
+    demoLabel: 'Demo',
+
+    // About stats
+    statsExperience: 'Years of experience',
+    statsProjects: 'Projects delivered',
+    statsTech: 'Technologies',
+
+    // Generic CTA
+    letsWorkTitle: 'Let\'s work together?',
+    letsWorkDesc: 'Got a project or an idea in mind? Reach out and let\'s make it happen.',
+
+    // Common
+    translate: 'Traduzir para Português',
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

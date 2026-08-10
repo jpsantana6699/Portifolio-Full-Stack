@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#0a0e14"/>
+  </linearGradient>
+  <linearGradient id="barC" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0" stop-color="#0096cc"/><stop offset="1" stop-color="#00d4ff"/>
+  </linearGradient>
+  <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#00d4ff" stop-opacity="0.35"/><stop offset="1" stop-color="#00d4ff" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="640" rx="0" fill="url(#bg)" />
+<g>
+<rect x="28" y="24" width="34" height="34" rx="9" fill="#00d4ff"/>
+<path d="M37 48 L45 32 L53 48 Z" fill="#0d1117"/>
+<text x="74" y="40" font-family="Inter, Segoe UI, sans-serif" font-size="20" fill="#e6edf3" font-weight="800" text-anchor="start">Nexus Analytics</text>
+<text x="74" y="58" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#8b949e" font-weight="500" text-anchor="start">Painel Comercial — visão geral</text>
+<rect x="950" y="30" width="150" height="30" rx="15" fill="#1c2230" stroke="#2a2f3a"/>
+<text x="967" y="50" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#e6edf3" font-weight="600" text-anchor="start">Jan — Dez 2025</text>
+<circle cx="1140" cy="45" r="18" fill="#1c2230" stroke="#2a2f3a"/>
+<text x="1140" y="50" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#00d4ff" font-weight="700" text-anchor="middle">JP</text>
+</g>
+<rect x="28" y="82" width="272" height="104" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<rect x="28" y="82" width="4" height="104" rx="2" fill="#00d4ff"/>
+<text x="50" y="112" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#8b949e" font-weight="600" text-anchor="start">Faturamento</text>
+<text x="50" y="148" font-family="Inter, Segoe UI, sans-serif" font-size="27" fill="#e6edf3" font-weight="800" text-anchor="start">R$ 1,84 Mi</text>
+<text x="50" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#3fb950" font-weight="700" text-anchor="start">▲ +12,4%</text>
+<text x="278" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#8b949e" font-weight="500" text-anchor="end">vs. mês ant.</text>
+<rect x="316" y="82" width="272" height="104" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<rect x="316" y="82" width="4" height="104" rx="2" fill="#00d4ff"/>
+<text x="338" y="112" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#8b949e" font-weight="600" text-anchor="start">Meta atingida</text>
+<text x="338" y="148" font-family="Inter, Segoe UI, sans-serif" font-size="27" fill="#e6edf3" font-weight="800" text-anchor="start">92%</text>
+<text x="338" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#3fb950" font-weight="700" text-anchor="start">▲ +5,0 p.p.</text>
+<text x="566" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#8b949e" font-weight="500" text-anchor="end">vs. mês ant.</text>
+<rect x="604" y="82" width="272" height="104" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<rect x="604" y="82" width="4" height="104" rx="2" fill="#00d4ff"/>
+<text x="626" y="112" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#8b949e" font-weight="600" text-anchor="start">Ticket médio</text>
+<text x="626" y="148" font-family="Inter, Segoe UI, sans-serif" font-size="27" fill="#e6edf3" font-weight="800" text-anchor="start">R$ 3.240</text>
+<text x="626" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#3fb950" font-weight="700" text-anchor="start">▲ +4,1%</text>
+<text x="854" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#8b949e" font-weight="500" text-anchor="end">vs. mês ant.</text>
+<rect x="892" y="82" width="272" height="104" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<rect x="892" y="82" width="4" height="104" rx="2" fill="#ff6b6b"/>
+<text x="914" y="112" font-family="Inter, Segoe UI, sans-serif" font-size="12.5" fill="#8b949e" font-weight="600" text-anchor="start">Nº de vendas</text>
+<text x="914" y="148" font-family="Inter, Segoe UI, sans-serif" font-size="27" fill="#e6edf3" font-weight="800" text-anchor="start">568</text>
+<text x="914" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#ff6b6b" font-weight="700" text-anchor="start">▼ -2,3%</text>
+<text x="1142" y="172" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#8b949e" font-weight="500" text-anchor="end">vs. mês ant.</text>
+<rect x="28" y="206" width="620" height="300" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<text x="50" y="238" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">Vendas por mês</text>
+<text x="50" y="258" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="500" text-anchor="start">R$ mil</text>
+<line x1="68" y1="276" x2="628" y2="276" stroke="#2a2f3a" stroke-width="1"/>
+<text x="62" y="280" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="end">250</text>
+<line x1="68" y1="325" x2="628" y2="325" stroke="#2a2f3a" stroke-width="1"/>
+<text x="62" y="329" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="end">188</text>
+<line x1="68" y1="374" x2="628" y2="374" stroke="#2a2f3a" stroke-width="1"/>
+<text x="62" y="378" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="end">125</text>
+<line x1="68" y1="423" x2="628" y2="423" stroke="#2a2f3a" stroke-width="1"/>
+<text x="62" y="427" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="end">63</text>
+<line x1="68" y1="472" x2="628" y2="472" stroke="#2a2f3a" stroke-width="1"/>
+<text x="62" y="476" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="end">0</text>
+<rect x="80.33333333333333" y="377.92" width="22" height="94.08" rx="5" fill="url(#barC)" />
+<text x="91.33333333333333" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Jan</text>
+<rect x="126.99999999999999" y="358.32" width="22" height="113.67999999999999" rx="5" fill="url(#barC)" />
+<text x="138" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Fev</text>
+<rect x="173.66666666666666" y="368.512" width="22" height="103.488" rx="5" fill="url(#barC)" />
+<text x="184.66666666666666" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Mar</text>
+<rect x="220.33333333333334" y="340.288" width="22" height="131.71200000000002" rx="5" fill="url(#barC)" />
+<text x="231.33333333333334" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Abr</text>
+<rect x="267" y="350.48" width="22" height="121.52" rx="5" fill="url(#barC)" />
+<text x="278" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Mai</text>
+<rect x="313.66666666666663" y="329.312" width="22" height="142.688" rx="5" fill="url(#barC)" />
+<text x="324.66666666666663" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Jun</text>
+<rect x="360.3333333333333" y="334.016" width="22" height="137.98399999999998" rx="5" fill="url(#barC)" />
+<text x="371.3333333333333" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Jul</text>
+<rect x="406.99999999999994" y="319.12" width="22" height="152.88" rx="5" fill="url(#barC)" />
+<text x="417.99999999999994" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Ago</text>
+<rect x="453.66666666666663" y="324.608" width="22" height="147.392" rx="5" fill="url(#barC)" />
+<text x="464.66666666666663" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Set</text>
+<rect x="500.3333333333333" y="307.36" width="22" height="164.64" rx="5" fill="url(#barC)" />
+<text x="511.3333333333333" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Out</text>
+<rect x="547" y="316.76800000000003" width="22" height="155.232" rx="5" fill="url(#barC)" />
+<text x="558" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Nov</text>
+<rect x="593.6666666666666" y="290.11199999999997" width="22" height="181.888" rx="5" fill="url(#barC)" />
+<text x="604.6666666666666" y="490" font-family="Inter, Segoe UI, sans-serif" font-size="10" fill="#8b949e" font-weight="500" text-anchor="middle">Dez</text>
+<rect x="664" y="206" width="268" height="300" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<text x="686" y="238" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">Vendas por canal</text>
+<circle cx="746" cy="334" r="54" fill="none" stroke="#00d4ff" stroke-width="26" stroke-dasharray="142.502642766833 196.78936382086465" stroke-dashoffset="0" transform="rotate(-90 746 334)"/>
+<circle cx="746" cy="334" r="54" fill="none" stroke="#ff6b6b" stroke-width="26" stroke-dasharray="95.00176184455535 244.2902447431423" stroke-dashoffset="-142.502642766833" transform="rotate(-90 746 334)"/>
+<circle cx="746" cy="334" r="54" fill="none" stroke="#b06ff0" stroke-width="26" stroke-dasharray="61.072561185785574 278.2194454019121" stroke-dashoffset="-237.50440461138834" transform="rotate(-90 746 334)"/>
+<circle cx="746" cy="334" r="54" fill="none" stroke="#3fb950" stroke-width="26" stroke-dasharray="40.715040790523716 298.5769657971739" stroke-dashoffset="-298.5769657971739" transform="rotate(-90 746 334)"/>
+<text x="746" y="332" font-family="Inter, Segoe UI, sans-serif" font-size="22" fill="#e6edf3" font-weight="800" text-anchor="middle">568</text>
+<text x="746" y="350" font-family="Inter, Segoe UI, sans-serif" font-size="11" fill="#8b949e" font-weight="500" text-anchor="middle">vendas</text>
+<rect x="822" y="272" width="12" height="12" rx="3" fill="#00d4ff" />
+<text x="842" y="283" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" text-anchor="start">Digital</text>
+<text x="914" y="283" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#8b949e" font-weight="700" text-anchor="end">42%</text>
+<rect x="822" y="302" width="12" height="12" rx="3" fill="#ff6b6b" />
+<text x="842" y="313" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" text-anchor="start">Parceiros</text>
+<text x="914" y="313" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#8b949e" font-weight="700" text-anchor="end">28%</text>
+<rect x="822" y="332" width="12" height="12" rx="3" fill="#b06ff0" />
+<text x="842" y="343" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" text-anchor="start">Loja</text>
+<text x="914" y="343" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#8b949e" font-weight="700" text-anchor="end">18%</text>
+<rect x="822" y="362" width="12" height="12" rx="3" fill="#3fb950" />
+<text x="842" y="373" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#e6edf3" font-weight="600" text-anchor="start">Telefone</text>
+<text x="914" y="373" font-family="Inter, Segoe UI, sans-serif" font-size="12" fill="#8b949e" font-weight="700" text-anchor="end">12%</text>
+<rect x="948" y="206" width="224" height="300" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<text x="970" y="238" font-family="Inter, Segoe UI, sans-serif" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="start">Top categorias</text>
+<text x="970" y="266" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="600" text-anchor="start">Categoria A</text>
+<rect x="970" y="274" width="180" height="12" rx="6" fill="#1c2230" />
+<rect x="970" y="274" width="180" height="12" rx="6" fill="#00d4ff" />
+<text x="970" y="312" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="600" text-anchor="start">Categoria B</text>
+<rect x="970" y="320" width="180" height="12" rx="6" fill="#1c2230" />
+<rect x="970" y="320" width="147.6" height="12" rx="6" fill="#00d4ff" />
+<text x="970" y="358" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="600" text-anchor="start">Categoria C</text>
+<rect x="970" y="366" width="180" height="12" rx="6" fill="#1c2230" />
+<rect x="970" y="366" width="115.2" height="12" rx="6" fill="#ff6b6b" />
+<text x="970" y="404" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="600" text-anchor="start">Categoria D</text>
+<rect x="970" y="412" width="180" height="12" rx="6" fill="#1c2230" />
+<rect x="970" y="412" width="86.39999999999999" height="12" rx="6" fill="#b06ff0" />
+<text x="970" y="450" font-family="Inter, Segoe UI, sans-serif" font-size="11.5" fill="#8b949e" font-weight="600" text-anchor="start">Categoria E</text>
+<rect x="970" y="458" width="180" height="12" rx="6" fill="#1c2230" />
+<rect x="970" y="458" width="62.99999999999999" height="12" rx="6" fill="#3fb950" />
+<rect x="28" y="522" width="1144" height="96" rx="14" fill="#161b22" stroke="#2a2f3a"/>
+<text x="50" y="548" font-family="Inter, Segoe UI, sans-serif" font-size="13.5" fill="#e6edf3" font-weight="700" text-anchor="start">Tendência de faturamento</text>
+<path d="M52.0 581.9 L151.6 578.6 L251.3 580.1 L350.9 575.5 L450.5 576.8 L550.2 572.7 L649.8 573.6 L749.5 569.4 L849.1 570.9 L948.7 566.3 L1048.4 567.9 L1148.0 562.0 L1148 604 L52 604 Z" fill="url(#area)"/>
+<path d="M52.0 581.9 L151.6 578.6 L251.3 580.1 L350.9 575.5 L450.5 576.8 L550.2 572.7 L649.8 573.6 L749.5 569.4 L849.1 570.9 L948.7 566.3 L1048.4 567.9 L1148.0 562.0" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="52.0" cy="581.9" r="2.6" fill="#00d4ff"/>
+<circle cx="151.6" cy="578.6" r="2.6" fill="#00d4ff"/>
+<circle cx="251.3" cy="580.1" r="2.6" fill="#00d4ff"/>
+<circle cx="350.9" cy="575.5" r="2.6" fill="#00d4ff"/>
+<circle cx="450.5" cy="576.8" r="2.6" fill="#00d4ff"/>
+<circle cx="550.2" cy="572.7" r="2.6" fill="#00d4ff"/>
+<circle cx="649.8" cy="573.6" r="2.6" fill="#00d4ff"/>
+<circle cx="749.5" cy="569.4" r="2.6" fill="#00d4ff"/>
+<circle cx="849.1" cy="570.9" r="2.6" fill="#00d4ff"/>
+<circle cx="948.7" cy="566.3" r="2.6" fill="#00d4ff"/>
+<circle cx="1048.4" cy="567.9" r="2.6" fill="#00d4ff"/>
+<circle cx="1148.0" cy="562.0" r="2.6" fill="#00d4ff"/>
+</svg>

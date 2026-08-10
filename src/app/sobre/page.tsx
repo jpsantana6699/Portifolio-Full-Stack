@@ -2,28 +2,31 @@
 
 import { useState } from 'react';
 // eslint-disable-next-line sort-imports
-import { 
-  ArrowDropDown, 
-  ArrowDropUp, 
-  BarChart, 
-  Build, 
-  Code, 
-  School, 
-  Storage, 
-  Web, 
+import {
+  ArrowDropDown,
+  ArrowDropUp,
+  BarChart,
+  Build,
+  Code,
+  School,
+  Send,
+  Storage,
+  Web,
   Work,
 } from '@mui/icons-material';
-import { 
+import {
   Avatar,
-  Box, 
+  Box,
+  Button,
   Card,
-  Chip, 
+  Chip,
   Collapse,
-  Container, 
-  Grid, 
+  Container,
+  Grid,
   IconButton,
-  Typography, 
+  Typography,
 } from '@mui/material';
+import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const skillsCategories = {
@@ -167,7 +170,36 @@ export default function SobrePage() {
           </Typography>
         </Box>
 
-        {/* Projetos em destaque removidos daqui. Veja page de projetos. */}
+        {/* Stats / credibilidade */}
+        <Grid container spacing={2} sx={{ mb: 5 }} className="animate-fade-in-up">
+          {[
+            { value: '+3', labelKey: 'statsExperience' },
+            { value: '+10', labelKey: 'statsProjects' },
+            { value: '+20', labelKey: 'statsTech' },
+          ].map((stat) => (
+            <Grid item xs={12} sm={4} key={stat.labelKey}>
+              <Card className="glass-card" sx={{ p: 3, textAlign: 'center', borderRadius: '16px' }}>
+                <Typography
+                  sx={{
+                    fontSize: { xs: '2.25rem', md: '2.75rem' },
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    mb: 1,
+                    background: 'linear-gradient(135deg, #00d4ff 0%, #ff6b6b 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  {stat.value}
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>
+                  {t(stat.labelKey)}
+                </Typography>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
 
         <Grid container spacing={3}>
           {/* Profile Card */}
@@ -377,26 +409,22 @@ export default function SobrePage() {
                       <Storage color="primary" />
                       {t('backEnd')}
                     </Typography>
-                    {skillsCategories.backend.map((skill) => (
-                      <Box key={skill.name} sx={{ mb: 2 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                            {skill.name}
-                          </Typography>
-                          <Chip 
-                            label={t(skill.level)} 
-                            size="small"
-                            sx={{
-                              backgroundColor: getLevelColor(skill.level, 'backend'),
-                              color: '#000000',
-                              fontWeight: 'bold',
-                              fontSize: '0.75rem',
-                              border: '1px solid rgba(255, 255, 255, 0.2)',
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    ))}
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {skillsCategories.backend.map((skill) => (
+                        <Chip
+                          key={skill.name}
+                          label={skill.name}
+                          size="small"
+                          sx={{
+                            background: `${getLevelColor(skill.level, 'backend')}18`,
+                            border: `1px solid ${getLevelColor(skill.level, 'backend')}55`,
+                            color: getLevelColor(skill.level, 'backend'),
+                            fontWeight: 600,
+                            fontSize: '0.78rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
                   </Box>
                 </Grid>
 
@@ -416,26 +444,22 @@ export default function SobrePage() {
                       <Web color="secondary" />
                       {t('frontEnd')}
                     </Typography>
-                    {skillsCategories.frontend.map((skill) => (
-                      <Box key={skill.name} sx={{ mb: 2 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                            {skill.name}
-                          </Typography>
-                          <Chip 
-                            label={t(skill.level)} 
-                            size="small"
-                            sx={{
-                              backgroundColor: getLevelColor(skill.level, 'frontend'),
-                              color: '#000000',
-                              fontWeight: 'bold',
-                              fontSize: '0.75rem',
-                              border: '1px solid rgba(255, 255, 255, 0.2)',
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    ))}
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {skillsCategories.frontend.map((skill) => (
+                        <Chip
+                          key={skill.name}
+                          label={skill.name}
+                          size="small"
+                          sx={{
+                            background: `${getLevelColor(skill.level, 'frontend')}18`,
+                            border: `1px solid ${getLevelColor(skill.level, 'frontend')}55`,
+                            color: getLevelColor(skill.level, 'frontend'),
+                            fontWeight: 600,
+                            fontSize: '0.78rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
                   </Box>
                 </Grid>
 
@@ -455,26 +479,22 @@ export default function SobrePage() {
                       <BarChart sx={{ color: '#9c27b0' }} />
                       {t('dataBI')}
                     </Typography>
-                    {skillsCategories.dataBI.map((skill) => (
-                      <Box key={skill.name} sx={{ mb: 2 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                            {skill.name}
-                          </Typography>
-                          <Chip 
-                            label={t(skill.level)} 
-                            size="small"
-                            sx={{
-                              backgroundColor: getLevelColor(skill.level, 'dataBI'),
-                              color: '#000000',
-                              fontWeight: 'bold',
-                              fontSize: '0.75rem',
-                              border: '1px solid rgba(255, 255, 255, 0.2)',
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    ))}
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {skillsCategories.dataBI.map((skill) => (
+                        <Chip
+                          key={skill.name}
+                          label={skill.name}
+                          size="small"
+                          sx={{
+                            background: `${getLevelColor(skill.level, 'dataBI')}18`,
+                            border: `1px solid ${getLevelColor(skill.level, 'dataBI')}55`,
+                            color: getLevelColor(skill.level, 'dataBI'),
+                            fontWeight: 600,
+                            fontSize: '0.78rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
                   </Box>
                 </Grid>
 
@@ -494,26 +514,22 @@ export default function SobrePage() {
                       <Build color="success" />
                       {t('toolsOrms')}
                     </Typography>
-                    {skillsCategories.tools.map((skill) => (
-                      <Box key={skill.name} sx={{ mb: 2 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                            {skill.name}
-                          </Typography>
-                          <Chip 
-                            label={t(skill.level)} 
-                            size="small"
-                            sx={{
-                              backgroundColor: getLevelColor(skill.level, 'tools'),
-                              color: '#000000',
-                              fontWeight: 'bold',
-                              fontSize: '0.75rem',
-                              border: '1px solid rgba(255, 255, 255, 0.2)',
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    ))}
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {skillsCategories.tools.map((skill) => (
+                        <Chip
+                          key={skill.name}
+                          label={skill.name}
+                          size="small"
+                          sx={{
+                            background: `${getLevelColor(skill.level, 'tools')}18`,
+                            border: `1px solid ${getLevelColor(skill.level, 'tools')}55`,
+                            color: getLevelColor(skill.level, 'tools'),
+                            fontWeight: 600,
+                            fontSize: '0.78rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
                   </Box>
                 </Grid>
               </Grid>
@@ -756,6 +772,54 @@ export default function SobrePage() {
                   </Box>
                 </Box>
               </Box>
+            </Card>
+          </Grid>
+
+          {/* CTA */}
+          <Grid item xs={12}>
+            <Card
+              className="glass-card animate-scale-in"
+              sx={{
+                textAlign: 'center',
+                p: { xs: 4, md: 6 },
+                borderRadius: '24px',
+                border: '1px solid rgba(0, 212, 255, 0.25)',
+                background: 'rgba(0, 212, 255, 0.05)',
+              }}
+            >
+              <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5, fontSize: { xs: '1.6rem', md: '2rem' } }}>
+                {t('letsWorkTitle')}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ color: 'rgba(255, 255, 255, 0.7)', mb: 4, maxWidth: '600px', margin: '0 auto 32px auto' }}
+              >
+                {t('letsWorkDesc')}
+              </Typography>
+              <Button
+                component={Link}
+                href="/contato"
+                variant="contained"
+                size="large"
+                startIcon={<Send />}
+                className="modern-button"
+                sx={{
+                  background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1.05rem',
+                  borderRadius: '12px',
+                  textTransform: 'none',
+                  fontWeight: 600,
+                  boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                {t('requestQuote')}
+              </Button>
             </Card>
           </Grid>
         </Grid>
