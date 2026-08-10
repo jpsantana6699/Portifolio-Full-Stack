@@ -89,5 +89,29 @@ export const theme = createTheme({
         },
       },
     },
+    // Menus/dropdowns (ex.: Select "Tipo de projeto") precisam de fundo opaco,
+    // senão o conteúdo atrás vaza pela transparência do background.paper.
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#161b22',
+          backgroundImage: 'none',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: '0 12px 40px rgba(0, 0, 0, 0.6)',
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(0, 212, 255, 0.12)',
+          },
+          '&.Mui-selected': {
+            backgroundColor: 'rgba(0, 212, 255, 0.18)',
+          },
+        },
+      },
+    },
   },
 });

@@ -15,21 +15,21 @@ const testimonials = [
   {
     quote:
       'O João entregou nosso sistema interno antes do prazo e resolveu gargalos que travavam a equipe havia meses. Dedicado, comunicativo e fácil de trabalhar.',
-    name: 'Nome do seu chefe',
-    role: 'Gestor • Lev Negócios',
+    name: 'Adauto Junior',
+    role: 'Tech Lead • Lev Negócios',
     color: '#00d4ff',
   },
   {
     quote:
       'Trabalhar com o João é tranquilo: ele entende a necessidade do negócio, não só o código. As entregas vêm sempre testadas e bem documentadas.',
-    name: 'Nome de um colega',
+    name: 'Davi Lemos',
     role: 'Desenvolvedor • Colega de equipe',
     color: '#ff6b6b',
   },
   {
     quote:
       'Os dashboards que ele montou no Power BI mudaram a forma como tomamos decisões no dia a dia. Recomendo o trabalho dele de olhos fechados.',
-    name: 'Nome de um cliente',
+    name: 'Felipe Ramos',
     role: 'Operações',
     color: '#9c27b0',
   },
