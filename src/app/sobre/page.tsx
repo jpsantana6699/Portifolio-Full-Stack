@@ -14,6 +14,7 @@ import {
   Web,
   Work,
 } from '@mui/icons-material';
+import TouchApp from '@mui/icons-material/TouchApp';
 import {
   Avatar,
   Box,
@@ -67,7 +68,7 @@ const skillsCategories = {
 
 export default function SobrePage() {
   const { t } = useLanguage();
-  const [expandedStage, setExpandedStage] = useState<string | null>(null);
+  const [expandedStage, setExpandedStage] = useState<string | null>('fullstack');
 
   const handleToggleExpand = (stageId: string) => {
     setExpandedStage(expandedStage === stageId ? null : stageId);
@@ -546,16 +547,35 @@ export default function SobrePage() {
               
               {/* Career Timeline at Lev Negócios */}
               <Box sx={{ mb: 4, px: 2 }}>
-                <Typography variant="h6" gutterBottom sx={{ mb: 3 }}>
+                <Typography variant="h6" gutterBottom sx={{ mb: 1 }}>
                   {t('levNegocios')} • {t('levPeriod')}
                 </Typography>
+                <Box
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 0.75,
+                    mb: 3,
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: '50px',
+                    background: 'rgba(0, 212, 255, 0.1)',
+                    border: '1px solid rgba(0, 212, 255, 0.2)',
+                    color: '#66e4ff',
+                    fontSize: '0.8rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  <TouchApp sx={{ fontSize: '1rem' }} />
+                  {t('tapToExpand')}
+                </Box>
 
                 {/* Career Timeline */}
                 <Box sx={{ position: 'relative' }}>
                   {/* Vertical Timeline Line */}
                   <Box sx={{
                     position: 'absolute',
-                    left: '25px',
+                    left: '20px',
                     top: '10px',
                     bottom: '10px',
                     width: '2px',

@@ -54,7 +54,8 @@ const translations = {
     
     // Experience
     experience: 'Experiência',
-    
+    tapToExpand: 'Toque em cada etapa para ver os detalhes',
+
     // Experience entries
     levNegocios: 'Lev Negócios',
     levPeriod: 'Fev/2023 - Atual',
@@ -244,7 +245,8 @@ const translations = {
     
     // Experience
     experience: 'Experience',
-    
+    tapToExpand: 'Tap each step to see the details',
+
     // Experience entries
     levNegocios: 'Lev Negócios',
     levPeriod: 'Feb/2023 - Present',
