@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-// eslint-disable-next-line sort-imports
 import {
   ArrowDropDown,
   ArrowDropUp,
   BarChart,
   Build,
   Code,
+  Dns,
   School,
   Send,
   Storage,
@@ -31,38 +31,19 @@ import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const skillsCategories = {
-  backend: [
-    { name: 'Node.js', level: 'pleno' },
-    { name: 'Express', level: 'pleno' },
-    { name: 'TypeScript', level: 'pleno' },
-    { name: 'Python', level: 'junior' },
-    { name: 'SQL Server', level: 'pleno' },
-    { name: 'MySQL', level: 'pleno' },
-    { name: 'MongoDB', level: 'pleno' },
-  ],
-  frontend: [
-    { name: 'React.js', level: 'pleno' },
-    { name: 'Next.js', level: 'pleno' },
-    { name: 'JavaScript', level: 'pleno' },
-    { name: 'HTML/CSS', level: 'pleno' },
-    { name: 'Material-UI', level: 'pleno' },
-  ],
-  dataBI: [
-    { name: 'Power BI', level: 'pleno' },
-    { name: 'SQL', level: 'pleno' },
-    { name: 'DAX', level: 'pleno' },
-    { name: 'ETL', level: 'junior' },
-    { name: 'Data Analysis', level: 'pleno' },
-  ],
+  backend: ['Node.js', 'Express', 'TypeScript', 'JavaScript', 'Java', 'Python'],
+  database: ['SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB'],
+  frontend: ['React.js', 'Next.js', 'JavaScript', 'HTML/CSS', 'Material-UI'],
+  dataBI: ['Power BI', 'SQL', 'DAX', 'ETL', 'Data Analysis'],
   tools: [
-    { name: 'Git/GitHub', level: 'pleno' },
-    { name: 'Docker', level: 'pleno' },
-    { name: 'Postman', level: 'pleno' },
-    { name: 'Jest', level: 'pleno' },
-    { name: 'Swagger', level: 'pleno' },
-    { name: 'Sequelize', level: 'pleno' },
-    { name: 'TypeORM', level: 'pleno' },
-    { name: 'Prisma', level: 'pleno' },
+    'Git/GitHub',
+    'Docker',
+    'Postman',
+    'Jest',
+    'Swagger',
+    'Sequelize',
+    'TypeORM',
+    'Prisma',
   ],
 };
 
@@ -74,12 +55,15 @@ export default function SobrePage() {
     setExpandedStage(expandedStage === stageId ? null : stageId);
   };
   
-  const getLevelColor = (level: string, category: string) => {
+  const getCategoryColor = (category: string) => {
     let baseColor = '';
-    
+
     switch (category) {
       case 'backend':
         baseColor = '#00d4ff';
+        break;
+      case 'database':
+        baseColor = '#ff9800';
         break;
       case 'frontend':
         baseColor = '#ff6b6b';
@@ -407,19 +391,54 @@ export default function SobrePage() {
                         gap: 1,
                       }}
                     >
-                      <Storage color="primary" />
+                      <Dns color="primary" />
                       {t('backEnd')}
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {skillsCategories.backend.map((skill) => (
                         <Chip
-                          key={skill.name}
-                          label={skill.name}
+                          key={skill}
+                          label={skill}
                           size="small"
                           sx={{
-                            background: `${getLevelColor(skill.level, 'backend')}18`,
-                            border: `1px solid ${getLevelColor(skill.level, 'backend')}55`,
-                            color: getLevelColor(skill.level, 'backend'),
+                            background: `${getCategoryColor('backend')}18`,
+                            border: `1px solid ${getCategoryColor('backend')}55`,
+                            color: getCategoryColor('backend'),
+                            fontWeight: 600,
+                            fontSize: '0.78rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                </Grid>
+
+                {/* Banco de Dados */}
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ mb: 3 }}>
+                    <Typography
+                      variant="h6"
+                      gutterBottom
+                      sx={{
+                        color: '#ff9800',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                      }}
+                    >
+                      <Storage sx={{ color: '#ff9800' }} />
+                      {t('database')}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {skillsCategories.database.map((skill) => (
+                        <Chip
+                          key={skill}
+                          label={skill}
+                          size="small"
+                          sx={{
+                            background: `${getCategoryColor('database')}18`,
+                            border: `1px solid ${getCategoryColor('database')}55`,
+                            color: getCategoryColor('database'),
                             fontWeight: 600,
                             fontSize: '0.78rem',
                           }}
@@ -448,13 +467,13 @@ export default function SobrePage() {
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {skillsCategories.frontend.map((skill) => (
                         <Chip
-                          key={skill.name}
-                          label={skill.name}
+                          key={skill}
+                          label={skill}
                           size="small"
                           sx={{
-                            background: `${getLevelColor(skill.level, 'frontend')}18`,
-                            border: `1px solid ${getLevelColor(skill.level, 'frontend')}55`,
-                            color: getLevelColor(skill.level, 'frontend'),
+                            background: `${getCategoryColor('frontend')}18`,
+                            border: `1px solid ${getCategoryColor('frontend')}55`,
+                            color: getCategoryColor('frontend'),
                             fontWeight: 600,
                             fontSize: '0.78rem',
                           }}
@@ -483,13 +502,13 @@ export default function SobrePage() {
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {skillsCategories.dataBI.map((skill) => (
                         <Chip
-                          key={skill.name}
-                          label={skill.name}
+                          key={skill}
+                          label={skill}
                           size="small"
                           sx={{
-                            background: `${getLevelColor(skill.level, 'dataBI')}18`,
-                            border: `1px solid ${getLevelColor(skill.level, 'dataBI')}55`,
-                            color: getLevelColor(skill.level, 'dataBI'),
+                            background: `${getCategoryColor('dataBI')}18`,
+                            border: `1px solid ${getCategoryColor('dataBI')}55`,
+                            color: getCategoryColor('dataBI'),
                             fontWeight: 600,
                             fontSize: '0.78rem',
                           }}
@@ -518,13 +537,13 @@ export default function SobrePage() {
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {skillsCategories.tools.map((skill) => (
                         <Chip
-                          key={skill.name}
-                          label={skill.name}
+                          key={skill}
+                          label={skill}
                           size="small"
                           sx={{
-                            background: `${getLevelColor(skill.level, 'tools')}18`,
-                            border: `1px solid ${getLevelColor(skill.level, 'tools')}55`,
-                            color: getLevelColor(skill.level, 'tools'),
+                            background: `${getCategoryColor('tools')}18`,
+                            border: `1px solid ${getCategoryColor('tools')}55`,
+                            color: getCategoryColor('tools'),
                             fontWeight: 600,
                             fontSize: '0.78rem',
                           }}

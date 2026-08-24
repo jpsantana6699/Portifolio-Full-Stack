@@ -48,6 +48,7 @@ const translations = {
     // Skills
     techStack: 'Stack Tecnológica',
     backEnd: 'Back-End',
+    database: 'Banco de Dados',
     frontEnd: 'Front-End',
     dataBI: 'Dados & BI',
     toolsOrms: 'Ferramentas & ORMs',
@@ -239,6 +240,7 @@ const translations = {
     // Skills
     techStack: 'Tech Stack',
     backEnd: 'Back-End',
+    database: 'Databases',
     frontEnd: 'Front-End',
     dataBI: 'Data & BI',
     toolsOrms: 'Tools & ORMs',
