@@ -24,7 +24,7 @@ const translations = {
     name: 'João Pedro Santana',
     role: 'Desenvolvedor Pleno Full Stack',
     // eslint-disable-next-line @stylistic/max-len
-    heroDescription: 'Desenvolvedor Full Stack Pleno com expertise em Back-End, Front-End e Análise de Dados. Criando soluções digitais completas, robustas e escaláveis com foco em APIs, dashboards e arquiteturas modernas.',
+    heroDescription: 'Trabalho na Lev Negócios criando os sistemas internos da empresa: APIs em Node.js, telas em Next.js, robôs de automação e dashboards. Também atendo projetos como freelancer.',
     heroAvailable: 'Disponível para freelance e contratos PJ (mensal/anual)',
     viewProjects: 'Ver Projetos',
     requestQuote: 'Solicitar Orçamento',
@@ -32,25 +32,26 @@ const translations = {
     
     // About Page
     aboutMe: 'Sobre Mim',
-    aboutSubtitle: 'Conheça um pouco mais sobre minha trajetória e paixão por tecnologia',
+    aboutSubtitle: 'Como saí da análise de dados e cheguei no desenvolvimento full stack.',
     myStory: 'Minha História',
-    // eslint-disable-next-line @stylistic/max-len
-    profileDescription: 'Desenvolvedor Pleno Full Stack com expertise em Back-End, Front-End e Análise de Dados | BI | APIs Robustas',
-    
+    profileDescription: 'Desenvolvedor Full Stack Pleno | APIs, sistemas web, automação RPA e BI',
+
     // About Story
     // eslint-disable-next-line @stylistic/max-len
-    storyPart1: 'Sou um Desenvolvedor Pleno Full Stack com experiência completa no ciclo de desenvolvimento de software, desde a concepção até a entrega. Minha jornada começou na área de dados como Analista de BI, evoluindo para o desenvolvimento back-end e posteriormente Full Stack, combinando análise de dados com desenvolvimento de aplicações robustas e escaláveis.',
+    storyPart1: 'Comecei em tecnologia pelos dados, como Analista de BI, montando dashboards no Power BI e consultas no SQL Server. Foi assim que entendi como a operação da empresa funciona por dentro, e quis passar a construir os sistemas que geram esses dados.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart2: 'No Back-End, domino Node.js, Express e TypeScript, trabalhando com bancos de dados SQL Server, MySQL e MongoDB. Utilizo ORMs como Sequelize, TypeORM e Prisma para modelagem de dados. No Front-End, desenvolvo interfaces modernas com React, Next.js e Material-UI. Na área de dados, crio dashboards estratégicos com Power BI e SQL para análises de negócio.',
+    storyPart2: 'Fui para o back-end e depois para o full stack. Hoje cuido da entrega inteira: a tela em Next.js, a API em Node.js e TypeScript, os robôs de automação, o banco de dados e o dashboard. Já fiz a API de operação, sistemas de débitos e de propostas e robôs que tiram trabalho repetitivo da equipe.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart3: 'Minha experiência multidisciplinar me permite atuar em todas as camadas da aplicação: desde a modelagem do banco de dados, desenvolvimento de APIs RESTful robustas, criação de interfaces intuitivas, até a construção de dashboards para análise de dados e tomada de decisão. Sempre busco aplicar as melhores práticas e entregar soluções de alta qualidade.',
-    
+    storyPart3: 'Antes de escrever código, procuro entender o que o pessoal da operação precisa. Prefiro a solução mais simples que funcione em produção, com validação, logs e deploy em Docker, e deixo tudo documentado para o próximo dev.',
+
+
     // Skills
     techStack: 'Stack Tecnológica',
     backEnd: 'Back-End',
     database: 'Banco de Dados',
     frontEnd: 'Front-End',
     dataBI: 'Dados & BI',
+    automation: 'Automação & RPA',
     toolsOrms: 'Ferramentas & ORMs',
     
     // Experience
@@ -66,32 +67,24 @@ const translations = {
     // Career Timeline
     dataAnalystTitle: 'Analista de Dados e BI',
     dataAnalystPeriod: 'Fev/2023 - Jul/2023',
-    // eslint-disable-next-line @stylistic/max-len
-    dataAnalystPoint1: 'Criação de dashboards estratégicos no Power BI para suporte à tomada de decisão.',
-    // eslint-disable-next-line @stylistic/max-len
+    dataAnalystPoint1: 'Dashboards no Power BI para acompanhar produção, comissões e metas.',
     dataAnalystPoint2: 'Análise de dados com SQL Server e elaboração de relatórios executivos.',
     
     backendTitle: 'Desenvolvedor Back-End',
     backendPeriod: 'Ago/2023 - Jan/2024',
-    // eslint-disable-next-line @stylistic/max-len
-    backendPoint1: 'Desenvolvimento de APIs RESTful robustas com Node.js, TypeScript e Express, implementando autenticação JWT, validações e tratamento de erros.',
-    // eslint-disable-next-line @stylistic/max-len
-    backendPoint2: 'Criação de integrações internas entre sistemas, automação de processos e microserviços escaláveis.',
-    // eslint-disable-next-line @stylistic/max-len
+    backendPoint1: 'APIs REST em Node.js, TypeScript e Express, com autenticação JWT, validação e tratamento de erros.',
+    backendPoint2: 'Integrações entre os sistemas internos e automação de processos que eram feitos à mão.',
     backendPoint3: 'Modelagem e otimização de bancos relacionais (SQL Server, MySQL) e NoSQL (MongoDB), utilizando ORMs como Sequelize e Prisma.',
     
     fullstackTitle: 'Desenvolvedor Pleno Full Stack',
     fullstackPeriod: 'Fev/2024 - Atual',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint1: 'Desenvolvimento completo de aplicações web: Back-End com Node.js/TypeScript/Express, Front-End com React/Next.js/Material-UI, e dashboards analíticos com Power BI.',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint2: 'Atuação end-to-end em toda a cadeia: arquitetura de banco de dados, APIs RESTful, interfaces responsivas, análise de dados e deploy com Docker.',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint3: 'Implementação de boas práticas: testes automatizados com Jest, documentação Swagger/OpenAPI, versionamento Git, CI/CD, e monitoramento de performance.',
+    fullstackPoint1: 'API de operação em Node.js, TypeScript, Express e Sequelize, com cadastros, comissões e financeiro, documentada em Swagger.',
+    fullstackPoint2: 'Sistemas novos do zero, back e front, como a gestão de propostas de crédito e o painel de débitos de parceiros.',
+    fullstackPoint3: 'Robôs de automação com Playwright e Puppeteer para rotinas operacionais repetitivas.',
+    fullstackPoint4: 'Landing pages institucionais, deploy em Docker e fluxo de Git com PR e code review.',
     
     previousRoles: 'Experiências Anteriores',
     otherCompanies: 'Diversos',
-    // eslint-disable-next-line @stylistic/max-len
     previousRolesDescription: 'Experiências profissionais em setores não-técnicos, incluindo atendimento ao cliente, operações e recursos humanos.',
     
     // Contact
@@ -120,9 +113,9 @@ const translations = {
     message: 'Mensagem',
     sendButton: 'Enviar mensagem',
     sending: 'Enviando...',
-    messageSent: 'Mensagem enviada! Retorno em breve. 🙌',
+    messageSent: 'Mensagem enviada! Respondo em breve.',
     sendError: 'Não consegui enviar agora. Tente pelo WhatsApp.',
-    fallbackWhatsapp: 'Email indisponível — te levei pro WhatsApp.',
+    fallbackWhatsapp: 'O e-mail não está disponível agora, abri o WhatsApp para você.',
     orText: 'ou',
     projectTypeLabel: 'Tipo de projeto',
     projectTypeSystem: 'Sistema / Software',
@@ -138,6 +131,9 @@ const translations = {
     seeMoreProjects: 'Quer ver mais projetos?',
     viewGithub: 'Ver GitHub',
     featured: 'Destaque',
+    allTechs: 'Clique para ver todas as tecnologias:',
+    seeLess: 'Ver menos',
+    seeMoreProjectsDesc: 'Confira mais projetos e contribuições no meu perfil do GitHub',
     
     // Skill levels
     junior: 'Júnior',
@@ -147,20 +143,17 @@ const translations = {
     // Services
     servicesTag: 'Serviços',
     servicesTitle: 'Como posso ajudar a sua empresa',
-    // eslint-disable-next-line @stylistic/max-len
-    servicesSubtitle: 'Do back-end ao dashboard: soluções digitais completas, sob medida e escaláveis para o seu negócio.',
+    servicesSubtitle: 'O que eu faço no dia a dia e posso fazer para a sua empresa.',
     serviceSystemsTitle: 'Sistemas Sob Medida',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceSystemsDesc: 'Sistemas web completos para empresas: painéis administrativos, automações, integrações e APIs robustas — do banco de dados à interface.',
+    serviceSystemsOffer: 'Diagnóstico gratuito do seu sistema',
+    serviceSystemsDesc: 'Painéis administrativos, automações, integrações e APIs, do banco de dados até a tela.',
     serviceFrontTitle: 'Sites & Landing Pages',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceFrontDesc: 'Sites institucionais e landing pages modernas, rápidas e responsivas, com foco em conversão e ótima experiência em qualquer dispositivo.',
+    serviceFrontOffer: 'Landing page pronta em até 10 dias',
+    serviceFrontDesc: 'Sites institucionais e landing pages rápidos, que funcionam bem no celular e no computador.',
     serviceDataTitle: 'BI & Análise de Dados',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceDataDesc: 'Dashboards estratégicos em Power BI, modelagem de dados e relatórios que transformam números em decisões para o seu negócio.',
+    serviceDataDesc: 'Dashboards no Power BI, consultas SQL e relatórios para acompanhar os números do negócio.',
     servicesCtaTitle: 'Tem um projeto em mente?',
-    // eslint-disable-next-line @stylistic/max-len
-    servicesCtaDesc: 'Me conte o que precisa e eu retorno com uma proposta sem compromisso.',
+    servicesCtaDesc: 'Me conta o que você precisa que eu te mando uma proposta.',
     talkOnWhatsapp: 'Chamar no WhatsApp',
 
     // Process / Como funciona
@@ -168,7 +161,7 @@ const translations = {
     processTitle: 'Simples e sem complicação',
     processSubtitle: 'Do primeiro "oi" até a entrega, você acompanha cada etapa de perto.',
     step1Title: 'Conversa inicial',
-    step1Desc: 'Entendo sua necessidade numa conversa rápida e sem compromisso.',
+    step1Desc: 'Uma conversa rápida para entender o que você precisa.',
     step2Title: 'Proposta & escopo',
     step2Desc: 'Envio uma proposta clara, com prazo e valor definidos. Sem surpresas.',
     step3Title: 'Desenvolvimento',
@@ -177,10 +170,6 @@ const translations = {
     step4Desc: 'Entrego tudo funcionando e ofereço suporte após a entrega.',
     freeFirstTalk: 'A primeira conversa é sempre gratuita',
 
-    // Testimonials
-    testimonialsTag: 'Depoimentos',
-    testimonialsTitle: 'O que dizem sobre meu trabalho',
-    testimonialsSubtitle: 'A confiança de quem já trabalhou comigo é meu melhor portfólio.',
 
     // Project filters
     filterAll: 'Todos',
@@ -188,13 +177,13 @@ const translations = {
     filterSites: 'Sites',
     filterData: 'BI & Dados',
     filterPersonal: 'Pessoais',
+    categorySystem: 'Sistema',
+    categorySite: 'Site',
+    categoryData: 'BI & Dados',
+    categoryPersonal: 'Pessoal',
     privateCode: 'Código privado',
     demoLabel: 'Demonstração',
 
-    // About stats
-    statsExperience: 'Anos de experiência',
-    statsProjects: 'Projetos entregues',
-    statsTech: 'Tecnologias',
 
     // Generic CTA
     letsWorkTitle: 'Vamos trabalhar juntos?',
@@ -214,9 +203,9 @@ const translations = {
     // Hero Section
     hello: 'Hello, I am',
     name: 'João Pedro Santana',
-    role: 'Senior Full Stack Developer',
+    role: 'Full Stack Developer',
     // eslint-disable-next-line @stylistic/max-len
-    heroDescription: 'Senior Full Stack Developer with expertise in Back-End, Front-End and Data Analysis. Creating complete, robust and scalable digital solutions focused on APIs, dashboards and modern architectures.',
+    heroDescription: 'I work at Lev Negócios building the company\'s internal systems: Node.js APIs, Next.js screens, automation robots and dashboards. I also take on freelance projects.',
     heroAvailable: 'Available for freelance & contract work (monthly/yearly)',
     viewProjects: 'View Projects',
     requestQuote: 'Request a Quote',
@@ -224,25 +213,26 @@ const translations = {
     
     // About Page
     aboutMe: 'About Me',
-    aboutSubtitle: 'Learn more about my journey and passion for technology',
+    aboutSubtitle: 'How I went from data analysis to full stack development.',
     myStory: 'My Story',
-    // eslint-disable-next-line @stylistic/max-len
-    profileDescription: 'Senior Full Stack Developer with expertise in Back-End, Front-End and Data Analysis | BI | Robust APIs',
-    
+    profileDescription: 'Mid-level Full Stack Developer | APIs, web systems, RPA automation and BI',
+
     // About Story
     // eslint-disable-next-line @stylistic/max-len
-    storyPart1: 'I am a Senior Full Stack Developer with complete experience in the software development lifecycle, from conception to delivery. My journey began in the data area as a BI Analyst, evolving to back-end development and later Full Stack, combining data analysis with robust and scalable application development.',
+    storyPart1: 'I got into tech through data, as a BI Analyst, building Power BI dashboards and SQL Server queries. That is how I learned how the company\'s operation works from the inside, and I wanted to start building the systems that generate that data.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart2: 'In Back-End, I master Node.js, Express and TypeScript, working with SQL Server, MySQL and MongoDB databases. I use ORMs like Sequelize, TypeORM and Prisma for data modeling. In Front-End, I develop modern interfaces with React, Next.js and Material-UI. In data, I create strategic dashboards with Power BI and SQL for business analysis.',
+    storyPart2: 'I moved to back-end and then to full stack. Today I handle the whole delivery: the Next.js screen, the Node.js and TypeScript API, the automation robots, the database and the dashboard. I have built the operations API, debt and proposal systems, and robots that take repetitive work off the team.',
     // eslint-disable-next-line @stylistic/max-len
-    storyPart3: 'My multidisciplinary experience allows me to work across all application layers: from database modeling, robust RESTful API development, intuitive interface creation, to building dashboards for data analysis and decision-making. I always seek to apply best practices and deliver high-quality solutions.',
-    
+    storyPart3: 'Before writing code, I try to understand what the operations team needs. I prefer the simplest solution that works in production, with validation, logs and Docker deployment, and I document everything for the next developer.',
+
+
     // Skills
     techStack: 'Tech Stack',
     backEnd: 'Back-End',
     database: 'Databases',
     frontEnd: 'Front-End',
     dataBI: 'Data & BI',
+    automation: 'Automation & RPA',
     toolsOrms: 'Tools & ORMs',
     
     // Experience
@@ -258,32 +248,24 @@ const translations = {
     // Career Timeline
     dataAnalystTitle: 'Data & BI Analyst',
     dataAnalystPeriod: 'Feb/2023 - Jul/2023',
-    // eslint-disable-next-line @stylistic/max-len
-    dataAnalystPoint1: 'Creation of strategic dashboards in Power BI to support decision-making.',
-    // eslint-disable-next-line @stylistic/max-len
+    dataAnalystPoint1: 'Power BI dashboards to track production, commissions and targets.',
     dataAnalystPoint2: 'Data analysis with SQL Server and preparation of executive reports.',
     
     backendTitle: 'Back-End Developer',
     backendPeriod: 'Aug/2023 - Jan/2024',
-    // eslint-disable-next-line @stylistic/max-len
-    backendPoint1: 'Development of robust RESTful APIs with Node.js, TypeScript and Express, implementing JWT authentication, validations and error handling.',
-    // eslint-disable-next-line @stylistic/max-len
-    backendPoint2: 'Creation of internal system integrations, process automation and scalable microservices.',
-    // eslint-disable-next-line @stylistic/max-len
+    backendPoint1: 'REST APIs with Node.js, TypeScript and Express, with JWT authentication, validation and error handling.',
+    backendPoint2: 'Integrations between internal systems and automation of processes that used to be done by hand.',
     backendPoint3: 'Modeling and optimization of relational (SQL Server, MySQL) and NoSQL (MongoDB) databases, using ORMs like Sequelize and Prisma.',
     
-    fullstackTitle: 'Senior Full Stack Developer',
+    fullstackTitle: 'Mid-level Full Stack Developer',
     fullstackPeriod: 'Feb/2024 - Present',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint1: 'Complete web application development: Back-End with Node.js/TypeScript/Express, Front-End with React/Next.js/Material-UI, and analytical dashboards with Power BI.',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint2: 'End-to-end work across the entire chain: database architecture, RESTful APIs, responsive interfaces, data analysis and deployment with Docker.',
-    // eslint-disable-next-line @stylistic/max-len
-    fullstackPoint3: 'Implementation of best practices: automated testing with Jest, Swagger/OpenAPI documentation, Git version control, CI/CD, and performance monitoring.',
+    fullstackPoint1: 'Operations API with Node.js, TypeScript, Express and Sequelize, covering registries, commissions and finance, documented in Swagger.',
+    fullstackPoint2: 'New systems from scratch, back and front, such as credit proposal management and the partner debt dashboard.',
+    fullstackPoint3: 'Automation robots with Playwright and Puppeteer for repetitive operational routines.',
+    fullstackPoint4: 'Institutional landing pages, Docker deployment and a Git workflow with PRs and code review.',
     
     previousRoles: 'Previous Experience',
     otherCompanies: 'Various',
-    // eslint-disable-next-line @stylistic/max-len
     previousRolesDescription: 'Professional experience in non-technical sectors, including customer service, operations and human resources.',
     
     // Contact
@@ -312,9 +294,9 @@ const translations = {
     message: 'Message',
     sendButton: 'Send message',
     sending: 'Sending...',
-    messageSent: 'Message sent! I\'ll reply soon. 🙌',
+    messageSent: 'Message sent! I\'ll get back to you soon.',
     sendError: 'Could not send right now. Try WhatsApp.',
-    fallbackWhatsapp: 'Email unavailable — opening WhatsApp.',
+    fallbackWhatsapp: 'Email is not available right now, so I opened WhatsApp for you.',
     orText: 'or',
     projectTypeLabel: 'Project type',
     projectTypeSystem: 'System / Software',
@@ -330,6 +312,9 @@ const translations = {
     seeMoreProjects: 'Want to see more projects?',
     viewGithub: 'View GitHub',
     featured: 'Featured',
+    allTechs: 'Click to see all technologies:',
+    seeLess: 'See less',
+    seeMoreProjectsDesc: 'Check out more projects and contributions on my GitHub profile',
     
     // Skill levels
     junior: 'Junior',
@@ -339,20 +324,17 @@ const translations = {
     // Services
     servicesTag: 'Services',
     servicesTitle: 'How I can help your business',
-    // eslint-disable-next-line @stylistic/max-len
-    servicesSubtitle: 'From back-end to dashboard: complete, tailor-made and scalable digital solutions for your business.',
+    servicesSubtitle: 'What I do day to day and can do for your company.',
     serviceSystemsTitle: 'Custom Systems',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceSystemsDesc: 'Complete web systems for companies: admin panels, automations, integrations and robust APIs — from the database to the interface.',
+    serviceSystemsOffer: 'Free assessment of your system',
+    serviceSystemsDesc: 'Admin panels, automations, integrations and APIs, from the database to the screen.',
     serviceFrontTitle: 'Websites & Landing Pages',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceFrontDesc: 'Modern, fast and responsive institutional websites and landing pages, focused on conversion and a great experience on any device.',
+    serviceFrontOffer: 'Landing page ready in up to 10 days',
+    serviceFrontDesc: 'Fast institutional websites and landing pages that work well on phones and desktops.',
     serviceDataTitle: 'BI & Data Analysis',
-    // eslint-disable-next-line @stylistic/max-len
-    serviceDataDesc: 'Strategic Power BI dashboards, data modeling and reports that turn numbers into decisions for your business.',
+    serviceDataDesc: 'Power BI dashboards, SQL queries and reports to keep track of your business numbers.',
     servicesCtaTitle: 'Have a project in mind?',
-    // eslint-disable-next-line @stylistic/max-len
-    servicesCtaDesc: 'Tell me what you need and I\'ll get back to you with a no-obligation proposal.',
+    servicesCtaDesc: 'Tell me what you need and I\'ll send you a proposal.',
     talkOnWhatsapp: 'Chat on WhatsApp',
 
     // Process / How it works
@@ -360,7 +342,7 @@ const translations = {
     processTitle: 'Simple and hassle-free',
     processSubtitle: 'From the first "hi" to delivery, you follow every step closely.',
     step1Title: 'First chat',
-    step1Desc: 'I understand your needs in a quick, no-obligation conversation.',
+    step1Desc: 'A quick chat to understand what you need.',
     step2Title: 'Proposal & scope',
     step2Desc: 'I send a clear proposal with a defined timeline and price. No surprises.',
     step3Title: 'Development',
@@ -369,10 +351,6 @@ const translations = {
     step4Desc: 'I deliver everything working and offer post-delivery support.',
     freeFirstTalk: 'The first conversation is always free',
 
-    // Testimonials
-    testimonialsTag: 'Testimonials',
-    testimonialsTitle: 'What people say about my work',
-    testimonialsSubtitle: 'The trust of those who have worked with me is my best portfolio.',
 
     // Project filters
     filterAll: 'All',
@@ -380,13 +358,13 @@ const translations = {
     filterSites: 'Websites',
     filterData: 'BI & Data',
     filterPersonal: 'Personal',
+    categorySystem: 'System',
+    categorySite: 'Website',
+    categoryData: 'BI & Data',
+    categoryPersonal: 'Personal',
     privateCode: 'Private code',
     demoLabel: 'Demo',
 
-    // About stats
-    statsExperience: 'Years of experience',
-    statsProjects: 'Projects delivered',
-    statsTech: 'Technologies',
 
     // Generic CTA
     letsWorkTitle: 'Let\'s work together?',

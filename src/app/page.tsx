@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import { HeroSection } from './components/HeroSection';
 import { ProcessSection } from './components/ProcessSection';
 import { ServicesSection } from './components/ServicesSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
 
 const ParticlesBackground = dynamic(
   () => import('./components/ParticlesBackground').then((mod) => ({ default: mod.ParticlesBackground })),
@@ -24,7 +23,6 @@ export default function Home() {
       </Box>
       <ServicesSection />
       <ProcessSection />
-      <TestimonialsSection />
     </main>
   );
 }

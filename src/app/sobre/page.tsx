@@ -10,6 +10,7 @@ import {
   Dns,
   School,
   Send,
+  SmartToy,
   Storage,
   Web,
   Work,
@@ -28,24 +29,87 @@ import {
   Typography,
 } from '@mui/material';
 import Link from 'next/link';
+import type { SvgIconComponent } from '@mui/icons-material';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const skillsCategories = {
-  backend: ['Node.js', 'Express', 'TypeScript', 'JavaScript', 'Java', 'Python'],
-  database: ['SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB'],
-  frontend: ['React.js', 'Next.js', 'JavaScript', 'HTML/CSS', 'Material-UI'],
-  dataBI: ['Power BI', 'SQL', 'DAX', 'ETL', 'Data Analysis'],
-  tools: [
-    'Git/GitHub',
-    'Docker',
-    'Postman',
-    'Jest',
-    'Swagger',
-    'Sequelize',
-    'TypeORM',
-    'Prisma',
-  ],
+type SkillCategory = {
+  labelKey: string;
+  color: string;
+  Icon: SvgIconComponent;
+  skills: string[];
 };
+
+type CareerStage = {
+  id: string;
+  Icon: SvgIconComponent;
+  titleKey: string;
+  periodKey: string;
+  pointKeys: string[];
+};
+
+const skillCategories: SkillCategory[] = [
+  {
+    labelKey: 'backEnd',
+    color: '#00d4ff',
+    Icon: Dns,
+    skills: ['Node.js', 'TypeScript', 'Express', 'Zod', 'APIs REST', 'JWT', 'Java', 'Python'],
+  },
+  {
+    labelKey: 'frontEnd',
+    color: '#ff6b6b',
+    Icon: Web,
+    skills: ['React.js', 'Next.js', 'React Query', 'Material-UI', 'HTML/CSS', 'Responsivo'],
+  },
+  {
+    labelKey: 'database',
+    color: '#ff9800',
+    Icon: Storage,
+    skills: ['SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB', 'Sequelize', 'Prisma', 'TypeORM'],
+  },
+  {
+    labelKey: 'automation',
+    color: '#3fb950',
+    Icon: SmartToy,
+    skills: ['Playwright', 'Puppeteer', 'Selenium', 'Web Scraping', 'Python'],
+  },
+  {
+    labelKey: 'dataBI',
+    color: '#c084fc',
+    Icon: BarChart,
+    skills: ['Power BI', 'SQL', 'DAX', 'ETL', 'Python', 'Excel'],
+  },
+  {
+    labelKey: 'toolsOrms',
+    color: '#66e4ff',
+    Icon: Build,
+    skills: ['Git/GitHub', 'Docker', 'Swagger/OpenAPI', 'Postman', 'Jest', 'ESLint'],
+  },
+];
+
+
+const careerStages: CareerStage[] = [
+  {
+    id: 'dataAnalyst',
+    Icon: BarChart,
+    titleKey: 'dataAnalystTitle',
+    periodKey: 'dataAnalystPeriod',
+    pointKeys: ['dataAnalystPoint1', 'dataAnalystPoint2'],
+  },
+  {
+    id: 'backend',
+    Icon: Storage,
+    titleKey: 'backendTitle',
+    periodKey: 'backendPeriod',
+    pointKeys: ['backendPoint1', 'backendPoint2', 'backendPoint3'],
+  },
+  {
+    id: 'fullstack',
+    Icon: Code,
+    titleKey: 'fullstackTitle',
+    periodKey: 'fullstackPeriod',
+    pointKeys: ['fullstackPoint1', 'fullstackPoint2', 'fullstackPoint3', 'fullstackPoint4'],
+  },
+];
 
 export default function SobrePage() {
   const { t } = useLanguage();
@@ -54,49 +118,9 @@ export default function SobrePage() {
   const handleToggleExpand = (stageId: string) => {
     setExpandedStage(expandedStage === stageId ? null : stageId);
   };
-  
-  const getCategoryColor = (category: string) => {
-    let baseColor = '';
 
-    switch (category) {
-      case 'backend':
-        baseColor = '#00d4ff';
-        break;
-      case 'database':
-        baseColor = '#ff9800';
-        break;
-      case 'frontend':
-        baseColor = '#ff6b6b';
-        break;
-      case 'dataBI':
-        baseColor = '#9c27b0';
-        break;
-      case 'tools':
-        baseColor = '#4caf50';
-        break;
-      default:
-        baseColor = '#9E9E9E';
-    }
-    
-    return baseColor;
-  };
-  
   return (
     <Box sx={{ minHeight: '100vh', py: 10, position: 'relative' }}>
-      {/* Background decoration */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          left: '5%',
-          width: '350px',
-          height: '350px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-          pointerEvents: 'none',
-        }}
-      />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box 
@@ -106,35 +130,12 @@ export default function SobrePage() {
             mb: 8,
           }}
         >
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 3,
-              px: 3,
-              py: 1,
-              background: 'rgba(0, 212, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 255, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              color: '#00d4ff',
-            }}
-          >
-            <Code sx={{ fontSize: '1.2rem' }} />
-            Sobre Mim
-          </Box>
           
           <Typography
             variant="h2"
             sx={{
               mb: 3,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
               fontSize: { xs: '2.5rem', md: '3.5rem' },
               letterSpacing: '-0.02em',
@@ -154,37 +155,6 @@ export default function SobrePage() {
             {t('aboutSubtitle')}
           </Typography>
         </Box>
-
-        {/* Stats / credibilidade */}
-        <Grid container spacing={2} sx={{ mb: 5 }} className="animate-fade-in-up">
-          {[
-            { value: '+3', labelKey: 'statsExperience' },
-            { value: '+10', labelKey: 'statsProjects' },
-            { value: '+20', labelKey: 'statsTech' },
-          ].map((stat) => (
-            <Grid item xs={12} sm={4} key={stat.labelKey}>
-              <Card className="glass-card" sx={{ p: 3, textAlign: 'center', borderRadius: '16px' }}>
-                <Typography
-                  sx={{
-                    fontSize: { xs: '2.25rem', md: '2.75rem' },
-                    fontWeight: 800,
-                    lineHeight: 1,
-                    mb: 1,
-                    background: 'linear-gradient(135deg, #00d4ff 0%, #ff6b6b 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  {stat.value}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>
-                  {t(stat.labelKey)}
-                </Typography>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
 
         <Grid container spacing={3}>
           {/* Profile Card */}
@@ -207,7 +177,6 @@ export default function SobrePage() {
                   margin: '0 auto 24px auto',
                   border: '4px solid',
                   borderColor: 'primary.main',
-                  boxShadow: '0 8px 32px rgba(0, 212, 255, 0.4)',
                   transition: 'transform 0.3s ease',
                   '&:hover': {
                     transform: 'scale(1.05)',
@@ -365,206 +334,58 @@ export default function SobrePage() {
             </Card>
           </Grid>
 
-          {/* Skills - Reorganized */}
+
           <Grid item xs={12}>
             <Card sx={{ p: 3 }}>
-              <Typography 
-                variant="h5" 
-                gutterBottom 
+              <Typography
+                variant="h5"
+                gutterBottom
                 sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 4 }}
               >
                 <School color="primary" />
                 {t('techStack')}
               </Typography>
-              
-              <Grid container spacing={3}>
-                {/* Back-End */}
-                <Grid item xs={12} md={4}>
-                  <Box sx={{ mb: 3 }}>
-                    <Typography 
-                      variant="h6" 
-                      gutterBottom 
-                      sx={{ 
-                        color: 'primary.main', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: 1,
-                      }}
-                    >
-                      <Dns color="primary" />
-                      {t('backEnd')}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {skillsCategories.backend.map((skill) => (
-                        <Chip
-                          key={skill}
-                          label={skill}
-                          size="small"
-                          sx={{
-                            background: `${getCategoryColor('backend')}18`,
-                            border: `1px solid ${getCategoryColor('backend')}55`,
-                            color: getCategoryColor('backend'),
-                            fontWeight: 600,
-                            fontSize: '0.78rem',
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </Box>
-                </Grid>
 
-                {/* Banco de Dados */}
-                <Grid item xs={12} md={4}>
-                  <Box sx={{ mb: 3 }}>
+              <Grid container spacing={3}>
+                {skillCategories.map(({ labelKey, color, Icon, skills }) => (
+                  <Grid item xs={12} sm={6} md={4} key={labelKey}>
                     <Typography
                       variant="h6"
                       gutterBottom
-                      sx={{
-                        color: '#ff9800',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                      }}
+                      sx={{ color, display: 'flex', alignItems: 'center', gap: 1 }}
                     >
-                      <Storage sx={{ color: '#ff9800' }} />
-                      {t('database')}
+                      <Icon sx={{ color }} />
+                      {t(labelKey)}
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {skillsCategories.database.map((skill) => (
+                      {skills.map((skill) => (
                         <Chip
                           key={skill}
                           label={skill}
                           size="small"
                           sx={{
-                            background: `${getCategoryColor('database')}18`,
-                            border: `1px solid ${getCategoryColor('database')}55`,
-                            color: getCategoryColor('database'),
+                            background: `${color}18`,
+                            border: `1px solid ${color}55`,
+                            color,
                             fontWeight: 600,
                             fontSize: '0.78rem',
                           }}
                         />
                       ))}
                     </Box>
-                  </Box>
-                </Grid>
-
-                {/* Front-End */}
-                <Grid item xs={12} md={4}>
-                  <Box sx={{ mb: 3 }}>
-                    <Typography 
-                      variant="h6" 
-                      gutterBottom 
-                      sx={{ 
-                        color: 'secondary.main', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: 1,
-                      }}
-                    >
-                      <Web color="secondary" />
-                      {t('frontEnd')}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {skillsCategories.frontend.map((skill) => (
-                        <Chip
-                          key={skill}
-                          label={skill}
-                          size="small"
-                          sx={{
-                            background: `${getCategoryColor('frontend')}18`,
-                            border: `1px solid ${getCategoryColor('frontend')}55`,
-                            color: getCategoryColor('frontend'),
-                            fontWeight: 600,
-                            fontSize: '0.78rem',
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </Box>
-                </Grid>
-
-                {/* Data & BI */}
-                <Grid item xs={12} md={4}>
-                  <Box sx={{ mb: 3 }}>
-                    <Typography 
-                      variant="h6" 
-                      gutterBottom 
-                      sx={{ 
-                        color: '#9c27b0', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: 1,
-                      }}
-                    >
-                      <BarChart sx={{ color: '#9c27b0' }} />
-                      {t('dataBI')}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {skillsCategories.dataBI.map((skill) => (
-                        <Chip
-                          key={skill}
-                          label={skill}
-                          size="small"
-                          sx={{
-                            background: `${getCategoryColor('dataBI')}18`,
-                            border: `1px solid ${getCategoryColor('dataBI')}55`,
-                            color: getCategoryColor('dataBI'),
-                            fontWeight: 600,
-                            fontSize: '0.78rem',
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </Box>
-                </Grid>
-
-                {/* Ferramentas */}
-                <Grid item xs={12} md={4}>
-                  <Box sx={{ mb: 3 }}>
-                    <Typography 
-                      variant="h6" 
-                      gutterBottom 
-                      sx={{ 
-                        color: 'success.main', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: 1,
-                      }}
-                    >
-                      <Build color="success" />
-                      {t('toolsOrms')}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {skillsCategories.tools.map((skill) => (
-                        <Chip
-                          key={skill}
-                          label={skill}
-                          size="small"
-                          sx={{
-                            background: `${getCategoryColor('tools')}18`,
-                            border: `1px solid ${getCategoryColor('tools')}55`,
-                            color: getCategoryColor('tools'),
-                            fontWeight: 600,
-                            fontSize: '0.78rem',
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </Box>
-                </Grid>
+                  </Grid>
+                ))}
               </Grid>
             </Card>
           </Grid>
 
-          {/* Experience */}
           <Grid item xs={12}>
             <Card sx={{ p: 3 }}>
               <Typography variant="h5" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 4 }}>
                 <Work color="primary" />
                 {t('experience')}
               </Typography>
-              
-              {/* Career Timeline at Lev Negócios */}
+
               <Box sx={{ mb: 4, px: 2 }}>
                 <Typography variant="h6" gutterBottom sx={{ mb: 1 }}>
                   {t('levNegocios')} • {t('levPeriod')}
@@ -589,193 +410,66 @@ export default function SobrePage() {
                   {t('tapToExpand')}
                 </Box>
 
-                {/* Career Timeline */}
                 <Box sx={{ position: 'relative' }}>
-                  {/* Vertical Timeline Line */}
                   <Box sx={{
                     position: 'absolute',
                     left: '20px',
                     top: '10px',
                     bottom: '10px',
                     width: '2px',
-                    background: 'linear-gradient(to bottom, #00d4ff, #00d4ff 90%)',
+                    background: 'rgba(0, 212, 255, 0.35)',
                     zIndex: 0,
                   }} />
 
-                  {/* Timeline Stages */}
                   <Box sx={{ position: 'relative', zIndex: 1 }}>
-                    {/* Data Analyst Stage */}
-                    <Box sx={{ mb: 4 }}>
-                      <Box 
-                        sx={{ 
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => handleToggleExpand('dataAnalyst')}
-                      >
-                        <Avatar 
-                          sx={{ 
-                            bgcolor: '#00d4ff', 
-                            mr: 3, 
-                            boxShadow: '0 0 10px rgba(0, 212, 255, 0.5)',
-                          }}
+                    {careerStages.map(({ id, Icon, titleKey, periodKey, pointKeys }, index) => (
+                      <Box key={id} sx={{ mb: index < careerStages.length - 1 ? 4 : 0 }}>
+                        <Box
+                          sx={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }}
+                          onClick={() => handleToggleExpand(id)}
                         >
-                          <BarChart />
-                        </Avatar>
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                              {t('dataAnalystTitle')}
-                            </Typography>
-                            <IconButton size="small">
-                              {expandedStage === 'dataAnalyst' ? <ArrowDropUp /> : <ArrowDropDown />}
-                            </IconButton>
-                          </Box>
-                          <Typography variant="subtitle2" color="primary.light">
-                            {t('dataAnalystPeriod')}
-                          </Typography>
-                        </Box>
-                      </Box>
-                      
-                      <Collapse in={expandedStage === 'dataAnalyst'}>
-                        <Box sx={{ pl: 7, pt: 2 }}>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('dataAnalystPoint1')}
-                            </Typography>
-                          </Box>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('dataAnalystPoint2')}
+                          <Avatar
+                            sx={{
+                              bgcolor: '#00d4ff',
+                              mr: 3,
+                              boxShadow: '0 0 10px rgba(0, 212, 255, 0.5)',
+                            }}
+                          >
+                            <Icon />
+                          </Avatar>
+                          <Box sx={{ flexGrow: 1 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                                {t(titleKey)}
+                              </Typography>
+                              <IconButton size="small">
+                                {expandedStage === id ? <ArrowDropUp /> : <ArrowDropDown />}
+                              </IconButton>
+                            </Box>
+                            <Typography variant="subtitle2" color="primary.light">
+                              {t(periodKey)}
                             </Typography>
                           </Box>
                         </Box>
-                      </Collapse>
-                    </Box>
 
-                    {/* Backend Developer Stage */}
-                    <Box sx={{ mb: 4 }}>
-                      <Box 
-                        sx={{ 
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => handleToggleExpand('backend')}
-                      >
-                        <Avatar 
-                          sx={{ 
-                            bgcolor: '#00d4ff', 
-                            mr: 3,
-                            boxShadow: '0 0 10px rgba(0, 212, 255, 0.5)',
-                          }}
-                        >
-                          <Storage />
-                        </Avatar>
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                              {t('backendTitle')}
-                            </Typography>
-                            <IconButton size="small">
-                              {expandedStage === 'backend' ? <ArrowDropUp /> : <ArrowDropDown />}
-                            </IconButton>
+                        <Collapse in={expandedStage === id}>
+                          <Box sx={{ pl: 7, pt: 2 }}>
+                            {pointKeys.map((pointKey) => (
+                              <Box key={pointKey} sx={{ display: 'flex', mb: 1.5 }}>
+                                <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
+                                <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                                  {t(pointKey)}
+                                </Typography>
+                              </Box>
+                            ))}
                           </Box>
-                          <Typography variant="subtitle2" color="primary.light">
-                            {t('backendPeriod')}
-                          </Typography>
-                        </Box>
+                        </Collapse>
                       </Box>
-                      
-                      <Collapse in={expandedStage === 'backend'}>
-                        <Box sx={{ pl: 7, pt: 2 }}>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('backendPoint1')}
-                            </Typography>
-                          </Box>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('backendPoint2')}
-                            </Typography>
-                          </Box>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('backendPoint3')}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Collapse>
-                    </Box>
-
-                    {/* Full Stack Developer Stage */}
-                    <Box>
-                      <Box 
-                        sx={{ 
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => handleToggleExpand('fullstack')}
-                      >
-                        <Avatar 
-                          sx={{ 
-                            bgcolor: '#00d4ff', 
-                            mr: 3,
-                            boxShadow: '0 0 10px rgba(0, 212, 255, 0.5)',
-                          }}
-                        >
-                          <Code />
-                        </Avatar>
-                        <Box sx={{ flexGrow: 1 }}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                              {t('fullstackTitle')}
-                            </Typography>
-                            <IconButton size="small">
-                              {expandedStage === 'fullstack' ? <ArrowDropUp /> : <ArrowDropDown />}
-                            </IconButton>
-                          </Box>
-                          <Typography variant="subtitle2" color="primary.light">
-                            {t('fullstackPeriod')}
-                          </Typography>
-                        </Box>
-                      </Box>
-                      
-                      <Collapse in={expandedStage === 'fullstack'}>
-                        <Box sx={{ pl: 7, pt: 2 }}>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('fullstackPoint1')}
-                            </Typography>
-                          </Box>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('fullstackPoint2')}
-                            </Typography>
-                          </Box>
-                          <Box sx={{ display: 'flex', mb: 1.5 }}>
-                            <Typography variant="body2" color="primary.main" sx={{ mr: 1, fontWeight: 'bold' }}>•</Typography>
-                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                              {t('fullstackPoint3')}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Collapse>
-                    </Box>
+                    ))}
                   </Box>
                 </Box>
               </Box>
-              
-              {/* Previous Experiences */}
+
               <Box sx={{ 
                 p: 3,
                 border: '1px solid rgba(0, 212, 255, 0.5)', 
@@ -843,17 +537,15 @@ export default function SobrePage() {
                 startIcon={<Send />}
                 className="modern-button"
                 sx={{
-                  background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                  background: '#00b4d8',
                   px: 4,
                   py: 1.5,
                   fontSize: '1.05rem',
                   borderRadius: '12px',
                   textTransform: 'none',
                   fontWeight: 600,
-                  boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                    transform: 'translateY(-2px)',
+                    background: '#0096c7',
                   },
                 }}
               >

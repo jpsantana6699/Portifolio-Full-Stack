@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#0a0e14"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="640" fill="url(#bg)"/>
+<g font-family="Inter, Segoe UI, sans-serif">
+<rect x="28" y="24" width="34" height="34" rx="9" fill="#3fb950"/>
+<text x="74" y="40" font-size="20" fill="#e6edf3" font-weight="800">Robôs RPA</text>
+<text x="74" y="58" font-size="12.5" fill="#8b949e" font-weight="500">Fila de pedidos processada por robôs</text>
+<g font-size="15" font-weight="700">
+<rect x="40" y="120" width="200" height="110" rx="16" fill="#151b26" stroke="#2a2f3a"/>
+<text x="64" y="166" fill="#e6edf3">Pedido</text><text x="64" y="194" font-size="12.5" fill="#8b949e" font-weight="500">rotina operacional</text>
+<rect x="320" y="120" width="220" height="110" rx="16" fill="#151b26" stroke="#00d4ff" stroke-opacity="0.5"/>
+<text x="344" y="166" fill="#00d4ff">Robô</text><text x="344" y="194" font-size="12.5" fill="#8b949e" font-weight="500">Playwright · TypeScript</text>
+<rect x="620" y="120" width="220" height="110" rx="16" fill="#151b26" stroke="#2a2f3a"/>
+<text x="644" y="166" fill="#e6edf3">Sistema web</text><text x="644" y="194" font-size="12.5" fill="#8b949e" font-weight="500">preenche e envia</text>
+<rect x="920" y="120" width="240" height="110" rx="16" fill="#151b26" stroke="#2a2f3a"/>
+<text x="944" y="166" fill="#e6edf3">Resultado</text><text x="944" y="194" font-size="12.5" fill="#8b949e" font-weight="500">registrado na fila</text>
+</g>
+<g stroke="#00d4ff" stroke-width="3" fill="#00d4ff">
+<line x1="244" y1="175" x2="306" y2="175"/><path d="M316 175 L304 168 L304 182 Z" stroke="none"/>
+<line x1="544" y1="175" x2="606" y2="175"/><path d="M616 175 L604 168 L604 182 Z" stroke="none"/>
+<line x1="844" y1="175" x2="906" y2="175"/><path d="M916 175 L904 168 L904 182 Z" stroke="none"/>
+</g>
+<rect x="40" y="270" width="1120" height="342" rx="14" fill="#0b0f15" stroke="#2a2f3a"/>
+<circle cx="66" cy="296" r="6" fill="#ff6b6b"/><circle cx="86" cy="296" r="6" fill="#ffb84d"/><circle cx="106" cy="296" r="6" fill="#3fb950"/>
+<g font-family="Consolas, Menlo, monospace" font-size="15">
+<text x="66" y="346" fill="#8b949e">$ npm run robots</text>
+<text x="66" y="380" fill="#e6edf3">[09:12:04] pedido #4821  sistema A  cadastro        <tspan fill="#3fb950">✔ concluído</tspan></text>
+<text x="66" y="410" fill="#e6edf3">[09:12:39] pedido #4822  sistema B  manutenção      <tspan fill="#3fb950">✔ concluído</tspan></text>
+<text x="66" y="440" fill="#e6edf3">[09:13:11] pedido #4823  sistema C  cadastro        <tspan fill="#ffb84d">↻ aguardando</tspan></text>
+<text x="66" y="470" fill="#e6edf3">[09:13:52] pedido #4824  sistema A  manutenção      <tspan fill="#3fb950">✔ concluído</tspan></text>
+<text x="66" y="500" fill="#e6edf3">[09:14:20] pedido #4825  sistema D  cadastro        <tspan fill="#ff6b6b">✖ reprovado</tspan></text>
+<text x="66" y="540" fill="#00d4ff">5 pedidos · 3 concluídos · 1 aguardando · 1 reprovado · 2m16s</text>
+</g>
+</g>
+</svg>

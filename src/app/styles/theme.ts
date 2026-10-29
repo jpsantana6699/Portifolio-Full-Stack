@@ -83,8 +83,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 16,
-          backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(26, 26, 26, 0.8)',
+          backgroundColor: '#161b22',
           border: '1px solid rgba(255, 255, 255, 0.1)',
         },
       },

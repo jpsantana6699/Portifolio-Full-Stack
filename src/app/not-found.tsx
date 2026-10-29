@@ -22,10 +22,7 @@ export default function NotFound() {
             sx={{
               fontSize: '6rem',
               fontWeight: 'bold',
-              background: 'linear-gradient(45deg, #00d4ff 30%, #ff6b6b 90%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               mb: 2,
             }}
           >

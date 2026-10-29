@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-// eslint-disable-next-line sort-imports
 import {
   Box,
   Button,
@@ -16,7 +15,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { Code, GitHub, Launch, Lock } from '@mui/icons-material';
+import { CheckCircle, Code, GitHub, Launch, Lock } from '@mui/icons-material';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const projects = [
@@ -24,76 +23,122 @@ const projects = [
     id: 0,
     category: 'sistema',
     title: 'Lev Negócios | HUB',
+    result: 'A operação passou a trabalhar num único sistema, no lugar de planilhas espalhadas.',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Sistema interno completo que centralizou a operação de uma empresa do setor financeiro, automatizando processos manuais e conectando áreas que antes trabalhavam isoladas. Atuei de ponta a ponta (front-end + back-end), com arquitetura de microsserviços escalável distribuída em múltiplos repositórios.',
+    description: 'Sistema interno que centralizou a operação de uma empresa do setor financeiro, conectando áreas que antes trabalhavam com planilhas separadas. Fiz a API (cadastros, comissões e financeiro) e telas em Next.js que usam essa API.',
     image: '/images/hublev.png',
-    technologies: ['TypeScript', 'Node.js', 'Express', 'Next.js', 'React', 'MySQL', 'Docker', 'MaterialUI', 'Axios', 'SwaggerOpenAPI', 'Jest'],
+    technologies: ['TypeScript', 'Node.js', 'Express', 'Sequelize', 'Next.js', 'React', 'MySQL', 'SQL Server', 'Docker', 'MaterialUI', 'SwaggerOpenAPI'],
     githubUrl: '',
     githubLabel: 'Privado',
     liveUrl: 'https://lev.hub.elegen.com.br/login',
     featured: true,
   },
   {
+    id: 14,
+    category: 'sistema',
+    title: 'Corban Hub | Débitos de Parceiros',
+    result: 'A equipe acompanha todos os débitos num só lugar, sem montar planilha na mão.',
+    description: 'Painel de acompanhamento dos débitos de parceiros feito do zero, back e front: indicadores por situação, detalhe de cada lançamento e exportação para Excel.',
+    image: '/images/corban-hub-demo.svg',
+    technologies: ['TypeScript', 'Next.js', 'React', 'Node.js', 'Express', 'React Query', 'Docker'],
+    githubUrl: '',
+    githubLabel: 'Privado',
+    liveUrl: 'https://lev.corban-hub.elegen.com.br/login',
+    featured: true,
+  },
+  {
+    id: 15,
+    category: 'sistema',
+    title: 'Propostas | API + Painel',
+    result: 'Propostas e envios de SMS organizados num só lugar, com busca e histórico.',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Sistema de gestão de propostas de crédito feito do zero, back e front. A API cuida do cadastro, edição, busca e histórico de envios de SMS; o painel em Next.js tem tabela com filtros, ordenação, paginação e edição.',
+    image: '/images/propostas-demo.svg',
+    technologies: ['TypeScript', 'Node.js', 'Express', 'Sequelize', 'MySQL', 'Zod', 'Next.js', 'React Query', 'Docker', 'SwaggerOpenAPI'],
+    githubUrl: '',
+    githubLabel: 'Privado',
+    liveUrl: 'https://beta.proposals.elegen.com.br/proposals/app/login',
+    featured: true,
+  },
+  {
+    id: 16,
+    category: 'sistema',
+    title: 'Robôs RPA | Automação de Rotinas',
+    result: 'Tarefas repetitivas que tomavam tempo da equipe passaram a rodar sozinhas.',
+    // eslint-disable-next-line @stylistic/max-len
+    description: 'Robôs que executam rotinas operacionais repetitivas em sistemas web de parceiros, como cadastro e manutenção de usuários. Cada pedido entra numa fila, o robô executa e registra o resultado, sem ninguém precisar fazer à mão.',
+    image: '/images/robos-rpa-demo.svg',
+    technologies: ['TypeScript', 'Node.js', 'Playwright', 'Puppeteer', 'Docker'],
+    githubUrl: '',
+    githubLabel: 'Privado',
+    featured: true,
+  },
+  {
     id: 1,
     category: 'site',
     title: 'Lev Negócios | Landing Page',
+    result: 'Presença online profissional que leva o visitante direto para o contato.',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Landing page institucional que apresenta o portfólio de produtos financeiros da empresa de forma clara e transmite credibilidade para converter visitantes em contatos. Carregamento rápido, design moderno e 100% responsiva em qualquer dispositivo.',
+    description: 'Landing page institucional que apresenta os produtos financeiros da empresa e leva o visitante para o contato. Feita em Next.js, carrega rápido e funciona bem no celular.',
     image: '/images/page.png',
     technologies: ['TypeScript', 'Next.js', 'React', 'Material-UI', 'CSS-in-JS'],
     githubUrl: '',
     githubLabel: 'Privado',
     liveUrl: 'https://www.levnegocios.com.br',
-    featured: true,
+    featured: false,
   },
   {
     id: 2,
     category: 'site',
     title: 'Voe Soluções Financeiras | Landing Page',
+    result: 'Site que passa credibilidade e transforma visitas em novos contatos.',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Landing page institucional para empresa do setor financeiro, pensada para gerar credibilidade e novos contatos. Interface intuitiva, rápida e totalmente responsiva, construída com componentes reutilizáveis para fácil manutenção.',
+    description: 'Landing page institucional para uma empresa do setor financeiro, focada em gerar novos contatos. Componentes reutilizáveis para facilitar a manutenção e layout responsivo.',
     image: '/images/Voe.png',
     technologies: ['TypeScript', 'Next.js', 'React', 'Material-UI', 'CSS-in-JS'],
     githubUrl: '',
     githubLabel: 'Privado',
     liveUrl: 'https://voesolucoesfinanceiras.com.br',
-    featured: true,
+    featured: false,
   },
   {
     id: 11,
     category: 'bi',
     title: 'Painel Comercial (BI)',
+    result: 'Metas e vendas acompanhadas num painel só, sem depender de relatório manual.',
     // eslint-disable-next-line @stylistic/max-len
-    description: 'Dashboard comercial estratégico com KPIs de faturamento, meta, ticket médio e vendas por canal — do modelo de dados às visualizações. Transforma dados brutos da operação em indicadores claros para decisão. Demonstração com dados fictícios (projeto real sob confidencialidade).',
+    description: 'Dashboard comercial com faturamento, meta, ticket médio e vendas por canal, do modelo de dados aos gráficos. Demonstração com dados fictícios (o projeto real é confidencial).',
     image: '/images/bi-dashboard-demo.svg',
     technologies: ['Power BI', 'SQL', 'DAX', 'ETL', 'Modelagem de Dados'],
     githubUrl: '',
     isDemo: true,
-    featured: true,
+    featured: false,
   },
   {
     id: 12,
     category: 'bi',
     title: 'Painel Financeiro (BI)',
+    result: 'O resultado do mês fica claro, da receita ao lucro.',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Dashboard financeiro com receita, custos, lucro e margem. Destaque para o gráfico waterfall, que mostra a composição do resultado (da receita ao lucro líquido), e o medidor de meta de faturamento. Demonstração com dados fictícios.',
     image: '/images/bi-financeiro-demo.svg',
     technologies: ['Power BI', 'SQL', 'DAX', 'Modelagem de Dados'],
     githubUrl: '',
     isDemo: true,
-    featured: true,
+    featured: false,
   },
   {
     id: 13,
     category: 'bi',
     title: 'Painel de Marketing & Growth (BI)',
+    result: 'Mostra qual canal traz cliente e quanto cada um custa.',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Dashboard de marketing com funil de conversão (visitantes → leads → clientes), ROI por canal, CAC e origem do tráfego. Transforma dados de aquisição em decisões de investimento. Demonstração com dados fictícios.',
     image: '/images/bi-marketing-demo.svg',
     technologies: ['Power BI', 'SQL', 'DAX', 'ETL'],
     githubUrl: '',
     isDemo: true,
-    featured: true,
+    featured: false,
   },
   {
     id: 3,
@@ -105,7 +150,7 @@ const projects = [
     technologies: ['JavaScript', 'CSS', 'HTML'],
     githubUrl: 'https://github.com/jpsantana6699/SoundPad',
     liveUrl: '',
-    featured: true,
+    featured: false,
   },
   {
     id: 4,
@@ -117,7 +162,7 @@ const projects = [
     technologies: ['React', 'Next.js', 'TypeScript', 'MaterialUI', 'CSS', 'Axios', 'API Routes'],
     githubUrl: 'https://github.com/jpsantana6699/JotaLives',
     liveUrl: 'https://jota-lives.vercel.app/',
-    featured: true,
+    featured: false,
     isDemo: true,
   },
   {
@@ -134,10 +179,9 @@ const projects = [
   },
   {
     id: 6,
-    category: 'sistema',
+    category: 'pessoal',
     title: 'JotaPeTech',
-    // eslint-disable-next-line @stylistic/max-len
-    description: 'Plataforma moderna desenvolvida em Next.js focada em Server-Side Rendering (SSR) e desenvolvimento de aplicações web inovadoras. Oferece listagem de posts com paginação, renderização otimizada do lado do servidor e integração com APIs modernas.',
+    description: 'Blog em Next.js com renderização no servidor (SSR), listagem de posts com paginação e conteúdo em Markdown.',
     image: '/images/jotapetech.jpg',
     technologies: ['React', 'Next.js', 'JavaScript', 'CSS', 'Material Icons', 'Winston', 'Remark'],
     githubUrl: 'https://github.com/jpsantana6699/JotaPeTech',
@@ -145,7 +189,7 @@ const projects = [
   },
   {
     id: 7,
-    category: 'sistema',
+    category: 'pessoal',
     title: 'Catálogo de Livros e Filmes',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Sistema web completo desenvolvido em Java para catalogar e gerenciar livros e filmes. Implementa CRUD completo com Servlets, JSP, JDBC e MySQL. Inclui busca avançada, validações frontend/backend e proteção contra SQL Injection usando PreparedStatement. Projeto acadêmico (ABP) focado em boas práticas de segurança e arquitetura MVC.',
@@ -153,14 +197,13 @@ const projects = [
     technologies: ['Java', 'Servlets', 'JSP', 'JSTL', 'JDBC', 'MySQL', 'Apache Tomcat', 'HTML5', 'CSS3', 'JavaScript'],
     githubUrl: 'https://github.com/jpsantana6699/CRUD_JAVA',
     liveUrl: '',
-    featured: true,
+    featured: false,
   },
   {
     id: 8,
-    category: 'sistema',
+    category: 'pessoal',
     title: 'Sample - API Rest Typescript com MongoDB e Swagger openAPI',
-    // eslint-disable-next-line @stylistic/max-len
-    description: 'API RESTful completa desenvolvida em TypeScript com MongoDB e documentação Swagger OpenAPI. Implementa autenticação JWT, criptografia de senhas com Bcrypt e padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
+    description: 'API REST em TypeScript com MongoDB e documentação Swagger/OpenAPI. Tem autenticação JWT e senhas criptografadas com Bcrypt.',
     image: '/images/openapi.png',
     technologies: ['TypeScript', 'Node.js', 'MongoDB', 'Express', 'SwaggerOpenAPI', 'JWT', 'Bcrypt'],
     githubUrl: 'https://github.com/jpsantana6699/Swagger-Api-Rest-com-OpenApi/blob/main/docker-compose.yml',
@@ -168,10 +211,9 @@ const projects = [
   },
   {
     id: 9,
-    category: 'sistema',
+    category: 'pessoal',
     title: 'Livraria Digital',
-    // eslint-disable-next-line @stylistic/max-len
-    description: 'Plataforma completa de livraria online desenvolvida com stack full-stack. Combina interface React moderna com backend Node.js robusto, autenticação JWT, banco de dados MongoDB e templates dinâmicos EJS para uma experiência de compra completa.',
+    description: 'Livraria online feita no curso de back-end da Alura: front em React, API em Node.js com Express, MongoDB, autenticação JWT e templates EJS.',
     image: '/images/livro.png',
     technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'JWT', 'EJS', 'Mongoose'],
     githubUrl: 'https://github.com/jpsantana6699/Projeto-Alura-Back-end',
@@ -179,16 +221,22 @@ const projects = [
   },
   {
     id: 10,
-    category: 'sistema',
+    category: 'pessoal',
     title: 'Sample - API Node.js com Sequelize',
-    // eslint-disable-next-line @stylistic/max-len
-    description: 'API RESTful robusta desenvolvida em Node.js com Sequelize ORM para gerenciamento de banco de dados. Implementa padrões de desenvolvimento back-end com estrutura escalável e boas práticas de código.',
+    description: 'API REST em Node.js com Sequelize e SQLite, usada para praticar modelagem, migrations e organização de rotas.',
     image: '/images/node.png',
     technologies: ['JavaScript', 'Node.js', 'Sequelize', 'Express', 'Sqlite', 'Nodemon', 'ESLint'],
     githubUrl: 'https://github.com/jpsantana6699/Api-Node.js-com-Sequelize',
     featured: false,
   },
 ];
+
+const categories: Record<string, { labelKey: string; color: string }> = {
+  sistema: { labelKey: 'categorySystem', color: '#00d4ff' },
+  site: { labelKey: 'categorySite', color: '#ff6b6b' },
+  bi: { labelKey: 'categoryData', color: '#c084fc' },
+  pessoal: { labelKey: 'categoryPersonal', color: '#3fb950' },
+};
 
 const filters = [
   { value: 'all', labelKey: 'filterAll' },
@@ -217,20 +265,6 @@ export default function ProjetosPage() {
 
   return (
     <Box sx={{ minHeight: '100vh', py: 10, position: 'relative' }}>
-      {/* Background decorations */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '5%',
-          right: '5%',
-          width: '300px',
-          height: '300px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%)',
-          filter: 'blur(60px)',
-          pointerEvents: 'none',
-        }}
-      />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box 
@@ -240,35 +274,12 @@ export default function ProjetosPage() {
             mb: 8,
           }}
         >
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 3,
-              px: 3,
-              py: 1,
-              background: 'rgba(0, 212, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 255, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              color: '#00d4ff',
-            }}
-          >
-            <Code sx={{ fontSize: '1.2rem' }} />
-            Portfólio
-          </Box>
           
           <Typography
             variant="h2"
             sx={{
               mb: 3,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
               fontSize: { xs: '2.5rem', md: '3.5rem' },
               letterSpacing: '-0.02em',
@@ -310,11 +321,11 @@ export default function ProjetosPage() {
                 py: 0.75,
                 fontSize: '0.9rem',
                 '&.Mui-selected': {
-                  background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(255, 107, 107, 0.15) 100%)',
+                  background: 'rgba(0, 212, 255, 0.12)',
                   borderColor: 'rgba(0, 212, 255, 0.5)',
                   color: '#00d4ff',
                   '&:hover': {
-                    background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.28) 0%, rgba(255, 107, 107, 0.2) 100%)',
+                    background: 'rgba(0, 212, 255, 0.18)',
                   },
                 },
                 '&:hover': {
@@ -362,7 +373,7 @@ export default function ProjetosPage() {
                       left: 0,
                       right: 0,
                       height: '3px',
-                      background: 'linear-gradient(90deg, #00d4ff 0%, #ff6b6b 100%)',
+                      background: '#00b4d8',
                     },
                   }),
                 }}
@@ -373,7 +384,7 @@ export default function ProjetosPage() {
                     height: 220,
                     background: project.image && project.image !== '' 
                       ? 'rgba(0, 0, 0, 0.3)' 
-                      : 'linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(255, 107, 107, 0.2) 100%)',
+                      : '#161b22',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -408,9 +419,24 @@ export default function ProjetosPage() {
                     <Code sx={{ fontSize: 60, color: 'rgba(255, 255, 255, 0.3)', zIndex: 1 }} />
                   )}
                   
+                  <Chip
+                    label={t(categories[project.category].labelKey)}
+                    size="small"
+                    sx={{
+                      position: 'absolute',
+                      top: 16,
+                      left: 16,
+                      zIndex: 2,
+                      background: '#0d1117',
+                      color: categories[project.category].color,
+                      fontWeight: 700,
+                      border: `1px solid ${categories[project.category].color}66`,
+                    }}
+                  />
+
                   {project.featured && (
-                    <Chip 
-                      label={t('featured')} 
+                    <Chip
+                      label={t('featured')}
                       size="small"
                       sx={{
                         position: 'absolute',
@@ -441,7 +467,27 @@ export default function ProjetosPage() {
                   >
                     {project.title}
                   </Typography>
-                  
+
+                  {project.result && (
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 1,
+                        mb: 2,
+                        p: 1.5,
+                        borderRadius: '10px',
+                        background: 'rgba(63, 185, 80, 0.08)',
+                        border: '1px solid rgba(63, 185, 80, 0.25)',
+                      }}
+                    >
+                      <CheckCircle sx={{ color: '#3fb950', fontSize: '1.1rem', mt: '2px' }} />
+                      <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500, lineHeight: 1.6 }}>
+                        {project.result}
+                      </Typography>
+                    </Box>
+                  )}
+
                   <Typography 
                     variant="body2" 
                     paragraph 
@@ -475,7 +521,7 @@ export default function ProjetosPage() {
                         title={
                           <Box sx={{ p: 1 }}>
                             <Typography variant="caption" sx={{ fontWeight: 600, mb: 1, display: 'block' }}>
-                              Clique para ver todas as tecnologias:
+                              {t('allTechs')}
                             </Typography>
                             {project.technologies.slice(4).map((tech) => (
                               <Typography key={tech} variant="caption" sx={{ display: 'block', mb: 0.5 }}>
@@ -503,7 +549,6 @@ export default function ProjetosPage() {
                               background: 'rgba(0, 212, 255, 0.15)',
                               border: '1px solid rgba(0, 212, 255, 0.3)',
                               color: '#00d4ff',
-                              transform: 'translateY(-2px)',
                             },
                           }}
                         />
@@ -511,7 +556,7 @@ export default function ProjetosPage() {
                     )}
                     {project.technologies.length > 4 && expandedTechs.includes(project.id) && (
                       <Chip
-                        label="Ver menos"
+                        label={t('seeLess')}
                         size="small"
                         onClick={() => toggleTechs(project.id)}
                         sx={{ 
@@ -524,7 +569,6 @@ export default function ProjetosPage() {
                           transition: 'all 0.3s ease',
                           '&:hover': {
                             background: 'rgba(255, 107, 107, 0.25)',
-                            transform: 'translateY(-2px)',
                           },
                         }}
                       />
@@ -554,7 +598,7 @@ export default function ProjetosPage() {
                           },
                         }}
                       >
-                        Código
+                        {t('viewCode')}
                       </Button>
                     ) : (
                       <Box
@@ -588,18 +632,16 @@ export default function ProjetosPage() {
                         className="modern-button"
                         sx={{
                           flex: 1,
-                          background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                          background: '#00b4d8',
                           borderRadius: '10px',
                           textTransform: 'none',
                           fontWeight: 600,
-                          boxShadow: '0 4px 15px rgba(0, 212, 255, 0.3)',
                           '&:hover': {
-                            background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                            boxShadow: '0 6px 20px rgba(0, 212, 255, 0.4)',
+                            background: '#0096c7',
                           },
                         }}
                       >
-                        {project.isDemo ? 'Demo' : 'Ver Projeto'}
+                        {project.isDemo ? 'Demo' : t('viewProject')}
                       </Button>
                     )}
                   </Box>
@@ -638,7 +680,7 @@ export default function ProjetosPage() {
               margin: '0 auto 32px auto',
             }}
           >
-            Confira mais projetos e contribuições no meu perfil do GitHub
+            {t('seeMoreProjectsDesc')}
           </Typography>
           <Button
             variant="contained"
@@ -649,22 +691,19 @@ export default function ProjetosPage() {
             startIcon={<GitHub />}
             className="modern-button"
             sx={{
-              background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+              background: '#00b4d8',
               px: 5,
               py: 1.75,
               fontSize: '1.1rem',
               borderRadius: '12px',
               textTransform: 'none',
               fontWeight: 600,
-              boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
               '&:hover': {
-                background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+                background: '#0096c7',
               },
             }}
           >
-            Ver GitHub
+            {t('viewGithub')}
           </Button>
         </Box>
       </Container>

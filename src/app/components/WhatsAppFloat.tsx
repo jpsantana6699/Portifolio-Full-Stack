@@ -30,8 +30,6 @@ export function WhatsAppFloat() {
           height: { xs: 56, md: 64 },
           background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
           color: '#fff',
-          boxShadow: '0 8px 24px rgba(37, 211, 102, 0.45)',
-          animation: 'glow 2.5s ease-in-out infinite',
           '&:hover': {
             background: 'linear-gradient(135deg, #2ee878 0%, #25D366 100%)',
             transform: 'scale(1.08)',

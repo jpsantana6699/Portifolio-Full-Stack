@@ -4,6 +4,7 @@ import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 
 export default [
+  { ignores: ['.next/**', 'next-env.d.ts'] },
   { 
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     ignores: ['**/node_modules/**', '**/dist/**', '**/build/**', '**/.next/**'],

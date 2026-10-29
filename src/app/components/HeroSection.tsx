@@ -3,11 +3,10 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import { ArrowForward, Download, GitHub, LinkedIn, Send } from '@mui/icons-material';
 import Link from 'next/link';
-import { TypeAnimation } from 'react-type-animation';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export function HeroSection() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   
   return (
     <Box
@@ -22,39 +21,6 @@ export function HeroSection() {
         py: { xs: 6, md: 4 },
       }}
     >
-      {/* Animated background circles - optimized */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          left: '10%',
-          width: '400px',
-          height: '400px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%)',
-          filter: 'blur(50px)',
-          animation: 'float 8s ease-in-out infinite',
-          zIndex: 0,
-          willChange: 'transform',
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '10%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%)',
-          filter: 'blur(50px)',
-          animation: 'float 10s ease-in-out infinite',
-          animationDelay: '2s',
-          zIndex: 0,
-          willChange: 'transform',
-        }}
-      />
-
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box
           className="animate-fade-in-up"
@@ -63,45 +29,19 @@ export function HeroSection() {
             position: 'relative',
           }}
         >
-          {/* Badge moderna */}
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 3,
-              px: 3,
-              py: 1,
-              background: 'rgba(0, 212, 255, 0.15)',
-              border: '1px solid rgba(0, 212, 255, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              color: '#00d4ff',
-            }}
+          <Typography
+            sx={{ mb: 2, color: 'rgba(255, 255, 255, 0.6)', fontSize: { xs: '1rem', md: '1.125rem' }, fontWeight: 500 }}
           >
-            <Box
-              sx={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                background: '#00d4ff',
-                animation: 'glow 2s ease-in-out infinite',
-              }}
-            />
             {t('hello')}
-          </Box>
+          </Typography>
 
           <Typography
             variant="h1"
             sx={{
               mb: 2,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
-              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '5rem' },
+              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
               letterSpacing: '-0.02em',
               lineHeight: 1.1,
             }}
@@ -112,84 +52,27 @@ export function HeroSection() {
           <Typography
             variant="h2"
             sx={{
-              mb: 3,
-              color: 'rgba(255, 255, 255, 0.9)',
+              mb: 4,
+              color: '#00b4d8',
               fontWeight: 600,
-              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+              fontSize: { xs: '1.35rem', sm: '1.75rem', md: '2rem' },
             }}
           >
             {t('role')}
           </Typography>
-          
-          <Box sx={{ 
-            mb: 5, 
-            minHeight: { xs: '80px', sm: '60px' },
-            fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' },
-            color: 'rgba(255, 255, 255, 0.6)',
-            fontWeight: 500,
-          }}>
-            <TypeAnimation
-              sequence={
-                language === 'pt' 
-                  ? [
-                    '💻 Desenvolvedor Full Stack',
-                    2000,
-                    '🚀 Back-End + Front-End',
-                    2000,
-                    '📊 Analista de Dados & BI',
-                    2000,
-                    '⚡ APIs Robustas e Escaláveis',
-                    2000,
-                    '📈 Dashboards Estratégicos',
-                    2000,
-                  ]
-                  : [
-                    '💻 Full Stack Developer',
-                    2000,
-                    '🚀 Back-End + Front-End',
-                    2000,
-                    '📊 Data Analyst & BI',
-                    2000,
-                    '⚡ Robust and Scalable APIs',
-                    2000,
-                    '📈 Strategic Dashboards',
-                    2000,
-                  ]
-              }
-              wrapper="span"
-              speed={50}
-              style={{
-                fontSize: 'inherit',
-                color: 'inherit',
-                fontWeight: 'inherit',
-                display: 'inline-block',
-              }}
-              repeat={Infinity}
-              key={language} 
-            />
-          </Box>
 
-          {/* Glass card para descrição */}
-          <Box
-            className="glass-card"
+          <Typography
+            variant="body1"
             sx={{
-              maxWidth: { xs: '90%', sm: '80%', md: '700px' },
-              margin: '0 auto 48px auto',
-              p: { xs: 3, md: 4 },
-              borderRadius: '20px',
+              maxWidth: '640px',
+              margin: '0 auto 40px auto',
+              color: 'rgba(255, 255, 255, 0.75)',
+              fontSize: { xs: '1rem', md: '1.15rem' },
+              lineHeight: 1.8,
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                fontSize: { xs: '1rem', md: '1.125rem' },
-                lineHeight: 1.8,
-              }}
-            >
-              {t('heroDescription')}
-            </Typography>
-          </Box>
+            {t('heroDescription')}
+          </Typography>
 
           {/* Availability badge */}
           <Box
@@ -214,7 +97,6 @@ export function HeroSection() {
                 height: '8px',
                 borderRadius: '50%',
                 background: '#4caf50',
-                animation: 'glow 2s ease-in-out infinite',
               }}
             />
             {t('heroAvailable')}
@@ -238,19 +120,16 @@ export function HeroSection() {
               startIcon={<Send />}
               className="modern-button"
               sx={{
-                background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                background: '#00b4d8',
                 px: 4,
                 py: 1.5,
                 fontSize: '1.1rem',
                 borderRadius: '12px',
                 textTransform: 'none',
                 fontWeight: 600,
-                boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 12px 32px rgba(0, 212, 255, 0.4)',
+                  background: '#0096c7',
                 },
               }}
             >
@@ -278,7 +157,6 @@ export function HeroSection() {
                   borderColor: '#00d4ff',
                   color: '#00d4ff',
                   backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                  transform: 'translateY(-2px)',
                 },
               }}
             >
@@ -369,7 +247,6 @@ export function HeroSection() {
                 '&:hover': {
                   color: '#ff6b6b',
                   backgroundColor: 'rgba(255, 107, 107, 0.1)',
-                  boxShadow: '0 8px 24px rgba(255, 107, 107, 0.2)',
                 },
               }}
             >

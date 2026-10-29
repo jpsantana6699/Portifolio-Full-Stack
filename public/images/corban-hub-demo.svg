@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#0a0e14"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="640" fill="url(#bg)"/>
+<g font-family="Inter, Segoe UI, sans-serif">
+<rect x="0" y="0" width="220" height="640" fill="#111722"/>
+<rect x="24" y="26" width="34" height="34" rx="9" fill="#00d4ff"/>
+<text x="70" y="49" font-size="18" fill="#e6edf3" font-weight="800">Corban Hub</text>
+<rect x="16" y="100" width="188" height="40" rx="10" fill="#00d4ff" fill-opacity="0.15"/>
+<text x="36" y="126" font-size="14" fill="#00d4ff" font-weight="700">Visão geral</text>
+<text x="36" y="174" font-size="14" fill="#8b949e" font-weight="600">Lançamentos</text>
+<text x="36" y="214" font-size="14" fill="#8b949e" font-weight="600">Relatórios</text>
+<text x="36" y="254" font-size="14" fill="#8b949e" font-weight="600">Painel</text>
+<text x="252" y="52" font-size="22" fill="#e6edf3" font-weight="800">Débitos de parceiros</text>
+<text x="252" y="76" font-size="13" fill="#8b949e" font-weight="500">Base linha a linha, indicadores por situação e detalhe de cada débito</text>
+<rect x="1040" y="34" width="132" height="36" rx="10" fill="#1c2230" stroke="#2a2f3a"/>
+<text x="1063" y="57" font-size="13" fill="#e6edf3" font-weight="600">Exportar .xlsx</text>
+<rect x="252" y="104" width="216" height="96" rx="14" fill="#151b26" stroke="#2a2f3a"/>
+<text x="272" y="134" font-size="13" fill="#8b949e" font-weight="600">Em aberto</text>
+<text x="272" y="176" font-size="30" fill="#ff6b6b" font-weight="800">R$ 184,2 mil</text>
+<rect x="484" y="104" width="216" height="96" rx="14" fill="#151b26" stroke="#2a2f3a"/>
+<text x="504" y="134" font-size="13" fill="#8b949e" font-weight="600">Em negociação</text>
+<text x="504" y="176" font-size="30" fill="#ffb84d" font-weight="800">R$ 62,7 mil</text>
+<rect x="716" y="104" width="216" height="96" rx="14" fill="#151b26" stroke="#2a2f3a"/>
+<text x="736" y="134" font-size="13" fill="#8b949e" font-weight="600">Quitados no mês</text>
+<text x="736" y="176" font-size="30" fill="#3fb950" font-weight="800">R$ 97,4 mil</text>
+<rect x="948" y="104" width="224" height="96" rx="14" fill="#151b26" stroke="#2a2f3a"/>
+<text x="968" y="134" font-size="13" fill="#8b949e" font-weight="600">Parceiros com débito</text>
+<text x="968" y="176" font-size="30" fill="#00d4ff" font-weight="800">143</text>
+<rect x="252" y="220" width="920" height="392" rx="14" fill="#151b26" stroke="#2a2f3a"/>
+<rect x="252" y="220" width="920" height="48" rx="14" fill="#1c2230"/>
+<text x="276" y="250" font-size="13" fill="#8b949e" font-weight="700">PARCEIRO</text>
+<text x="560" y="250" font-size="13" fill="#8b949e" font-weight="700">ORIGEM</text>
+<text x="760" y="250" font-size="13" fill="#8b949e" font-weight="700">VALOR</text>
+<text x="900" y="250" font-size="13" fill="#8b949e" font-weight="700">SITUAÇÃO</text>
+<g font-size="14" fill="#e6edf3" font-weight="500">
+<text x="276" y="306">Parceiro Alfa Ltda</text><text x="560" y="306" fill="#8b949e">Ajuste</text><text x="760" y="306">R$ 4.820,00</text>
+<rect x="900" y="290" width="96" height="24" rx="12" fill="#ff6b6b" fill-opacity="0.18"/><text x="916" y="307" font-size="12" fill="#ff6b6b" font-weight="700">Em aberto</text>
+<text x="276" y="362">Beta Promotora</text><text x="560" y="362" fill="#8b949e">Adiantamento</text><text x="760" y="362">R$ 12.300,00</text>
+<rect x="900" y="346" width="112" height="24" rx="12" fill="#ffb84d" fill-opacity="0.18"/><text x="914" y="363" font-size="12" fill="#ffb84d" font-weight="700">Negociação</text>
+<text x="276" y="418">Gama Correspondente</text><text x="560" y="418" fill="#8b949e">Outros</text><text x="760" y="418">R$ 1.150,00</text>
+<rect x="900" y="402" width="84" height="24" rx="12" fill="#3fb950" fill-opacity="0.18"/><text x="915" y="419" font-size="12" fill="#3fb950" font-weight="700">Quitado</text>
+<text x="276" y="474">Delta Crédito</text><text x="560" y="474" fill="#8b949e">Ajuste</text><text x="760" y="474">R$ 7.040,00</text>
+<rect x="900" y="458" width="96" height="24" rx="12" fill="#ff6b6b" fill-opacity="0.18"/><text x="916" y="475" font-size="12" fill="#ff6b6b" font-weight="700">Em aberto</text>
+<text x="276" y="530">Ômega Negócios</text><text x="560" y="530" fill="#8b949e">Adiantamento</text><text x="760" y="530">R$ 3.600,00</text>
+<rect x="900" y="514" width="84" height="24" rx="12" fill="#3fb950" fill-opacity="0.18"/><text x="915" y="531" font-size="12" fill="#3fb950" font-weight="700">Quitado</text>
+</g>
+<g stroke="#2a2f3a"><line x1="268" y1="328" x2="1156" y2="328"/><line x1="268" y1="384" x2="1156" y2="384"/><line x1="268" y1="440" x2="1156" y2="440"/><line x1="268" y1="496" x2="1156" y2="496"/></g>
+<text x="276" y="586" font-size="12" fill="#8b949e" font-weight="500">Dados fictícios — sistema real sob confidencialidade</text>
+</g>
+</svg>

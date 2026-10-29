@@ -1,27 +1,63 @@
-#  Meu Portfólio 
+# Portfólio — João Pedro Santana
 
-Bem-vindo ao meu portfólio pessoal! Este site foi desenvolvido para apresentar minhas habilidades, projetos e experiências profissionais. Aqui, você encontrará uma visão geral do meu trabalho, além de informações de contato para futuras colaborações.
+Site pessoal para apresentar meu trabalho como desenvolvedor Full Stack: serviços, projetos, trajetória e contato.
 
-## ⚙ Tecnologias Utilizadas ⚙
+No ar em **https://joaopedrotech.netlify.app**.
 
-- **Next.js**: Estruturação do conteúdo do site e funcionalidades dinâmicas.
-- **Material-UI**: Estilização, design responsivo e componentes pré-estilizados.
-- **Git & GitHub**: Controle de versão e hospedagem do código-fonte.
+## Stack
 
-##  Seções do Site 
+- **Next.js 16** (App Router) + **React 18** + **TypeScript**
+- **Material-UI 6** com Emotion
+- **tsParticles** e **react-type-animation** nas animações
+- **Nodemailer** na rota `/api/contact` do formulário de contato
+- Tradução PT/EN pelo `LanguageContext`
 
-- **Home**: Introdução breve e chamada para ação.
-- **Sobre Mim**: Informações pessoais, formação acadêmica e interesses.
-- **Projetos**: Galeria dos projetos mais relevantes, com descrições e links para demonstrações ou repositórios.
-- **Contato**: Formulário de contato e links para minhas redes sociais e perfis profissionais.
+## Páginas
 
-## 📜 Licença 📜
+| Rota | O que tem |
+|---|---|
+| `/` | Apresentação, serviços, como funciona e depoimentos |
+| `/sobre` | História, o que faço hoje, stack e linha do tempo da carreira |
+| `/projetos` | Projetos com filtro por categoria (sistemas, sites, BI, pessoais) |
+| `/contato` | Formulário (e-mail) com fallback para o WhatsApp |
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+## Como rodar
 
-## 📞 Contato 📞
+```bash
+npm install
+cp .env.local.example .env.local
+npm run dev
+```
 
-- **Email**: jpsantana003@gmail.com
-- **LinkedIn**: [Meu Perfil no LinkedIn](https://www.linkedin.com/in/joaopedrosantana)
+Verificações antes de subir:
 
-Feito por João Pedro Santana.
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
+
+## Variáveis de ambiente
+
+Descritas em [`.env.local.example`](./.env.local.example). Sem as variáveis de SMTP, o formulário responde `503` e o site leva o visitante para o WhatsApp.
+
+| Variável | O que é |
+|---|---|
+| `SMTP_HOST` / `SMTP_PORT` | Servidor SMTP (ex.: `smtp.gmail.com` / `465`) |
+| `SMTP_USER` / `SMTP_PASS` | Conta e senha de app do e-mail que envia |
+| `CONTACT_TO` | Quem recebe os contatos (padrão: `SMTP_USER`) |
+| `NEXT_PUBLIC_SITE_URL` | URL pública usada no SEO/OpenGraph |
+
+## Deploy
+
+Netlify, com deploy automático a cada push na `main`. O Netlify detecta o Next.js e usa o runtime oficial dele; as variáveis acima ficam em **Site configuration → Environment variables**.
+
+## Contato
+
+- **E-mail:** jpsantana003@gmail.com
+- **LinkedIn:** [João Pedro Santana](https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/)
+- **GitHub:** [jpsantana6699](https://github.com/jpsantana6699)
+
+## Licença
+
+MIT — veja [LICENSE](./LICENSE).

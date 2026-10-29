@@ -22,7 +22,6 @@ export function TranslateButton({ size = 'small', variant = 'outlined' }: Transl
         textTransform: 'none',
         borderRadius: 2,
         '&:hover': {
-          transform: 'translateY(-2px)',
           transition: 'transform 0.2s ease-in-out',
         },
       }}

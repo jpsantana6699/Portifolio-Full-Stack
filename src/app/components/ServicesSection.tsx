@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Button, Card, Chip, Container, Grid, Typography } from '@mui/material';
-import { BarChart, Storage, WhatsApp, Web } from '@mui/icons-material';
+import { BarChart, CheckCircle, Storage, Web, WhatsApp } from '@mui/icons-material';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -16,6 +16,7 @@ export function ServicesSection() {
       color: '#00d4ff',
       titleKey: 'serviceSystemsTitle',
       descKey: 'serviceSystemsDesc',
+      offerKey: 'serviceSystemsOffer',
       stack: ['Node.js', 'TypeScript', 'React', 'Next.js', 'APIs REST', 'Docker'],
     },
     {
@@ -23,11 +24,12 @@ export function ServicesSection() {
       color: '#ff6b6b',
       titleKey: 'serviceFrontTitle',
       descKey: 'serviceFrontDesc',
+      offerKey: 'serviceFrontOffer',
       stack: ['Next.js', 'React', 'TypeScript', 'Material-UI', 'Responsivo', 'SEO'],
     },
     {
       icon: <BarChart sx={{ fontSize: 30 }} />,
-      color: '#9c27b0',
+      color: '#c084fc',
       titleKey: 'serviceDataTitle',
       descKey: 'serviceDataDesc',
       stack: ['Power BI', 'SQL', 'DAX', 'ETL', 'Dashboards'],
@@ -39,35 +41,18 @@ export function ServicesSection() {
       <Container maxWidth="lg">
         {/* Header */}
         <Box className="animate-fade-in-up" sx={{ textAlign: 'center', mb: 7 }}>
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 3,
-              px: 3,
-              py: 1,
-              background: 'rgba(0, 212, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 255, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              color: '#00d4ff',
-            }}
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', mb: 1.5, color: '#00b4d8', fontWeight: 700, letterSpacing: '0.12em' }}
           >
-            <Storage sx={{ fontSize: '1.2rem' }} />
             {t('servicesTag')}
-          </Box>
+          </Typography>
 
           <Typography
             variant="h2"
             sx={{
               mb: 3,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
               fontSize: { xs: '2.25rem', md: '3rem' },
               letterSpacing: '-0.02em',
@@ -132,6 +117,23 @@ export function ServicesSection() {
                   {t(service.titleKey)}
                 </Typography>
 
+                {service.offerKey && (
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1,
+                      mb: 2,
+                      color: '#3fb950',
+                      fontSize: '0.9rem',
+                      fontWeight: 700,
+                    }}
+                  >
+                    <CheckCircle sx={{ fontSize: '1.1rem' }} />
+                    {t(service.offerKey)}
+                  </Box>
+                )}
+
                 <Typography
                   variant="body2"
                   sx={{
@@ -195,17 +197,15 @@ export function ServicesSection() {
               size="large"
               className="modern-button"
               sx={{
-                background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                background: '#00b4d8',
                 px: 4,
                 py: 1.5,
                 fontSize: '1.05rem',
                 borderRadius: '12px',
                 textTransform: 'none',
                 fontWeight: 600,
-                boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
-                  transform: 'translateY(-2px)',
+                  background: '#0096c7',
                 },
               }}
             >
@@ -231,7 +231,6 @@ export function ServicesSection() {
                 '&:hover': {
                   borderColor: '#4caf50',
                   background: 'rgba(76, 175, 80, 0.1)',
-                  transform: 'translateY(-2px)',
                 },
               }}
             >

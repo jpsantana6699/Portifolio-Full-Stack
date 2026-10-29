@@ -14,7 +14,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-// eslint-disable-next-line sort-imports
 import {
   Email,
   GitHub,
@@ -117,16 +116,15 @@ export default function ContatoPage() {
         return;
       }
 
-      const data = await res.json().catch(() => ({} as { code?: string }));
-      // Email ainda não configurado no servidor: cai no WhatsApp automaticamente.
-      if (res.status === 503 && data.code === 'NOT_CONFIGURED') {
+      if (res.status >= 500) {
         setSnack({ open: true, severity: 'info', msg: t('fallbackWhatsapp') });
         openWhatsApp();
         return;
       }
-      throw new Error('send failed');
-    } catch {
       setSnack({ open: true, severity: 'error', msg: t('sendError') });
+    } catch {
+      setSnack({ open: true, severity: 'info', msg: t('fallbackWhatsapp') });
+      openWhatsApp();
     } finally {
       setLoading(false);
     }
@@ -147,35 +145,12 @@ export default function ContatoPage() {
             mb: { xs: 1.5, md: 2 },
           }}
         >
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 1,
-              px: 2.5,
-              py: 0.75,
-              background: 'rgba(0, 212, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 212, 255, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.85rem',
-              fontWeight: 500,
-              color: '#00d4ff',
-            }}
-          >
-            <Email sx={{ fontSize: '1rem' }} />
-            Contato
-          </Box>
 
           <Typography
             variant="h2"
             sx={{
               mb: 1,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
               fontSize: { xs: '2rem', md: '2.5rem' },
               letterSpacing: '-0.02em',
@@ -303,15 +278,14 @@ export default function ContatoPage() {
                       startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <Send />}
                       className="modern-button"
                       sx={{
-                        background: 'linear-gradient(135deg, #00d4ff 0%, #0096cc 100%)',
+                        background: '#00b4d8',
                         py: 1.5,
                         fontSize: '1rem',
                         borderRadius: '12px',
                         textTransform: 'none',
                         fontWeight: 600,
-                        boxShadow: '0 8px 24px rgba(0, 212, 255, 0.3)',
                         '&:hover': {
-                          background: 'linear-gradient(135deg, #66e4ff 0%, #00d4ff 100%)',
+                          background: '#0096c7',
                         },
                         '&.Mui-disabled': {
                           background: 'rgba(0, 212, 255, 0.3)',
@@ -356,7 +330,6 @@ export default function ContatoPage() {
                   textTransform: 'none',
                   fontWeight: 700,
                   background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                  boxShadow: '0 8px 24px rgba(37, 211, 102, 0.35)',
                   '&:hover': {
                     background: 'linear-gradient(135deg, #2ee878 0%, #25D366 100%)',
                   },

@@ -19,35 +19,18 @@ export function ProcessSection() {
       <Container maxWidth="lg">
         {/* Header */}
         <Box className="animate-fade-in-up" sx={{ textAlign: 'center', mb: 7 }}>
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              mb: 3,
-              px: 3,
-              py: 1,
-              background: 'rgba(255, 107, 107, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 107, 107, 0.2)',
-              borderRadius: '50px',
-              fontSize: '0.9rem',
-              fontWeight: 500,
-              color: '#ff6b6b',
-            }}
+          <Typography
+            variant="overline"
+            sx={{ display: 'block', mb: 1.5, color: '#00b4d8', fontWeight: 700, letterSpacing: '0.12em' }}
           >
-            <RocketLaunch sx={{ fontSize: '1.2rem' }} />
             {t('processTag')}
-          </Box>
+          </Typography>
 
           <Typography
             variant="h2"
             sx={{
               mb: 3,
-              background: 'linear-gradient(135deg, #00d4ff 0%, #66e4ff 50%, #ff6b6b 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#f0f6fc',
               fontWeight: 800,
               fontSize: { xs: '2.25rem', md: '3rem' },
               letterSpacing: '-0.02em',
@@ -164,7 +147,7 @@ export function ProcessSection() {
               fontSize: { xs: '0.95rem', md: '1.05rem' },
             }}
           >
-            ✨ {t('freeFirstTalk')}
+            {t('freeFirstTalk')}
           </Box>
         </Box>
       </Container>

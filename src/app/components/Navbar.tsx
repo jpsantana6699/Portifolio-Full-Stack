@@ -46,10 +46,7 @@ export function Navbar() {
           variant="h6" 
           sx={{ 
             fontWeight: 800, 
-            background: 'linear-gradient(135deg, #00d4ff 0%, #ff6b6b 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            color: '#f0f6fc',
           }}
         >
           JPS
@@ -117,7 +114,6 @@ export function Navbar() {
         sx={{ 
           backgroundColor: 'rgba(10, 10, 10, 0.95)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         }}
       >
         <Toolbar sx={{ py: 1 }}>
@@ -128,10 +124,7 @@ export function Navbar() {
               sx={{ 
                 fontWeight: 800,
                 fontSize: { xs: '1.25rem', md: '1.5rem' },
-                background: 'linear-gradient(135deg, #00d4ff 0%, #ff6b6b 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: '#f0f6fc',
                 cursor: 'pointer',
                 transition: 'transform 0.3s ease',
                 '&:hover': {
@@ -182,7 +175,7 @@ export function Navbar() {
                         transform: 'translateX(-50%)',
                         width: pathname === item.href ? '70%' : '0%',
                         height: '2px',
-                        background: 'linear-gradient(90deg, #00d4ff 0%, #ff6b6b 100%)',
+                        background: '#00b4d8',
                         borderRadius: '2px',
                         transition: 'width 0.3s ease',
                       },
