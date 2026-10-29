@@ -169,7 +169,7 @@ const projects = [
     title: 'Aim Training | Treino de Mira',
     // eslint-disable-next-line @stylistic/max-len
     description: 'Treino de mira grátis no navegador para quem joga FPS, com os modos Gridshot, Flick, Headshot, Spidershot, Tracking, Counter-strafe e Reflexo. Feito em TypeScript puro com Vite e testes em Vitest.',
-    image: '',
+    image: '/images/aim-training.png',
     technologies: ['TypeScript', 'Vite', 'Vitest', 'CSS', 'HTML'],
     githubUrl: 'https://github.com/jpsantana6699/Aim_Training',
     liveUrl: 'https://treino-de-mira.vercel.app',
