@@ -1,16 +1,13 @@
 'use client';
 
 import {
-  Alert,
   Box,
   Button,
   Card,
-  CircularProgress,
   Container,
   Divider,
   Grid,
   MenuItem,
-  Snackbar,
   TextField,
   Typography,
 } from '@mui/material';
@@ -73,13 +70,9 @@ const contactInfo = [
   },
 ];
 
-type SnackState = { open: boolean; severity: 'success' | 'error' | 'info'; msg: string };
-
 export default function ContatoPage() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({ name: '', email: '', projectType: '', message: '' });
-  const [loading, setLoading] = useState(false);
-  const [snack, setSnack] = useState<SnackState>({ open: false, severity: 'success', msg: '' });
+  const [formData, setFormData] = useState({ name: '', projectType: '', message: '' });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -88,46 +81,16 @@ export default function ContatoPage() {
     });
   };
 
-  const openWhatsApp = () => {
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     const lines = [
-      `Olá João! Meu nome é ${formData.name || ''}.`,
-      formData.email ? `Email: ${formData.email}` : '',
+      `Olá João! Meu nome é ${formData.name}.`,
       `Tipo de projeto: ${formData.projectType || '—'}`,
       '',
-      formData.message || '',
-    ].filter((l) => l !== '');
+      formData.message,
+    ];
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
-    window.open(url, '_blank');
-  };
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setSnack({ open: true, severity: 'success', msg: t('messageSent') });
-        setFormData({ name: '', email: '', projectType: '', message: '' });
-        return;
-      }
-
-      if (res.status >= 500) {
-        setSnack({ open: true, severity: 'info', msg: t('fallbackWhatsapp') });
-        openWhatsApp();
-        return;
-      }
-      setSnack({ open: true, severity: 'error', msg: t('sendError') });
-    } catch {
-      setSnack({ open: true, severity: 'info', msg: t('fallbackWhatsapp') });
-      openWhatsApp();
-    } finally {
-      setLoading(false);
-    }
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -225,19 +188,6 @@ export default function ContatoPage() {
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
-                      fullWidth
-                      label={t('email_field')}
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      variant="outlined"
-                      sx={fieldSx}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
                       select
                       fullWidth
                       label={t('projectTypeLabel')}
@@ -274,8 +224,7 @@ export default function ContatoPage() {
                       variant="contained"
                       size="large"
                       fullWidth
-                      disabled={loading}
-                      startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <Send />}
+                      startIcon={<WhatsApp />}
                       className="modern-button"
                       sx={{
                         background: '#00b4d8',
@@ -287,14 +236,13 @@ export default function ContatoPage() {
                         '&:hover': {
                           background: '#0096c7',
                         },
-                        '&.Mui-disabled': {
-                          background: 'rgba(0, 212, 255, 0.3)',
-                          color: 'rgba(255,255,255,0.7)',
-                        },
                       }}
                     >
-                      {loading ? t('sending') : t('sendButton')}
+                      {t('sendButton')}
                     </Button>
+                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1, textAlign: 'center' }}>
+                      {t('whatsappNote')}
+                    </Typography>
                   </Grid>
                 </Grid>
               </Box>
@@ -443,22 +391,6 @@ export default function ContatoPage() {
           </Grid>
         </Grid>
       </Container>
-
-      <Snackbar
-        open={snack.open}
-        autoHideDuration={6000}
-        onClose={() => setSnack((s) => ({ ...s, open: false }))}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert
-          onClose={() => setSnack((s) => ({ ...s, open: false }))}
-          severity={snack.severity}
-          variant="filled"
-          sx={{ width: '100%' }}
-        >
-          {snack.msg}
-        </Alert>
-      </Snackbar>
     </Box>
   );
 }

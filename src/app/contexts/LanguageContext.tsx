@@ -108,14 +108,10 @@ const translations = {
     
     // Form
     name_field: 'Nome',
-    email_field: 'Email',
     subject: 'Assunto',
     message: 'Mensagem',
-    sendButton: 'Enviar mensagem',
-    sending: 'Enviando...',
-    messageSent: 'Mensagem enviada! Respondo em breve.',
-    sendError: 'Não consegui enviar agora. Tente pelo WhatsApp.',
-    fallbackWhatsapp: 'O e-mail não está disponível agora, abri o WhatsApp para você.',
+    sendButton: 'Enviar pelo WhatsApp',
+    whatsappNote: 'O WhatsApp abre com a sua mensagem pronta. Nada fica salvo neste site.',
     orText: 'ou',
     projectTypeLabel: 'Tipo de projeto',
     projectTypeSystem: 'Sistema / Software',
@@ -289,14 +285,10 @@ const translations = {
     
     // Form
     name_field: 'Name',
-    email_field: 'Email',
     subject: 'Subject',
     message: 'Message',
-    sendButton: 'Send message',
-    sending: 'Sending...',
-    messageSent: 'Message sent! I\'ll get back to you soon.',
-    sendError: 'Could not send right now. Try WhatsApp.',
-    fallbackWhatsapp: 'Email is not available right now, so I opened WhatsApp for you.',
+    sendButton: 'Send via WhatsApp',
+    whatsappNote: 'WhatsApp opens with your message ready. Nothing is stored on this site.',
     orText: 'or',
     projectTypeLabel: 'Project type',
     projectTypeSystem: 'System / Software',
