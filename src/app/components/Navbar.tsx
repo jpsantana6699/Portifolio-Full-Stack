@@ -1,225 +1,108 @@
 'use client';
 
-import { 
-  AppBar, 
-  Box, 
-  Button, 
-  Drawer, 
-  IconButton, 
-  List, 
-  ListItem,
-  Toolbar,
-  Typography, 
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import { Close as CloseIcon, Menu as MenuIcon } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { TranslateButton } from './TranslateButton';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useState } from 'react';
+import { WHATSAPP_URL, navLinks } from '../data/site';
 
 export function Navbar() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { t } = useLanguage();
+  const { t, toggleLanguage } = useLanguage();
   const pathname = usePathname();
-  
-  const menuItems = [
-    { label: t('home'), href: '/' },
-    { label: t('about'), href: '/sobre' },
-    { label: t('services'), href: '/#servicos' },
-    { label: t('projects'), href: '/projetos' },
-    { label: t('contact'), href: '/contato' },
-  ];
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 24));
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
-        <Typography 
-          variant="h6" 
-          sx={{ 
-            fontWeight: 800, 
-            color: '#f0f6fc',
-          }}
-        >
-          JPS
-        </Typography>
-        <IconButton 
-          onClick={handleDrawerToggle}
-          sx={{
-            color: 'rgba(255, 255, 255, 0.8)',
-            '&:hover': {
-              color: '#00d4ff',
-              background: 'rgba(0, 212, 255, 0.1)',
-            },
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </Box>
-      <List sx={{ px: 2 }}>
-        {menuItems.map((item) => (
-          <ListItem 
-            key={item.label} 
-            disablePadding
-            sx={{ mb: 1 }}
-          >
-            <Link href={item.href} passHref style={{ width: '100%', textDecoration: 'none' }}>
-              <Box
-                className="glass-card"
-                sx={{
-                  width: '100%',
-                  py: 2,
-                  px: 3,
-                  borderRadius: '12px',
-                  textAlign: 'center',
-                  color: pathname === item.href ? '#00d4ff' : 'rgba(255, 255, 255, 0.8)',
-                  fontWeight: pathname === item.href ? 600 : 500,
-                  border: pathname === item.href 
-                    ? '1px solid rgba(0, 212, 255, 0.3)' 
-                    : '1px solid rgba(255, 255, 255, 0.08)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    color: '#00d4ff',
-                    borderColor: 'rgba(0, 212, 255, 0.3)',
-                    background: 'rgba(0, 212, 255, 0.05)',
-                  },
-                }}
-              >
-                {item.label}
-              </Box>
-            </Link>
-          </ListItem>
-        ))}
-        <ListItem sx={{ justifyContent: 'center', pt: 2 }}>
-          <TranslateButton size="medium" variant="contained" />
-        </ListItem>
-      </List>
-    </Box>
-  );
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <>
-      <AppBar 
-        position="fixed" 
-        elevation={0}
-        sx={{ 
-          backgroundColor: 'rgba(10, 10, 10, 0.95)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        }}
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-500 ${scrolled || open ? 'border-line bg-ink/70 backdrop-blur-xl' : 'border-transparent bg-transparent'}`}
       >
-        <Toolbar sx={{ py: 1 }}>
-          <Link href="/" passHref style={{ textDecoration: 'none', flexGrow: 1 }}>
-            <Typography 
-              variant="h6" 
-              component="div" 
-              sx={{ 
-                fontWeight: 800,
-                fontSize: { xs: '1.25rem', md: '1.5rem' },
-                color: '#f0f6fc',
-                cursor: 'pointer',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                },
-              }}
-            >
-              João Pedro Santana
-            </Typography>
-          </Link>
-          
-          {isMobile ? (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                '&:hover': {
-                  color: '#00d4ff',
-                  background: 'rgba(0, 212, 255, 0.1)',
-                },
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-              {menuItems.map((item) => (
-                <Link key={item.label} href={item.href} passHref style={{ textDecoration: 'none' }}>
-                  <Button 
-                    sx={{ 
-                      color: pathname === item.href ? '#00d4ff' : 'rgba(255, 255, 255, 0.8)',
-                      fontWeight: pathname === item.href ? 600 : 500,
-                      px: 2.5,
-                      py: 1,
-                      borderRadius: '10px',
-                      textTransform: 'none',
-                      fontSize: '1rem',
-                      position: 'relative',
-                      transition: 'all 0.3s ease',
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        bottom: 0,
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: pathname === item.href ? '70%' : '0%',
-                        height: '2px',
-                        background: '#00b4d8',
-                        borderRadius: '2px',
-                        transition: 'width 0.3s ease',
-                      },
-                      '&:hover': {
-                        color: '#00d4ff',
-                        background: 'rgba(0, 212, 255, 0.08)',
-                        '&::after': {
-                          width: '70%',
-                        },
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                </Link>
-              ))}
-              <TranslateButton size="small" variant="outlined" />
-            </Box>
-          )}
-        </Toolbar>
-      </AppBar>
+        <Link href="/" className="flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-paper font-mono text-sm font-bold text-ink">JP</span>
+          <span className="hidden text-sm font-medium sm:block">João Pedro Santana</span>
+        </Link>
 
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { 
-            boxSizing: 'border-box', 
-            width: 280,
-            background: 'rgba(10, 10, 10, 0.98)',
-            borderLeft: '1px solid rgba(255, 255, 255, 0.08)',
-          },
-        }}
-      >
-        {drawer}
-      </Drawer>
-      
-      <Toolbar />
-    </>
+        <nav className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative rounded-lg px-4 py-2 text-sm transition-colors ${active ? 'text-paper' : 'text-muted hover:text-paper'}`}
+              >
+                {active && (
+                  <motion.span layoutId="nav-active" className="absolute inset-0 rounded-lg bg-white/[0.06]" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
+                )}
+                <span className="relative">{t(link.labelKey)}</span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="rounded-lg px-3 py-2 font-mono text-xs text-muted transition-colors hover:text-paper"
+          >
+            {t('languageSwitch')}
+          </button>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-1.5 rounded-lg bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-accent sm:flex"
+          >
+            {t('navCta')}
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={t('menu')}
+            aria-expanded={open}
+            className="rounded-lg p-2 md:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-line bg-ink/90 backdrop-blur-xl md:hidden"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`block border-b border-line px-5 py-4 text-lg last:border-0 ${pathname === link.href ? 'text-paper' : 'text-muted'}`}
+              >
+                {t(link.labelKey)}
+              </Link>
+            ))}
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-5 py-4 text-lg text-accent">
+              {t('navCta')}
+              <ArrowUpRight className="h-5 w-5" />
+            </a>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

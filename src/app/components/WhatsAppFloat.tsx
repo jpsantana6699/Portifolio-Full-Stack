@@ -1,44 +1,30 @@
 'use client';
 
-import { WhatsApp } from '@mui/icons-material';
-import { Fab, Tooltip, Zoom } from '@mui/material';
 import { usePathname } from 'next/navigation';
-
-const WHATSAPP_URL = 'https://wa.me/5535999788870?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.';
+import { WHATSAPP_URL } from '../data/site';
+import { WhatsAppIcon } from './BrandIcons';
+import { Magnetic } from './Magnetic';
 
 export function WhatsAppFloat() {
   const pathname = usePathname();
 
-  // Na página de contato já existe o botão grande "Chamar no WhatsApp".
   if (pathname === '/contato') {
     return null;
   }
 
   return (
-    <Tooltip title="Fale comigo no WhatsApp" placement="left" TransitionComponent={Zoom} arrow>
-      <Fab
-        aria-label="WhatsApp"
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{
-          position: 'fixed',
-          bottom: { xs: 20, md: 28 },
-          right: { xs: 20, md: 28 },
-          zIndex: 1300,
-          width: { xs: 56, md: 64 },
-          height: { xs: 56, md: 64 },
-          background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-          color: '#fff',
-          '&:hover': {
-            background: 'linear-gradient(135deg, #2ee878 0%, #25D366 100%)',
-            transform: 'scale(1.08)',
-          },
-          transition: 'transform 0.25s ease',
-        }}
-      >
-        <WhatsApp sx={{ fontSize: { xs: 28, md: 32 } }} />
-      </Fab>
-    </Tooltip>
+    <div className="fixed bottom-5 right-5 z-40 md:bottom-8 md:right-8">
+      <Magnetic>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 transition-transform hover:scale-105"
+        >
+          <WhatsAppIcon className="h-7 w-7" />
+        </a>
+      </Magnetic>
+    </div>
   );
 }

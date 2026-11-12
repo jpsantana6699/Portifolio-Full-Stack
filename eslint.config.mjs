@@ -30,7 +30,7 @@ export default [
       '@stylistic/eol-last': 'error',
       '@stylistic/indent': ['error', 2],
       '@stylistic/linebreak-style': ['error', 'unix'],
-      '@stylistic/max-len': ['error', { code: 180 }],
+      '@stylistic/max-len': ['error', { code: 180, ignoreStrings: true, ignoreTemplateLiterals: true }],
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/semi': 'error',
       'sort-imports': ['error', {

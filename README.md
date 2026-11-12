@@ -7,16 +7,17 @@ No ar em **https://joaopedrotech.netlify.app**.
 ## Stack
 
 - **Next.js 16** (App Router) + **React 18** + **TypeScript**
-- **Material-UI 6** com Emotion
-- **tsParticles** e **react-type-animation** nas animações
-- Tradução PT/EN pelo `LanguageContext`
+- **Tailwind CSS 4** no visual
+- **Motion** nas animações (spotlight, cards 3D, scroll horizontal) e **Lenis** na rolagem suave
+- **lucide-react** nos ícones
+- Tradução PT/EN pelo `LanguageContext`; projetos e links ficam em `src/app/data/`
 
 ## Páginas
 
 | Rota | O que tem |
 |---|---|
-| `/` | Apresentação, serviços, como funciona e depoimentos |
-| `/sobre` | História, o que faço hoje, stack e linha do tempo da carreira |
+| `/` | Apresentação com foto, serviços, projetos em destaque, stack e como funciona |
+| `/sobre` | História, linha do tempo da carreira, stack e currículo |
 | `/projetos` | Projetos com filtro por categoria (sistemas, sites, BI, pessoais) |
 | `/contato` | Formulário que abre o WhatsApp com a mensagem pronta (nada é salvo no site) |
 

@@ -1,97 +1,28 @@
 'use client';
 
-import { ArrowBack, Home } from '@mui/icons-material';
-import { Box, Button, Container, Typography } from '@mui/material';
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import { Spotlight } from './components/Spotlight';
+import { useLanguage } from './contexts/LanguageContext';
 
 export default function NotFound() {
-  return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%)',
-      }}
-    >
-      <Container maxWidth="md">
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontSize: '6rem',
-              fontWeight: 'bold',
-              color: '#f0f6fc',
-              mb: 2,
-            }}
-          >
-            404
-          </Typography>
-          
-          <Typography
-            variant="h4"
-            sx={{
-              mb: 3,
-              color: 'text.primary',
-              fontWeight: 600,
-            }}
-          >
-            Página não encontrada
-          </Typography>
-          
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 6,
-              color: 'text.secondary',
-              fontSize: '1.2rem',
-              maxWidth: '600px',
-              margin: '0 auto 48px auto',
-            }}
-          >
-            Ops! A página que você está procurando não existe ou foi movida para outro lugar.
-          </Typography>
+  const { t } = useLanguage();
 
-          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/" passHref style={{ textDecoration: 'none' }}>
-              <Button
-                variant="contained"
-                size="large"
-                startIcon={<Home />}
-                sx={{
-                  background: 'linear-gradient(45deg, #00d4ff 30%, #0096cc 90%)',
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '1.1rem',
-                }}
-              >
-                Ir para Home
-              </Button>
-            </Link>
-            
-            <Button
-              variant="outlined"
-              size="large"
-              startIcon={<ArrowBack />}
-              onClick={() => window.history.back()}
-              sx={{
-                borderColor: 'primary.main',
-                color: 'primary.main',
-                px: 4,
-                py: 1.5,
-                fontSize: '1.1rem',
-                '&:hover': {
-                  borderColor: 'primary.light',
-                  backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                },
-              }}
-            >
-              Voltar
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+  return (
+    <main>
+      <Spotlight className="flex min-h-svh items-center px-4">
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="font-mono text-[28vw] font-semibold leading-none tracking-tighter text-paper/10 md:text-[16rem]">404</p>
+          <h1 className="-mt-6 text-3xl font-semibold tracking-tight md:-mt-12 md:text-5xl">{t('notFoundTitle')}</h1>
+          <Link
+            href="/"
+            className="group mt-10 inline-flex items-center gap-2 rounded-full border border-line bg-ink-2 px-6 py-3.5 font-medium transition-colors hover:border-accent/50"
+          >
+            <ArrowLeft className="h-4 w-4 text-accent transition-transform group-hover:-translate-x-0.5" />
+            {t('notFoundBack')}
+          </Link>
+        </div>
+      </Spotlight>
+    </main>
   );
 }

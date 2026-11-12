@@ -1,406 +1,179 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Divider,
-  Grid,
-  MenuItem,
-  TextField,
-  Typography,
-} from '@mui/material';
-import {
-  Email,
-  GitHub,
-  LinkedIn,
-  LocationOn,
-  Phone,
-  Send,
-  WhatsApp,
-  WorkOutline,
-} from '@mui/icons-material';
-
-import dynamic from 'next/dynamic';
-import { useLanguage } from '../contexts/LanguageContext';
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Send } from 'lucide-react';
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from '../components/BrandIcons';
+import { PageHeader } from '../components/PageHeader';
+import { FadeUp } from '../components/Reveal';
+import { TiltCard } from '../components/TiltCard';
+import { useLanguage } from '../contexts/LanguageContext';
+import { EMAIL, GITHUB_URL, LINKEDIN_URL, WHATSAPP_PHONE, WHATSAPP_URL } from '../data/site';
 
-const ParticlesContatoBackground = dynamic(
-  () => import('../components/ParticlesContatoBackground').then((mod) => ({ default: mod.ParticlesContatoBackground })),
-  {
-    ssr: false,
-    loading: () => null,
-  },
-);
+const projectTypes = ['typeSystem', 'typeSite', 'typeData', 'typeOther'];
 
-const WHATSAPP_PHONE = '5535999788870';
-const WHATSAPP_CTA = `https://wa.me/${WHATSAPP_PHONE}?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.`;
-
-const contactInfo = [
-  {
-    icon: <Email color="primary" />,
-    titleKey: 'emailLabel',
-    value: 'jpsantana003@gmail.com',
-    link: 'mailto:jpsantana003@gmail.com',
-  },
-  {
-    icon: <Phone color="primary" />,
-    titleKey: 'whatsappLabel',
-    value: '+55 (35) 99978-8870 (WhatsApp)',
-    link: `https://wa.me/${WHATSAPP_PHONE}`,
-  },
-  {
-    icon: <LocationOn color="primary" />,
-    titleKey: 'locationLabel',
-    value: 'Franca, SP - Brasil',
-    link: null,
-  },
-  {
-    icon: <LinkedIn color="primary" />,
-    titleKey: 'linkedinLabel',
-    value: 'linkedin.com/in/joão-pedro-santana',
-    link: 'https://www.linkedin.com/in/jo%C3%A3o-pedro-santana-01570623a/',
-  },
-  {
-    icon: <GitHub color="primary" />,
-    titleKey: 'githubLabel',
-    value: 'github.com/jpsantana6699',
-    link: 'https://github.com/jpsantana6699',
-  },
-];
+const inputClass = 'w-full rounded-xl border border-line bg-ink px-4 py-3.5 text-paper outline-none transition-colors placeholder:text-muted/70 focus:border-accent/60 focus:ring-4 focus:ring-accent/10';
 
 export default function ContatoPage() {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({ name: '', projectType: '', message: '' });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const [name, setName] = useState('');
+  const [projectType, setProjectType] = useState('');
+  const [message, setMessage] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const lines = [
-      `Olá João! Meu nome é ${formData.name}.`,
-      `Tipo de projeto: ${formData.projectType || '—'}`,
+      `${t('whatsappHello')} ${name}.`,
+      ...(projectType ? [`${t('whatsappType')}: ${t(projectType)}`] : []),
       '',
-      formData.message,
+      message,
     ];
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
   return (
-    <Box sx={{ minHeight: '100vh', py: { xs: 2, md: 3 }, position: 'relative', zIndex: 0, display: 'flex', alignItems: 'center' }}>
-      {/* Partículas de fundo */}
-      <div style={{ position: 'fixed', inset: 0, zIndex: -1, width: '100vw', height: '100vh', background: '#000' }}>
-        <ParticlesContatoBackground />
-      </div>
+    <main>
+      <PageHeader label={t('contactPageLabel')} title={t('contactPageTitle')} subtitle={t('contactPageDesc')} />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <Box
-          className="animate-fade-in-up"
-          sx={{
-            textAlign: 'center',
-            mb: { xs: 1.5, md: 2 },
-          }}
-        >
+      <section className="px-4 pb-28">
+        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.4fr_1fr]">
+          <FadeUp>
+            <form onSubmit={handleSubmit} className="relative overflow-hidden rounded-3xl border border-line bg-ink-2 p-6 md:p-10">
+              <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+              <div className="relative space-y-7">
+                <label className="block">
+                  <span className="mb-2 block text-sm text-paper/80">{t('formName')}</span>
+                  <input
+                    required
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    placeholder={t('formNamePlaceholder')}
+                    className={inputClass}
+                  />
+                </label>
 
-          <Typography
-            variant="h2"
-            sx={{
-              mb: 1,
-              color: '#f0f6fc',
-              fontWeight: 800,
-              fontSize: { xs: '2rem', md: '2.5rem' },
-              letterSpacing: '-0.02em',
-            }}
-          >
-            {t('getInTouch')}
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              color: 'rgba(255, 255, 255, 0.7)',
-              maxWidth: '700px',
-              margin: '0 auto',
-              fontSize: { xs: '0.9rem', md: '1rem' },
-              lineHeight: 1.5,
-            }}
-          >
-            {t('contactSubtitle')}
-          </Typography>
-        </Box>
+                <fieldset>
+                  <legend className="mb-3 text-sm text-paper/80">{t('formType')}</legend>
+                  <div className="flex flex-wrap gap-2">
+                    {projectTypes.map((type) => {
+                      const active = projectType === type;
+                      return (
+                        <button
+                          key={type}
+                          type="button"
+                          onClick={() => setProjectType(active ? '' : type)}
+                          aria-pressed={active}
+                          className={`relative rounded-full border px-4 py-2 text-sm transition-colors ${active ? 'border-accent/60 text-paper' : 'border-line text-muted hover:text-paper'}`}
+                        >
+                          {active && (
+                            <motion.span layoutId="contact-type" className="absolute inset-0 rounded-full bg-accent/15" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
+                          )}
+                          <span className="relative">{t(type)}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </fieldset>
 
-        <Grid container spacing={2.5}>
-          {/* Contact Form */}
-          <Grid item xs={12} md={7}>
-            <Card
-              className="glass-card animate-fade-in-left"
-              sx={{
-                p: { xs: 2.5, md: 3 },
-                borderRadius: '16px',
-              }}
-            >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  mb: 2,
-                  fontWeight: 700,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.5,
-                  fontSize: '1.15rem',
-                }}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: 32,
-                    height: 32,
-                    borderRadius: '8px',
-                    background: 'rgba(0, 212, 255, 0.15)',
-                  }}
+                <label className="block">
+                  <span className="mb-2 block text-sm text-paper/80">{t('formMessage')}</span>
+                  <textarea
+                    required
+                    rows={6}
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    placeholder={t('formMessagePlaceholder')}
+                    className={`${inputClass} resize-none`}
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  className="group relative inline-flex w-full overflow-hidden rounded-full p-px sm:w-fit"
                 >
-                  <Send sx={{ color: '#00d4ff', fontSize: '1.1rem' }} />
-                </Box>
-                {t('sendMessage')}
-              </Typography>
-              <Box component="form" onSubmit={handleSubmit}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      label={t('name_field')}
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      variant="outlined"
-                      sx={fieldSx}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      select
-                      fullWidth
-                      label={t('projectTypeLabel')}
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      variant="outlined"
-                      sx={fieldSx}
-                    >
-                      <MenuItem value={t('projectTypeSystem')}>{t('projectTypeSystem')}</MenuItem>
-                      <MenuItem value={t('projectTypeSite')}>{t('projectTypeSite')}</MenuItem>
-                      <MenuItem value={t('projectTypeData')}>{t('projectTypeData')}</MenuItem>
-                      <MenuItem value={t('projectTypeOther')}>{t('projectTypeOther')}</MenuItem>
-                    </TextField>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      fullWidth
-                      label={t('message')}
-                      name="message"
-                      multiline
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      variant="outlined"
-                      sx={fieldSx}
-                    />
-                  </Grid>
+                  <span className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,transparent_70%,var(--color-accent)_85%,transparent_100%)]" />
+                  <span className="relative flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-4 font-medium text-accent-ink">
+                    <WhatsAppIcon className="h-5 w-5" />
+                    {t('formSend')}
+                    <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </button>
+              </div>
+            </form>
+          </FadeUp>
 
-                  <Grid item xs={12}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      size="large"
-                      fullWidth
-                      startIcon={<WhatsApp />}
-                      className="modern-button"
-                      sx={{
-                        background: '#00b4d8',
-                        py: 1.5,
-                        fontSize: '1rem',
-                        borderRadius: '12px',
-                        textTransform: 'none',
-                        fontWeight: 600,
-                        '&:hover': {
-                          background: '#0096c7',
-                        },
-                      }}
-                    >
-                      {t('sendButton')}
-                    </Button>
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1, textAlign: 'center' }}>
-                      {t('whatsappNote')}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Box>
-            </Card>
-          </Grid>
-
-          {/* Contact Info */}
-          <Grid item xs={12} md={5}>
-            <Card
-              className="glass-card animate-fade-in-right"
-              sx={{
-                p: { xs: 2.5, md: 3 },
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: '16px',
-              }}
-            >
-              {/* Big WhatsApp CTA */}
-              <Button
-                href={WHATSAPP_CTA}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="contained"
-                fullWidth
-                startIcon={<WhatsApp />}
-                className="modern-button"
-                sx={{
-                  mb: 2.5,
-                  py: 1.5,
-                  fontSize: '1.05rem',
-                  borderRadius: '12px',
-                  textTransform: 'none',
-                  fontWeight: 700,
-                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                  '&:hover': {
-                    background: 'linear-gradient(135deg, #2ee878 0%, #25D366 100%)',
-                  },
-                }}
-              >
-                {t('talkOnWhatsapp')}
-              </Button>
-
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  mb: 1.5,
-                  fontWeight: 700,
-                  fontSize: '1.05rem',
-                }}
-              >
-                {t('contactInfo')}
-              </Typography>
-
-              <Grid container spacing={1} sx={{ mb: 2 }}>
-                {contactInfo.map((info, index) => (
-                  <Grid item xs={12} key={index}>
-                    <Box
-                      onClick={() => info.link && window.open(info.link, '_blank')}
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1.5,
-                        p: 1.1,
-                        borderRadius: '10px',
-                        transition: 'all 0.3s ease',
-                        ...(info.link && {
-                          cursor: 'pointer',
-                          '&:hover': {
-                            backgroundColor: 'rgba(0, 212, 255, 0.08)',
-                            transform: 'translateX(4px)',
-                          },
-                        }),
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          minWidth: 36,
-                          height: 36,
-                          borderRadius: '8px',
-                          background: 'rgba(0, 212, 255, 0.1)',
-                        }}
-                      >
-                        {info.icon}
-                      </Box>
-                      <Box sx={{ overflow: 'hidden' }}>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            fontWeight: 600,
-                            fontSize: '0.85rem',
-                            mb: 0.25,
-                          }}
-                        >
-                          {t(info.titleKey)}
-                        </Typography>
-                        <Typography
-                          variant="caption"
-                          sx={{
-                            color: 'text.secondary',
-                            fontSize: '0.75rem',
-                            display: 'block',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                          }}
-                        >
-                          {info.value}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
-
-              <Divider sx={{ my: 1 }} />
-
-              {/* Availability / PJ highlight */}
-              <Box
-                sx={{
-                  mt: 1.5,
-                  p: 2,
-                  borderRadius: '12px',
-                  border: '1px solid rgba(76, 175, 80, 0.3)',
-                  background: 'rgba(76, 175, 80, 0.06)',
-                }}
-              >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.75 }}>
-                  <WorkOutline sx={{ color: '#66bb6a', fontSize: '1.1rem' }} />
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700, fontSize: '0.9rem', color: '#66bb6a' }}>
-                    {t('availability')}
-                  </Typography>
-                </Box>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem', mb: 0.5 }}>
-                  {t('availabilityText')}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
-                  {t('responseTime')} <strong>{t('responseTimeValue')}</strong>
-                </Typography>
-              </Box>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+          <div className="flex flex-col gap-4">
+            <FadeUp delay={0.1}>
+              <p className="label mb-1 text-accent">{t('contactDetails')}</p>
+            </FadeUp>
+            <ContactCard delay={0.12} href={WHATSAPP_URL} icon={<WhatsAppIcon className="h-5 w-5" />} label="WhatsApp" value="+55 35 99978-8870" />
+            <FadeUp delay={0.16}>
+              <TiltCard>
+                <button type="button" onClick={copyEmail} className="flex w-full items-center gap-4 p-5 text-left">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-ink text-accent">
+                    <Mail className="h-5 w-5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm text-muted">E-mail</span>
+                    <span className="block truncate">{copied ? t('copied') : EMAIL}</span>
+                  </span>
+                  {copied ? <Check className="h-4 w-4 text-accent" /> : <Copy className="h-4 w-4 text-muted" />}
+                </button>
+              </TiltCard>
+            </FadeUp>
+            <ContactCard delay={0.2} href={LINKEDIN_URL} icon={<LinkedInIcon className="h-5 w-5" />} label="LinkedIn" value="João Pedro Santana" />
+            <ContactCard delay={0.24} href={GITHUB_URL} icon={<GitHubIcon className="h-5 w-5" />} label="GitHub" value="jpsantana6699" />
+            <FadeUp delay={0.28}>
+              <div className="flex items-center gap-4 rounded-3xl border border-line p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-ink text-accent">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block">{t('heroLocation')}, {t('heroCountry')}</span>
+                  <span className="block text-sm text-muted">{t('heroRemote')}</span>
+                </span>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
-const fieldSx = {
-  '& .MuiOutlinedInput-root': {
-    borderRadius: '12px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    '&:hover': {
-      background: 'rgba(255, 255, 255, 0.08)',
-    },
-  },
-} as const;
+type ContactCardProps = {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  delay: number;
+};
+
+function ContactCard({ href, icon, label, value, delay }: ContactCardProps) {
+  return (
+    <FadeUp delay={delay}>
+      <TiltCard>
+        <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-5">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-ink text-accent">{icon}</span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm text-muted">{label}</span>
+            <span className="block truncate">{value}</span>
+          </span>
+          <ArrowUpRight className="h-4 w-4 text-muted" />
+        </a>
+      </TiltCard>
+    </FadeUp>
+  );
+}
