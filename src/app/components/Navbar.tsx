@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { WHATSAPP_URL, navLinks } from '../data/site';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
   const { t, toggleLanguage } = useLanguage();
@@ -41,7 +42,7 @@ export function Navbar() {
                 className={`relative rounded-lg px-4 py-2 text-sm transition-colors ${active ? 'text-paper' : 'text-muted hover:text-paper'}`}
               >
                 {active && (
-                  <motion.span layoutId="nav-active" className="absolute inset-0 rounded-lg bg-white/[0.06]" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
+                  <motion.span layoutId="nav-active" className="absolute inset-0 rounded-lg bg-tint/[0.06]" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />
                 )}
                 <span className="relative">{t(link.labelKey)}</span>
               </Link>
@@ -49,7 +50,8 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
           <button
             type="button"
             onClick={toggleLanguage}

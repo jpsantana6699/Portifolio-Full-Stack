@@ -1,7 +1,7 @@
-import { Process } from './components/home/Process';
 import { ExperienceProof } from './components/home/ExperienceProof';
-import { HorizontalProjects } from './components/home/HorizontalProjects';
 import { OrbitStack } from './components/home/OrbitStack';
+import { Process } from './components/home/Process';
+import { ProjectsTeaser } from './components/home/ProjectsTeaser';
 import { ServicesTilt } from './components/home/ServicesTilt';
 import { SpotlightHero } from './components/home/SpotlightHero';
 
@@ -11,8 +11,8 @@ export default function Home() {
       <SpotlightHero />
       <ServicesTilt />
       <ExperienceProof />
+      <ProjectsTeaser />
       <Process />
-      <HorizontalProjects />
       <OrbitStack />
     </main>
   );

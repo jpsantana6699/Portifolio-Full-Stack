@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { SmoothScroll } from './components/SmoothScroll';
+import { themeInitScript } from './components/ThemeToggle';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
 import { yearsOfExperience } from './data/site';
 import './globals.css';
@@ -61,9 +62,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${interTight.variable} ${jetbrainsMono.variable}`}>
+    <html lang="pt-BR" data-theme="dark" suppressHydrationWarning className={`${interTight.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         <LanguageProvider>

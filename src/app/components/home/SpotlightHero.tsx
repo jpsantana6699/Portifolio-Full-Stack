@@ -120,7 +120,7 @@ export function SpotlightHero() {
 
         <HeroPortrait>
           <motion.div
-            className="absolute bottom-[14%] left-0 flex items-center gap-2 rounded-full border border-white/10 bg-ink/80 px-4 py-2.5 text-sm backdrop-blur md:-left-6"
+            className="absolute bottom-[14%] left-0 flex items-center gap-2 rounded-full border border-tint/10 bg-ink/80 px-4 py-2.5 text-sm backdrop-blur md:-left-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.9 }}

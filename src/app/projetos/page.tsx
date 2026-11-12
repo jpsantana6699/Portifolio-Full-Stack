@@ -77,7 +77,7 @@ function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, 560px"
             className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
           />
-          <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-ink/85 px-3 py-1 text-xs">
+          <span className="absolute left-3 top-3 rounded-full border border-tint/10 bg-ink/85 px-3 py-1 text-xs">
             {t(categoryLabelKeys[project.category])}
           </span>
         </div>
@@ -95,7 +95,7 @@ function ProjectCard({ project }: { project: Project }) {
           <p className="text-sm leading-relaxed text-muted">{project.description}</p>
           <div className="flex flex-wrap gap-1.5">
             {project.technologies.map((tech) => (
-              <span key={tech} className="rounded-md bg-white/[0.05] px-2 py-1 font-mono text-[11px] text-paper/70">{tech}</span>
+              <span key={tech} className="rounded-md bg-tint/[0.05] px-2 py-1 font-mono text-[11px] text-paper/70">{tech}</span>
             ))}
           </div>
           <div className="mt-auto flex flex-wrap items-center gap-5 pt-2 text-sm">

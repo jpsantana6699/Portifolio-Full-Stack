@@ -120,7 +120,7 @@ export default function SobrePage() {
                     </div>
                     <div className="mt-5 flex flex-wrap gap-1.5">
                       {items.map((item) => (
-                        <span key={item} className="rounded-md bg-white/[0.05] px-2.5 py-1 font-mono text-xs text-paper/75">{item}</span>
+                        <span key={item} className="rounded-md bg-tint/[0.05] px-2.5 py-1 font-mono text-xs text-paper/75">{item}</span>
                       ))}
                     </div>
                   </div>

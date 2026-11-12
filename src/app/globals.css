@@ -7,25 +7,39 @@
   --color-paper: #ececec;
   --color-muted: #8b8b94;
   --color-line: rgb(255 255 255 / 0.1);
+  --color-tint: #ffffff;
   --color-accent: #22c3e6;
   --color-accent-ink: #061317;
-  --color-stone: #d6d1d1;
   --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
+  color-scheme: dark;
   background: var(--color-ink);
   color: var(--color-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-theme='light'] {
+  color-scheme: light;
+  --color-ink: #f4f4f2;
+  --color-ink-2: #ffffff;
+  --color-paper: #121215;
+  --color-muted: #5c5d66;
+  --color-line: rgb(0 0 0 / 0.1);
+  --color-tint: #000000;
+  --color-accent: #0891b2;
+  --color-accent-ink: #ffffff;
+}
+
 body {
   font-family: var(--font-display);
   background: var(--color-ink);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -42,8 +56,8 @@ body {
 
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in srgb, var(--color-tint) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-tint) 5%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -61,7 +75,7 @@ body {
 }
 
 .bg-dots {
-  background-image: radial-gradient(rgb(255 255 255 / 0.9) 1px, transparent 1px);
+  background-image: radial-gradient(color-mix(in srgb, var(--color-tint) 90%, transparent) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
@@ -69,16 +83,6 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 40s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

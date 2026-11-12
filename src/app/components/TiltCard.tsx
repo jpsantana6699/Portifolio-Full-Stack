@@ -33,7 +33,7 @@ function InteractiveTilt({ children, className }: TiltCardProps) {
   const glowX = useTransform(px, (value) => `${value * 100}%`);
   const glowY = useTransform(py, (value) => `${value * 100}%`);
   const border = useMotionTemplate`radial-gradient(240px circle at ${glowX} ${glowY}, rgb(34 195 230 / 0.7), transparent 60%)`;
-  const shine = useMotionTemplate`radial-gradient(400px circle at ${glowX} ${glowY}, rgb(255 255 255 / 0.06), transparent 50%)`;
+  const shine = useMotionTemplate`radial-gradient(400px circle at ${glowX} ${glowY}, color-mix(in srgb, var(--color-tint) 6%, transparent), transparent 50%)`;
 
   const handleMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
