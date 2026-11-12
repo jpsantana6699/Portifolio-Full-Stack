@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef } from 'react';
+import { useInView } from 'motion/react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { FadeUp } from '../Reveal';
 
@@ -11,6 +13,9 @@ const rings = [
 
 export function OrbitStack() {
   const { t } = useLanguage();
+  const orbitRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(orbitRef, { margin: '10% 0px' });
+  const playState = inView ? 'running' : 'paused';
 
   return (
     <section className="overflow-hidden px-4 py-28 md:py-36">
@@ -21,7 +26,7 @@ export function OrbitStack() {
           <p className="mt-4 max-w-md text-muted">{t('orbitDesc')}</p>
         </FadeUp>
 
-        <div className="relative mx-auto aspect-square w-full max-w-[580px] scale-[0.62] sm:scale-90 md:scale-100">
+        <div ref={orbitRef} className="relative mx-auto aspect-square w-full max-w-[580px] scale-[0.62] sm:scale-90 md:scale-100">
           <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-accent/40 bg-ink-2 font-mono text-2xl font-bold shadow-[0_0_80px_rgb(34_195_230/0.25)]">
             JP
           </div>
@@ -35,6 +40,7 @@ export function OrbitStack() {
                 marginLeft: -ring.size / 2,
                 marginTop: -ring.size / 2,
                 animation: `orbit ${ring.duration}s linear infinite ${ringIndex % 2 ? 'reverse' : ''}`,
+                animationPlayState: playState,
               }}
             >
               {ring.items.map((item, index) => {
@@ -48,7 +54,7 @@ export function OrbitStack() {
                     <div style={{ transform: `rotate(${-angle}deg)` }}>
                       <span
                         className="block -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-line bg-ink-2 px-3 py-1.5 font-mono text-xs text-paper/80"
-                        style={{ animation: `orbit ${ring.duration}s linear infinite ${ringIndex % 2 ? '' : 'reverse'}` }}
+                        style={{ animation: `orbit ${ring.duration}s linear infinite ${ringIndex % 2 ? '' : 'reverse'}`, animationPlayState: playState }}
                       >
                         {item}
                       </span>

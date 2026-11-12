@@ -2,10 +2,30 @@
 
 import { ReactNode } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { FINE_POINTER, useMediaQuery } from './useMediaQuery';
 
 const spring = { stiffness: 200, damping: 20 };
 
-export function TiltCard({ children, className = '' }: { children: ReactNode; className?: string }) {
+type TiltCardProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function TiltCard({ children, className = '' }: TiltCardProps) {
+  const finePointer = useMediaQuery(FINE_POINTER);
+
+  if (!finePointer) {
+    return (
+      <div className={`h-full rounded-3xl bg-line p-px ${className}`}>
+        <div className="relative h-full overflow-hidden rounded-[calc(1.5rem-1px)] bg-ink-2">{children}</div>
+      </div>
+    );
+  }
+
+  return <InteractiveTilt className={className}>{children}</InteractiveTilt>;
+}
+
+function InteractiveTilt({ children, className }: TiltCardProps) {
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
   const rotateX = useSpring(useTransform(py, [0, 1], [8, -8]), spring);

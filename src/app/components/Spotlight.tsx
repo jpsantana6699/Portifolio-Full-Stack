@@ -26,10 +26,10 @@ export function Spotlight({ children, className = '' }: SpotlightProps) {
   return (
     <section onMouseMove={handleMove} className={`relative overflow-hidden ${className}`}>
       <div className="bg-dots absolute inset-0 opacity-[0.15]" />
-      <motion.div className="bg-dots absolute inset-0 opacity-90" style={{ maskImage: mask, WebkitMaskImage: mask }} />
+      <motion.div className="bg-dots absolute inset-0 opacity-90 pointer-coarse:hidden" style={{ maskImage: mask, WebkitMaskImage: mask }} />
       <motion.div className="pointer-events-none absolute inset-0" style={{ background: glow }} />
       <div className="relative w-full">{children}</div>
-      <motion.div className="pointer-events-none absolute inset-0 mix-blend-screen" style={{ background: sheen }} />
+      <motion.div className="pointer-events-none absolute inset-0 mix-blend-screen pointer-coarse:hidden" style={{ background: sheen }} />
     </section>
   );
 }

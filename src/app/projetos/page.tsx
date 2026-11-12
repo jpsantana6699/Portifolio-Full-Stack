@@ -79,7 +79,7 @@ function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, 560px"
             className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
           />
-          <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-ink/80 px-3 py-1 text-xs backdrop-blur">
+          <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-ink/85 px-3 py-1 text-xs">
             {t(categoryLabelKeys[project.category])}
           </span>
         </div>

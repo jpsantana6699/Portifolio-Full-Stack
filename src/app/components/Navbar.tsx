@@ -24,7 +24,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-500 ${scrolled || open ? 'border-line bg-ink/70 backdrop-blur-xl' : 'border-transparent bg-transparent'}`}
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-500 ${scrolled || open ? 'border-line bg-ink/95 md:bg-ink/70 md:backdrop-blur-xl' : 'border-transparent bg-transparent'}`}
       >
         <Link href="/" className="flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-paper font-mono text-sm font-bold text-ink">JP</span>
@@ -81,7 +81,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-line bg-ink/90 backdrop-blur-xl md:hidden"
+            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-line bg-ink md:hidden"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
