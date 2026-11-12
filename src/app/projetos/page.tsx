@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, CircleCheck, Lock } from 'lucide-react';
 import { GitHubIcon } from '../components/BrandIcons';
 import { PageHeader } from '../components/PageHeader';
+import { ProjectMedia } from '../components/ProjectMedia';
 import { TiltCard } from '../components/TiltCard';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Project, ProjectCategory, categoryLabelKeys, projectFilters, projects } from '../data/projects';
@@ -70,12 +70,10 @@ function ProjectCard({ project }: { project: Project }) {
     <TiltCard className="h-full">
       <article className="flex h-full flex-col">
         <div className="relative m-3 aspect-[16/10] overflow-hidden rounded-2xl border border-line">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
+          <ProjectMedia
+            project={project}
             sizes="(max-width: 768px) 100vw, 560px"
-            className="object-cover object-top transition-transform duration-700 ease-out-expo group-hover:scale-105"
+            className="transition-transform duration-700 ease-out-expo group-hover:scale-105"
           />
           <span className="absolute left-3 top-3 rounded-full border border-tint/10 bg-ink/85 px-3 py-1 text-xs">
             {t(categoryLabelKeys[project.category])}

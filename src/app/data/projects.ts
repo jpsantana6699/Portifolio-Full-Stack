@@ -8,6 +8,7 @@ export type Project = {
   result?: string;
   description: string;
   image: string;
+  video?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -31,6 +32,19 @@ export const projectFilters: { value: 'all' | ProjectCategory; labelKey: string 
 ];
 
 export const projects: Project[] = [
+  {
+    slug: 'abicom',
+    category: 'site',
+    title: 'Abicom',
+    subtitle: 'Site de agência de marketing digital',
+    result: 'Site que apresenta os serviços de forma interativa e leva o visitante direto para o WhatsApp.',
+    description: 'Site para uma agência de marketing digital de Itaú de Minas/MG, com animações que contam o processo da agência, serviços em cards, montador de plano e contato direto pelo WhatsApp. Rápido, responsivo e com modo claro e escuro.',
+    image: '/images/abicom.jpg',
+    video: '/videos/abicom.mp4',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Motion', 'Cloudflare'],
+    liveUrl: 'https://abicom-site.abicommarketingdigital.workers.dev/',
+    featured: true,
+  },
   {
     slug: 'lev-hub',
     category: 'sistema',
